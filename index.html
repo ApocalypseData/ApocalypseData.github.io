@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<!-- Modification of an example by Scott Murray from Knight D3 course -->
+<html lang="en">
+
+<head>
+	<script src="dist/jquery-1.11.3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="dist/semantic.css">
+	<script src="dist/d3.v4.min.js"></script>
+	<script src="dist/semantic.js"></script>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+	<title>厕所超重要你晓得不？</title>
+
+	<style type="text/css">
+
+			body {
+				background-color: white;
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 19px;
+			}
+
+			h1 {
+				font-size: 24px;
+				color:#002d73;
+				margin: 0;
+				text-align:center;
+			}
+
+			p {
+				font-size: 14px;
+				margin: 10px 0 0 0;
+				width: 700px;
+			}
+
+			ui.master.checkbox label {
+				font-size:19px;
+			}
+
+			svg {
+				background-color: white;
+			}
+
+			path.line {
+
+				fill: none;
+			}
+
+			.unfocused {
+
+				stroke-width: 1px;
+				stroke-opacity: 0.8;
+			}
+
+			.focused {
+				stroke: orange;
+				stroke-opacity: 1;
+				stroke-width: 2px
+			}
+
+			.voronoi path {
+				stroke: none;
+				fill: none;
+				pointer-events: all;
+			}
+
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				stroke-width: 1px;
+			}
+
+			.axis text {
+				font-family: sans-serif;
+				font-size: 11px;
+			}
+
+			.domain {
+				display: none;
+			}
+			text.linelabel {
+				font-size: 9pt;
+				color: gray;
+			}
+
+			circle {
+				fill: orange;
+			}
+
+			.tooltip {
+				position: absolute;
+				z-index: 10;
+			}
+
+			.tooltip p {
+				background-color: white;
+				border: gray 1px solid;
+				padding: 0px;
+				max-width: 90px;
+			}
+
+ 			#chart {
+	 		/*margin-left: 1rem;*/
+ 			}
+
+
+			.ui.relaxed.divided.list.gundong {
+			height:266px;
+			overflow-y:auto;
+
+			padding-top:0;
+
+			}
+
+			.regionname {
+			width:100%;
+			padding:0px 0px 3px 10px;
+
+			background-color: #CDCDD5;
+			height:20px;
+			}
+
+			.ui.master.checkbox {
+				padding-top:10px;
+			}
+
+			.ui.checkbox label {
+				font-size:19px;
+				margin-top:0.3rem;
+				margin-bottom；0.3rem;
+			}
+
+
+			.item{
+				background-color:#EEEDEE;
+			}
+
+			.biaotou{
+				font-size: 19px;
+				text-align: center;
+				background-color: orange;
+				padding-top:6px;
+				padding-bottom: 6px;
+			}
+			.ui.list{
+				margin-top:0em;
+			}
+			.ui.checkbox{
+			margin-left:1rem;}
+
+
+			text{
+			font-size:14px;
+			}
+			.ui.container.zhurou{
+			max-width:50rem;
+			}
+
+
+		</style>
+	</head>
+	<body>
+
+<img class="ui fluid image" src="dist/images/banner.jpg">
+
+<div class="ui text container">
+	<p>引言</p>
+	<p>厕所很重要：人一生要上n次厕所，一生要花3年在马桶上</p>
+	<p>2、提出大环境——中国正在进行厕所革命，厕所革命重点在
+农村和旅游厕所改建
+3、一段吸引的话引入小游戏：
+国家都在进行厕所革命，建厕所不是你想象的那样就是简简
+单单的一个坑，洗厕所也有大学问，交互体验一下建不同的
+厕所需要怎样的努力呢，大家都来建厕所吧！</p>
+</div>
+
+	<div class="ui divider"></div>
+<h>进入小游戏</h>
+	<div class="ui divider"></div>
+
+<div class="ui text container">
+	<h>三类以上厕所数量变化</h>
+	<p>三类以上厕所数量总体上升，但地区不平衡问题仍然存在……</p>
+
+	<p>经济效益部分：<br>
+单拿旅游厕所来讨论，根据国际厕所组织的印度统计数据
+来说一美元的厕所建设投入可以获得9美元的收益。但中国的实际情况……（通过采访来写，特稿部分）（采访中还
+要体现游客的体验变好还会再来旅游之类的内容）</p>
+</div>
+
+	<div class="ui divider"></div>
+
+<div class="ui text container ">再跳转回小游戏，引导读者选取城市或农村中的另一个，
+重复游戏
+补助政策融入在小游戏里
+小游戏展现把飞满苍蝇的旱厕改成一个无害化厕所的过程
+tip中会说明无害化化粪池工作原理
+恭喜你建了一个无害化厕所
+无害化厕所科普，和上文城市一二三类说明的结构一样
+（以下sketch为选农村后的结果）</div>
+
+
+	<div class="ui text container ">
+	<div class="ui divider"></div>
+		<h1>无害化厕所普及率</h1>
+		<div id="chart">
+		  <svg></svg>
+		</div>
+	</div>
+	<div class="ui text container ">
+
+	<div class="ui grid">
+
+<div class="eight wide column">
+
+
+
+	<div class="ui relaxed divided list">
+	<div class="biaotou">按地区选择</div>
+
+			<div class="item">
+		<div class="ui checkbox">
+	 <input type="checkbox"  class="region" name="东北">
+				<label>东北</label>
+			</div>
+
+		</div>
+
+		<div class="item">
+		 <div class="ui checkbox">
+			<input type="checkbox" class="region" name="西北">
+				<label>西北</label>
+			</div>
+		</div>
+			<div class="item">
+				<div class="ui checkbox">
+		<input type="checkbox" class="region" name="华北">
+				<label>华北</label>
+			</div>
+</div>
+			<div class="item">
+				<div class="ui checkbox">
+	<input type="checkbox" class="region" name="华中">
+				<label>华中</label>
+			</div>
+			</div>
+			<div class="item">
+				<div class="ui checkbox">
+	<input type="checkbox" class="region" name="华东">
+			<label>华东</label>
+			</div>
+			</div>
+			<div class="item">
+				<div class="ui checkbox">
+	<input type="checkbox" class="region" name="华南">
+				<label>华南</label>
+			</div>
+			</div>
+			<div class="item" style="padding-bottom: 0.5em;">
+				<div class="ui checkbox">
+		<input type="checkbox" class="region" name="西南">
+				<label>西南</label>
+			</div>
+		</div>
+		<!-- <div class="item"></div> -->
+	</div>
+
+
+</div>
+
+<div class="eight wide column">
+		<div class="biaotou">按省份选择</div>
+		<div class="ui relaxed divided list gundong">
+			<div class="item">
+				<div class="ui master checkbox">
+				<input type="checkbox" name="quan" class="quanstate" checked>
+				<label>全选</label>
+				</div>
+			</div>
+		  <div class="item">
+		    <div class="regionname">
+		 		      <label>东北</label>
+		    </div>
+
+		    <div class="list">
+					<div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="辽宁" checked>
+		          <label>辽宁</label>
+		        </div>
+		      </div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="吉林" checked>
+							<label>吉林</label>
+						</div>
+					</div>
+		      <div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="黑龙江" checked>
+		          <label>黑龙江</label>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+
+
+			<div class="item">
+		    <div class="regionname">
+		 		      <label>西北</label>
+		    </div>
+
+		    <div class="list">
+					<div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="陕西" checked>
+		          <label>陕西</label>
+		        </div>
+		      </div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="青海" checked>
+							<label>青海</label>
+						</div>
+					</div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="甘肃" checked>
+							<label>甘肃</label>
+						</div>
+					</div>
+		      <div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="宁夏" checked>
+		          <label>宁夏</label>
+		        </div>
+		      </div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="新疆" checked>
+							<label>新疆</label>
+						</div>
+					</div>
+		    </div>
+		  </div>
+
+
+
+			<div class="item">
+		    <div class="regionname">
+		 		      <label>华北</label>
+		    </div>
+
+		    <div class="list">
+					<div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="北京" checked>
+		          <label>北京</label>
+		        </div>
+		      </div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="天津" checked>
+							<label>天津</label>
+						</div>
+					</div>
+		      <div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="河北" checked>
+		          <label>河北</label>
+		        </div>
+		      </div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="山西" checked>
+							<label>山西</label>
+						</div>
+					</div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="内蒙古" checked>
+							<label>内蒙古</label>
+						</div>
+					</div>
+		    </div>
+		  </div>
+
+
+			<div class="item">
+		    <div class="regionname">
+		 		      <label>华中</label>
+		    </div>
+
+		    <div class="list">
+					<div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="湖北" checked>
+		          <label>湖北</label>
+		        </div>
+		      </div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="河南" checked>
+							<label>河南</label>
+						</div>
+					</div>
+		      <div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="湖南" checked>
+		          <label>湖南</label>
+								</div>
+						</div>
+		      </div>
+		    </div>
+
+
+
+
+
+
+			<div class="item">
+				<div class="regionname">
+					<label>华东</label>
+				</div>
+
+				<div class="list">
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="上海" checked>
+							<label>上海</label>
+						</div>
+					</div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="福建" checked>
+							<label>福建</label>
+						</div>
+					</div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="浙江" checked>
+							<label>浙江</label>
+						</div>
+					</div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="江苏" checked>
+							<label>江苏</label>
+						</div>
+					</div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="山东" checked>
+							<label>山东</label>
+						</div>
+					</div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="安徽" checked>
+							<label>安徽</label>
+						</div>
+					</div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="江西" checked>
+							<label>江西</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+			<div class="item">
+		    <div class="regionname">
+		 		      <label>华南</label>
+		    </div>
+
+		    <div class="list">
+					<div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="广东" checked>
+		          <label>广东</label>
+		        </div>
+		      </div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="广西" checked>
+							<label>广西</label>
+						</div>
+					</div>
+		      <div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="海南" checked>
+		          <label>海南</label>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+
+
+			<div class="item">
+		    <div class="regionname">
+		 		      <label>西南</label>
+		    </div>
+
+		    <div class="list">
+					<div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="重庆" checked>
+		          <label>重庆</label>
+		        </div>
+		      </div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="四川" checked>
+							<label>四川</label>
+						</div>
+					</div>
+		      <div class="item">
+		        <div class="ui child checkbox">
+		          <input type="checkbox" class="state" value="云南" checked>
+		          <label>云南</label>
+		        </div>
+		      </div>
+					<div class="item">
+						<div class="ui child checkbox">
+							<input type="checkbox" class="state" value="贵州" checked>
+							<label>贵州</label>
+						</div>
+					</div>
+		    </div>
+		  </div>
+	</div>
+		</div>
+	</div>
+
+
+
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.0/d3.js"></script>
+		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+
+		<script type="text/javascript">
+
+		var mobileScreen = ($( window ).width() < 500 ? true : false),
+		    screen = $(window).width(),
+		    ratio = $(window).width()/100,
+		    w,
+		    h;
+
+
+		    if (screen > 600){
+		      w = 640;
+		      h = 500;
+		      margin = {top: 20, right: 20, bottom: 50, left: 30};
+		    }else{
+		      w = $(window).width();
+		      h = ratio * 100;
+		      margin = {top: 20, right: 20, bottom: 60, left: 15};
+		    }
+
+
+		    width = w - margin.left - margin.right,
+		    height = h - margin.top - margin.bottom,
+		    svg = d3.select("svg").attr("width", w).attr("height", h).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+			var timeParse = d3.timeParse("%Y");
+			var timeFormat = d3.timeFormat("%Y");
+
+			var xScale = d3.scaleTime()
+								.range([0, width]);
+
+			var yScale = d3.scaleLinear()
+								.range([0, height]);
+
+			var xAxis = d3.axisBottom(xScale)
+							.tickFormat(function(d) {
+								return timeFormat(d);
+							})
+							.ticks(8)
+
+			var yAxis = d3.axisLeft(yScale)
+							.ticks(4)
+
+			var line = d3.line()
+						.x(function(d) { return xScale(timeParse(d.year)); })
+						.y(function(d) { return yScale(d.amount); });
+
+			// voronoi generator
+			var voronoi = d3.voronoi()
+						.x(function(d) { return xScale(timeParse(d.year)); })
+						.y(function(d) { return yScale(d.amount); })
+						.extent([[0, 0], [width, height]]);
+
+			var tooltip = d3.select("body")
+				      	.append("div")
+				      	.attr("class", "tooltip");
+
+			d3.csv("harmless.csv", function(data) {
+
+				var years = d3.keys(data[0]).slice(4, 14);
+				var dataset = [];
+console.log(years)
+				data.forEach(function(d){
+
+					var NationalMeatPrice = [];
+					years.forEach(function(y){
+						if (d[y]) {
+							NationalMeatPrice.push({
+								ProvinceName: d.Province,
+								RegionName: d.Region,
+								year: y,
+								amount: d[y]
+							})
+						}
+					})
+
+					dataset.push({
+						country: d.Province,
+
+						Region: d.Region,
+						Price: NationalMeatPrice,
+					})
+				}
+			)
+
+				xScale.domain(
+					d3.extent(years, function(d) {
+						return timeParse(d);
+					}));
+
+				yScale.domain([
+					d3.max(dataset, function(d) {
+						return d3.max(d.Price, function(d) {
+							return +d.amount;
+						});
+					}),
+					6
+				])
+				.nice();
+
+
+			 svg.append("text")
+                .text("%")
+                .attr("text-anchor","start").attr("dy","1rem").attr("x",-margin.left);
+
+			var year2017 = svg.append("text")
+                .text("2017")
+				.attr("text-anchor","end").attr("y",height + 35)
+
+				if(screen < 800){
+					year2017.attr("x",width);
+				}else{
+					year2017.attr("x",width - 15);
+				}
+
+			var year2003 = svg.append("text")
+                .text("2003")
+				.attr("text-anchor","end").attr("y",height + 35)
+
+				if(screen < 800){
+					year2003.attr("x",30);
+				}else{
+					year2003.attr("x",41);
+				}
+
+				var groups = svg.selectAll("g")
+					.data(dataset)
+					.enter()
+					.append("g");
+
+				groups.append("title")
+					.text(function(d) {
+						return d.country;
+					});
+
+
+
+
+					// Create a color scale
+				   var allProvince = d3.map(data, function(d){return(d.Region)}).keys()
+				   var color = d3.scaleOrdinal()
+				     .domain(allProvince)
+				     .range(d3.schemePaired);
+
+				groups.attr("class", function(d){return d.country + " " + d.Region; } )
+				//			.attr("class", function(d){return d.Region})
+							.attr("stroke",function(d){return color(d.Region)});
+
+
+	//Lines
+				groups.selectAll("path")
+					.data(function(d) {
+						return [ d.Price ];
+					})
+					.enter()
+					.append("path")
+					.attr("class", "line")
+					.attr("d", line)
+					.style("opacity",1)
+
+
+
+				svg.append("g")
+					.attr("class", "x axis")
+					.attr("transform", "translate(0," + height + ")")
+					.call(xAxis);
+
+				svg.append("g")
+					.attr("class", "y axis")
+					.call(yAxis);
+
+				// the line's circles are the "focus" elements
+				var focus = svg.append("g")
+				  	.attr("transform", "translate(-100,-100)") // it's off screen
+				  	.attr("class", "focus");
+
+				focus.append("circle")
+				     .attr("r", 3.5);
+
+				focus.append("text")
+				     .attr("y", -10);
+
+				var nested = d3.nest()
+		        	.key(function(d) {
+		        		// this key is the pair of x/y coords - to keep them single
+		        		return xScale(timeParse(d.year)) + "," + yScale(+d.amount);
+		        	})
+		        	.rollup(function(v) {
+		        		return v[0]; // first of the objects, prevents use of 2 in same place
+		        	})
+		        	.entries(d3.merge(dataset.map(function(d) { return d.Price; })))
+		        	.map(function (d) { return d.value;});  // the result is just a flat list of values
+
+				// console.log(dataset)
+		        // console.log(nested)
+				var voronoiGroup = svg.append("g")
+					.attr("class", "voronoi");
+
+
+
+				voronoiGroup.selectAll("path")
+					.data(voronoi.polygons(nested))
+					.enter()
+					.append("path")
+					.attr("d", function(d) { return d ? "M" + d.join("L") + "Z" : null; }) // this is just what you copy for a voronoi
+					.datum(function(d, i) { return d.data; })
+					.attr("class", function(d){ return "v"+ d.ProvinceName + " v" + d.RegionName; })
+					.on("mouseover", mouseoverFunc)
+					.on("mousemove", mousemoveFunc)
+					.on("mouseout",	mouseoutFunc);
+
+
+			});
+
+			function mouseoverFunc(d) {
+				// position the dot
+				//focus.attr("transform", "translate(" + xScale(timeParse(d.year)) + "," + yScale(+d.amount) + ")");
+				// show the tooltip
+				tooltip
+					.style("display", null)
+					.html("<p>" + d.ProvinceName +
+								"<br>" + d.year +
+							  "<br>无害化厕所普及率" + d.amount + " %</p>");
+				/*var countryId = d.country.replace(/ |,|\./g, "_");
+
+				d3.select("path.line#" + countryId).classed("focused", true).classed("unfocused", false);
+				d3.select("g.country#" + countryId).moveToFront(); // the parent node is g#lines*/
+			}
+
+			function mousemoveFunc(d) {
+				tooltip
+					.style("top", (d3.event.pageY - 10) + "px" )
+					.style("left", (d3.event.pageX + 10) + "px");
+			}
+
+			function mouseoutFunc(d) {
+				// focus.attr("transform", "translate(-100,-100)");
+				d3.selectAll("path.line").classed("focused", false).classed("unfocused", true);
+				tooltip.style("display", "none");
+			}
+
+			function update(){
+
+				$(".region").prop("checked", false)
+				// For each check box:
+				d3.selectAll(".state").each(function(d){
+					cb = d3.select(this);
+					grp = cb.property("value")
+
+					// If the box is check, I show the group
+					if(cb.property("checked")){
+						svg.selectAll("."+grp).transition().duration(1000).style("opacity", 1)
+						svg.selectAll(".v"+grp).attr("display","null")
+					// Otherwise I hide it
+					}else{
+						svg.selectAll("."+grp).transition().duration(1000).style("opacity", 0)
+						svg.selectAll(".v"+grp).attr("display","none")
+					}
+				})
+			}
+
+			// When a button change, I run the update function
+			d3.selectAll(".state").on("change",update);
+
+			// And I initialize it at the beginning
+			update()
+
+
+			function updateR(){
+
+				$(".state").prop("checked", false)
+				$(".quanstate").prop("checked", false)
+
+				// For each check box:
+				 d3.selectAll(".region").each(function(d){
+					 cb = d3.select(this);
+					 grp = cb.property("name")
+
+					 // If the box is check, I show the group
+					 if(cb.property("checked")){
+						svg.selectAll("."+grp).transition().duration(1000).style("opacity", 1)
+						svg.selectAll(".v"+grp).attr("display","null")
+					 // Otherwise I hide it
+					 }else{
+						 svg.selectAll("."+grp).transition().duration(1000).style("opacity", 0)
+						 svg.selectAll(".v"+grp).attr("display","none")
+					 }
+				 })
+
+			}
+
+			 d3.selectAll(".region").on("change",updateR);
+			  // updateR();
+
+
+				// Checkall setup
+				$('.master.checkbox').checkbox({
+				  // check all children
+				  onChecked: function() {
+				    var
+				      $childCheckbox  = $(".child.checkbox");
+				    $childCheckbox.checkbox('check');
+				    // $(".state").checkbox('uncheck')
+				  },
+				  // uncheck all children
+				  onUnchecked: function() {
+				    var
+				      $childCheckbox  = $(".child.checkbox");
+				    $childCheckbox.checkbox('uncheck');
+				  }
+				});
+		</script>
+
+	</body>
+</html>
