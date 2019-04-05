@@ -24,7 +24,7 @@ $( function() {
 
 
     $("#bar2007").css("opacity",1);
-  
+
  function filter(){
    var slidervalue = $( "#slider" ).slider( "value" );
    console.log(slidervalue);
@@ -106,7 +106,7 @@ $( function() {
     console.log(barNo);
 
     if(slidervalue == 2007){
-      $("#bar2007").fadeTo(1000,1);
+      $("#bar2007").fadeTo(500,1);
       $("#bar2009").fadeTo(500,0);
       $("#bar2011").fadeTo(500,0);
       $("#bar2013").fadeTo(500,0);
@@ -115,7 +115,7 @@ $( function() {
     }
 
     if(slidervalue == 2009){
-      $("#bar2009").fadeTo(1000,1);
+      $("#bar2009").fadeTo(500,1);
       $("#bar2007").fadeTo(500,0);
       $("#bar2011").fadeTo(500,0);
       $("#bar2013").fadeTo(500,0);
@@ -124,7 +124,7 @@ $( function() {
     }
 
     if(slidervalue == 2011){
-      $("#bar2011").fadeTo(1000,1);
+      $("#bar2011").fadeTo(500,1);
       $("#bar2007").fadeTo(500,0);
       $("#bar2009").fadeTo(500,0);
       $("#bar2013").fadeTo(500,0);
@@ -133,7 +133,7 @@ $( function() {
     }
 
     if(slidervalue == 2013){
-      $("#bar2013").fadeTo(1000,1);
+      $("#bar2013").fadeTo(500,1);
       $("#bar2007").fadeTo(500,0);
       $("#bar2009").fadeTo(500,0);
       $("#bar2011").fadeTo(500,0);
@@ -142,7 +142,7 @@ $( function() {
     }
 
     if(slidervalue == 2015){
-      $("#bar2015").fadeTo(1000,1);
+      $("#bar2015").fadeTo(500,1);
       $("#bar2007").fadeTo(500,0);
       $("#bar2009").fadeTo(500,0);
       $("#bar2011").fadeTo(500,0);
@@ -151,7 +151,7 @@ $( function() {
     }
 
     if(slidervalue == 2017){
-      $("#bar2017").fadeTo(1000,1);
+      $("#bar2017").fadeTo(500,1);
       $("#bar2007").fadeTo(500,0);
       $("#bar2009").fadeTo(500,0);
       $("#bar2011").fadeTo(500,0);
