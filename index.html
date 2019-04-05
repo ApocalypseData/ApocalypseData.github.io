@@ -5,8 +5,13 @@
 <head>
 	<script src="dist/jquery-1.11.3.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="dist/semantic.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="dist/d3.v4.min.js"></script>
 	<script src="dist/semantic.js"></script>
+	<script src="dist/slider.js"></script>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -100,12 +105,9 @@
 				padding: 0px;
 				max-width: 90px;
 			}
-
  			#chart {
 	 		/*margin-left: 1rem;*/
  			}
-
-
 			.ui.relaxed.divided.list.gundong {
 			height:266px;
 			overflow-y:auto;
@@ -131,8 +133,6 @@
 				margin-top:0.3rem;
 				margin-bottom；0.3rem;
 			}
-
-
 			.item{
 				background-color:#EEEDEE;
 			}
@@ -154,9 +154,29 @@
 			text{
 			font-size:14px;
 			}
-			.ui.container.zhurou{
-			max-width:50rem;
+
+			#slider{
+			position: absolute;
+			width: 10px;
+			height:20vh;
+			margin-top: 20px;
 			}
+
+			.imgmapchart{
+  			position:absolute;
+  			margin: 10px 0 0 0;
+			width: 700px;
+			}
+
+			.imgbarchart{
+  			position:absolute;
+  			margin: 10px 0 0 0;
+			width: 600px;
+			margin-top: 350px;
+			}
+
+			
+
 
 
 		</style>
@@ -538,6 +558,34 @@ tip中会说明无害化化粪池工作原理
 	</div>
 		</div>
 	</div>
+
+	<!-- 滑动+地图 -->
+
+	 <p>
+    <label for="amount">Year:</label>
+    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+     </p>
+
+    <div id="slider"></div>
+
+    <div class="mapChart">
+    <img id="mapBase" class="imgmapchart" src="img/mapBase.png" >
+    <img id="map2007" class="imgmapchart" src="img/map2007.png" >
+    <img id="map2009" class="imgmapchart" src="img/map2009.png" >
+    <img id="map2011" class="imgmapchart" src="img/map2011.png" >
+    <img id="map2013" class="imgmapchart" src="img/map2013.png" >
+    <img id="map2015" class="imgmapchart" src="img/map2015.png" >
+    <img id="map2017" class="imgmapchart" src="img/map2017.png" >
+    </div>
+
+<!-- 滑动+血滴 -->
+    <div class="barChart">
+    <img id="bar2007" class="imgbarchart" src="img/bar2007.png" >
+    <img id="bar2009" class="imgbarchart" src="img/bar2009.png" >
+    <img id="bar2011" class="imgbarchart" src="img/bar2011.png" >
+    <img id="bar2013" class="imgbarchart" src="img/bar2013.png" >
+    <img id="bar2015" class="imgbarchart" src="img/bar2015.png" >
+    <img id="bar2017" class="imgbarchart" src="img/bar2017.png" >
 
 
 
