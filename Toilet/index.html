@@ -14,35 +14,36 @@
 	<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
 	<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
 	<script src="dist/semantic.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<!--	线上字体库-->
 	<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC|ZCOOL+XiaoWei" rel="stylesheet">
 
 	<script src="game.js"></script>
 	<link rel="stylesheet" href="game.css">
-	<!-- <script type="text/javascript">
+	 <script type="text/javascript">
 
     function scrollnumber(element, offset) {
-        var a, b, c, d;
+        var a, b, c, d,e;
         d = $(element).offset().top;
         a = eval(d + offset);
         b = $(window).scrollTop();
         c = $(window).height();
-        if (b + c > a) {
+		e=a+10;
+        if (b + c >a && b+c<e) {
             $("body").css("overflow","hidden")
         }
     }
 
     function scrollfun() {
-        scrollnumber("#try", 100);
+        scrollnumber("#try", 560);
     }
 
-    $(document).ready(function (e) {
-        scrollfun();
+
         $(window).scroll(function () {
             scrollfun();
         });
-    });
-</script> -->
+
+</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<style>
@@ -50,6 +51,7 @@
 	background-color: white;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 19px;
+	width: 100%
 }
 
 h1 {
@@ -71,12 +73,15 @@ p {
 	position: absolute;
 
 }
-#wrapperC{
+#wrapperC,#wrapperZ{
 
 	width:100vw;
 	height: inherit;
 	position:relative;
 
+}
+#wrapperM{
+	display: none;
 }
 #game {
 	height: 100vh;
@@ -87,25 +92,31 @@ p {
 	height:100vh;
 }
 
+#lollipop{
+	width:100%;
+margin-bottom: 10px;
+		}
+
 #slider{
-position: absolute;
-width: 50vw;
-height:5px;
-margin-top: 320px;
+	position: absolute;
+	width: 500px;
+	height: 7px;
+	margin-top: 300px;
+	margin-left: 50px;
 }
 
 .imgmapchart{
 	position:absolute;
 	margin: 10px 0 0 0;
-width: 700px;
+width: 600px;
 }
 
 .imgbarchart{
 	position:absolute;
 	margin: 10px 0 0 0;
-width: 600px;
-margin-top: 350px;
-opacity:0;
+	width: 600px;
+	margin-top: 350px;
+	opacity:0;
 }
 .ui.text.container {
 			padding: 1.5rem;
@@ -114,7 +125,106 @@ opacity:0;
 .ui.text.container.mapChart{
 			height: 1000px;
 		}
+
+		/* duan */
+		button {
+		                background-color: #e6e6e6;
+		                -webkit-border-radius: 5;
+		                -moz-border-radius: 5;
+		                border-radius: 5px;
+		                font-family: Arial;
+		                color: #3498db;
+		                font-size: 20px;
+		                padding: 10px 20px 10px 20px;
+		                text-decoration: none;
+		                cursor: pointer;
+		                margin-right: 10px;
+		                margin-bottom: 10px;
+		            }
+
+		            button:hover {
+		                background: #3cb0fd;
+		                background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+		                background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+		                background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+		                background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+		                background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+		                text-decoration: none;
+		                color: #e6e6e6;
+		            }
+
+		            .selected {
+		                background-image: -webkit-linear-gradient(top, #3cb0fd, #286b94);
+		                background-image: -moz-linear-gradient(top, #3cb0fd, #286b94);
+		                background-image: -ms-linear-gradient(top, #3cb0fd, #286b94);
+		                background-image: -o-linear-gradient(top, #3cb0fd, #286b94);
+		                background-image: linear-gradient(to bottom, #3cb0fd, #286b94);
+		                color: #e6e6e6;
+		            }
+		.test-opacity{
+		  opacity: 1;
+		}
+		.axis {
+			font: 15px sans-serif;
+		}
+		.axis path,
+		.axis line {
+		  fill: none;
+		  stroke: #D4D8DA;
+		  stroke-width: 1px;
+		  shape-rendering: crispEdges;
+		}
+		#chart {
+		  width: 100%;
+		  padding-top: 77.77%;
+		  position: relative;
+		}
+
+		  #chart svg {
+				position: absolute;
+		    top: 0;
+		    width: 100%;
+		    left: 0;
+		    height: 100%
+		  }
+
+		  .toolTip {
+		  pointer-events: none;
+			position: absolute;
+		    display: none;
+		  min-width: 50px;
+		  height: auto;
+		  background: none repeat scroll 0 0 #ffffff;
+		  padding: 9px 14px 6px 14px;
+		  border-radius: 2px;
+		  text-align: center;
+		  line-height: 1.3;
+		  color: #5B6770;
+		  box-shadow: 0px 3px 9px rgba(0, 0, 0, .15);
+		}
+		.toolTip:after {
+		  content: "";
+		  width: 0;
+		  height: 0;
+		  border-left: 12px solid transparent;
+		  border-right: 12px solid transparent;
+		  border-top: 12px solid white;
+		  position: absolute;
+		  bottom: -10px;
+		  left: 50%;
+		  margin-left: -12px;
+		}
+		.toolTip span {
+			font-weight: 500;
+		  color: #081F2C;
+		}
 @media screen and (max-width: 800px) {
+	#wrapperM{
+		display:block;
+	}
+#wrapperZ{
+	display: none;
+}
 /* map适配 */
 .ui.text.container.mapChart{
 	padding:0;
@@ -219,7 +329,7 @@ top:-9px;
 		height:430px;
 		margin-top: auto;
 	}
-		.tuceng{
+	.tuceng{
 		display: block;
 		position: absolute;
 		z-index:1;
@@ -243,20 +353,18 @@ top:-9px;
 	<div id="wrapperC">
 
 		<img class="wrapper" id="wrapperZ" src="images/headpic.jpg">
-
+		<img class="wrapper" id="wrapperM" src="images/headpicM.jpg">
 	</div>
 	<div class="ui text container">
-		<p>引言</p>
-		<p>70亿（通过设计在页面首页，具有一定冲击感）</p>
+		<p>70亿。</p>
 		<p>中国今年预计再花整整70亿在厕所改革上。</p>
 		<p>“就是个随便解个手的地方，至于投这么多钱吗？”河北沧州市仵龙堂乡的小张站在用了十多年的旱厕旁毫不避讳地说道，家养的猪在仅有一板之隔的牲圈里哼哼叫着。
 		</p>
 		<p>2015年起，中国大力推行厕所革命，并以旅游厕所和农村旱厕改革作为两大主要内容。3年过去，中国厕所现状有了巨大的推进，但像小张一样的质疑也始终存在。然而，这绝不仅仅是“随便解个手的地方”，如今的厕所早已不是普遍认为的“有坑就行”，从新建改建开始，厕所门便有着严格的规定和细致的分类，需要建设者考虑遵循。
 		</p>
-		<p>不信的话，自己试试，看看你能建成什么等级的厕所？/version1.1：或许只有亲历建设才能明白其中的复杂，我们为大家准备了几种具有代表性的厕所建造材料，请您按照偏好选择，看看自己将建设出什么等级的厕所呢？
-		</p>
+		<p>不信的话，自己试试，看看你能建成什么等级的厕所？</p>
 	</div>
-
+<div id="try"></div>
 	<div id="game">
 		<div id="choicepage">
 			<h1 id="choiceplaces" class="titles">选择您建设厕所的地区</h1>
@@ -267,6 +375,7 @@ top:-9px;
 			<div id="tianjiabiaoji">
 				<p id="citytitle" class="titles">建设一个城市厕所
 					<button type="reset" class="btn btn-light chongjian">上一步</button>
+					<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
 				</p>
 			</div>
 			<div id="citymain" class="gamemain">
@@ -281,6 +390,9 @@ top:-9px;
 					<img src="images/图层3-空气净化器.png" id="tuceng3-空气净化器" class="tuceng drop">
 					<img src="images/图层3-母婴台.png" id="tuceng3-母婴台" class="tuceng drop">
 					<img src="images/图层3-一键美化.png" id="tuceng3-一键美化" class="tuceng drop">
+					<img src="images/坑位解释.png" id="kengweijieshi" class="jieshi tuceng drop">
+					<img src="images/厕纸解释.png" id="cezhijieshi" class="jieshi tuceng drop">
+					<img src="images/母婴台解释.png" id="muyingtaijieshi" class="jieshi tuceng drop">
 				</div>
 
 				<div id="drag">
@@ -319,9 +431,9 @@ top:-9px;
 				</div>
 			</div>
 			<div id="panding">
-				<div class="pandingbiaoti" id="yileicesuo"><img src="images/一类厕所判定.png"></div>
-				<div class="pandingbiaoti" id="erleicesuo"><img src="images/二类厕所判定.png"></div>
-				<div class="pandingbiaoti" id="sanleicesuo"><img src="images/三类厕所判定.png"></div>
+				<div class="pandingbiaoti" id="yileicesuo"><img class="ui fluid image" src="images/一类厕所判定.png"></div>
+				<div class="pandingbiaoti" id="erleicesuo"><img class="ui fluid image" src="images/二类厕所判定.png"></div>
+				<div class="pandingbiaoti" id="sanleicesuo"><img class="ui fluid image" src="images/三类厕所判定.png"></div>
 			</div>
 			<!-- 城市文字 -->
 		</div>
@@ -330,14 +442,22 @@ top:-9px;
 			<div id="tianjiabiaoji2">
 				<p id="suburbtitle" class="titles">建设一个农村厕所
 					<button type="reset" class="btn btn-light chongjian">上一步</button>
+					<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
 				</p>
 			</div>
 			<div id="suburbmain" class="gamemain">
 				<div id="dragsuburb">
 					<div id="dragsuburb1" class="chuxian">
-						<div class="aaa">选择您喜欢的墙面</div>
+						<div class="aaa">筑墙成为室内厕所</div>
 						<div id="农村图标区1">
 							<img src="images/农村/墙.png" id="墙" class="icons icons1" title="墙">
+						</div>
+					</div>
+					<div id="dragsuburb1-1" class="chuxian">
+						<div class="aaa">选择您喜欢的墙面</div>
+						<div id="农村图标区1-1">
+						   <img src="images/农村/水泥.png" id="水泥" class="icons icons3" title="水泥墙面">
+							<img src="images/农村/瓷砖.png" id="瓷砖" class="icons icons3" title="瓷砖墙面">
 						</div>
 					</div>
 					<div id="dragsuburb2" class="chuxian">
@@ -346,8 +466,7 @@ top:-9px;
 						</div>
 						<div id="农村图标区2">
 							<img src="images/农村/苍蝇拍.png" id="苍蝇拍" class="icons icons3" title="苍蝇拍">
-							<img src="images/农村/水泥.png" id="水泥" class="icons icons3" title="水泥墙面">
-							<img src="images/农村/瓷砖.png" id="瓷砖" class="icons icons3" title="瓷砖墙面">
+
 							<img src="images/农村/化粪池.png" id="化粪池" class="icons icons3" title="化粪池">
 							<img src="images/农村/坑位.png" id="坑位" class="icons icons3" title="坑位">
 							<img src="images/农村/垃圾桶.png" id="垃圾桶" class="icons icons3" title="垃圾桶">
@@ -360,7 +479,7 @@ top:-9px;
 
 					<div id="ditumen2">
 						<img src="images/农村/图层初始界面.png" id="suburb底图" class="background dropsuburb">
-						<img src="images/农村/图层苍蝇.png" id="tuceng-cang" class="tuceng dropsuburb">
+						<img src="images/农村/图层苍蝇.png" id="tuceng-cang" class="background dropsuburb">
 						<img src="images/农村/图层窗户.png" id="tuceng-chuang" class="tuceng dropsuburb">
 						<img src="images/农村/图层瓷砖.png" id="tuceng-ci" class="tuceng dropsuburb">
 						<img src="images/农村/图层水泥.png" id="tuceng-shuini" class="tuceng dropsuburb">
@@ -369,18 +488,19 @@ top:-9px;
 						<img src="images/农村/图层垃圾桶.png" id="tuceng-la" class="tuceng dropsuburb">
 						<img src="images/农村/图层白底.png" id="tuceng-bai" class="tuceng dropsuburb">
 						<img src="images/农村/图层水池.png" id="tuceng-shui" class="tuceng dropsuburb">
+						<img src="images/农村/化粪池解释.png" id="huafenchijieshi" class="jieshi tuceng dropsuburb">
 
 					</div>
 				</div>
 			</div>
 			<div id="pandingsuburb">
-				<div class="pandingbiaoti" id="wuhai"><img src="images/农村/成功无害化.png"></div>
-				<div class="pandingbiaoti" id="youhai"><img src="images/农村/失败无害化.png"></div>
+				<div class="pandingbiaoti" id="wuhai"><img class="ui fluid image" src="images/农村/成功无害化.png"></div>
+				<div class="pandingbiaoti" id="youhai"><img class="ui fluid image" src="images/农村/失败无害化.png"></div>
 			</div>
 
 		</div>
 	</div>
-	<div id="try"></div>
+
 	<!--	第二条支线玩耍-->
 	<div id="cityessay">
 		<div class="ui text container">
@@ -391,10 +511,12 @@ top:-9px;
 
 				<p>二类厕所，适合建设于主要街道，相比三类厕所，坑位需要达到3-4.9平方米，可以设置独立单间，也可以不建设隔档，但瓷砖需要贴到屋顶。</p>
 
-				<p>一类厕所，作为最高级的公厕，主要设置在对外开放游览景点和繁华街道。坑位要达到5-7平方米。值得注意的是，一类厕所有着独特的要求——必须拥有第三类卫生间，且外观需与周围景色融合。
+				<p>一类厕所，作为最高级的公厕，主要设置在对外开放游览景点和繁华街道。坑位要达到5-7平方米。值得注意的是，一类厕所有着独特的要求——必须拥有第三类卫生间，且外观需与周围景色融合。</p>
 
 				<p>近年来，全国三类以上厕所不断增多，在2017年突破十万大关。</p>
-				（图）
+			</div>
+		<div class="ui text container">
+				<div><img id="lollipop" src="img/lollipop1.png"></div>
 				<p>这来自于国家新建、改建城市公厕，尤其是旅游景区厕所的高强力度。仅2015年至17年，国家旅游发展基金就投入了16.4亿元进行旅游厕所革命，据文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
 
 				<p>改建之外，一些老旧的已达标厕所也进行了重新修缮。2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体的翻新，“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民投拖把。”</p>
@@ -409,19 +531,40 @@ top:-9px;
 			<p>
 				无害化卫生厕所，要求不再露天，有墙有顶；贮粪池不渗不漏、密闭有盖，粪便能够按时清出。同时，厕所内没有蝇蛆和臭味。
 				在国家的大力推行与政策补贴下，农村无害化厕所普及率逐年提高，全国爱卫办预计将于2030年实现无害化厕所全覆盖。
-				（无害化厕所普及率图）</p>
+				</p>
+		</div>
+		<div class="ui text container">
+			<div id="buttons">
+			        <button id="data2007">2007年</button>
+			        <button id="data2009">2009年</button>
+			        <button id="data2011">2011年</button>
+			        <button id="data2013">2013年</button>
+			        <button id="data2015">2015年</button>
+			        <button id="data2017">2017年</button>
+			        </div>
+
+			        <div id="chart">
+			        </div>
+			        <div class="data2007"></div>
+			        <div class="data2009"></div>
+			        <div class="data2011"></div>
+			        <div class="data2013"></div>
+			        <div class="data2015"></div>
+			        <div class="data2017"></div>
+			<div id="chart"></div>
+
 		</div>
 	</div>
 	<div id="game99">
 		<div id="choicepage99">
-			<h1 id="choiceplaces99" class="titles">选择您建设厕所的地区</h1>
+			<h1 id="choiceplaces99" class="titles">试试另一地点的厕所建设吧</h1>
 			<img src="images/选择城市.png" id="choosecity99" class="choice">
 			<img src="images/选择农村.png" id="choosesuburb99" class="choice">
 		</div>
 		<div id="city99">
 			<div id="tianjiabiaoji99">
 				<p id="citytitle99" class="titles">建设一个城市厕所
-					<button type="reset" class="btn btn-light chongjian">上一步</button>
+					<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
 				</p>
 			</div>
 			<div id="citymain99" class="gamemain">
@@ -468,27 +611,37 @@ top:-9px;
 					<img src="images/图层3-空气净化器.png" id="tuceng3-空气净化器99" class="tuceng drop">
 					<img src="images/图层3-母婴台.png" id="tuceng3-母婴台99" class="tuceng drop">
 					<img src="images/图层3-一键美化.png" id="tuceng3-一键美化99" class="tuceng drop">
+					<img src="images/坑位解释.png" id="kengweijieshi99" class="jieshi tuceng drop">
+					<img src="images/厕纸解释.png" id="cezhijieshi99" class="jieshi tuceng drop">
+					<img src="images/母婴台解释.png" id="muyingtaijieshi99" class="jieshi tuceng drop">
 				</div>
 			</div>
 			<div id="panding99">
-				<div class="pandingbiaoti" id="yileicesuo99"><img src="images/一类厕所判定.png"></div>
-				<div class="pandingbiaoti" id="erleicesuo99"><img src="images/二类厕所判定.png"></div>
-				<div class="pandingbiaoti" id="sanleicesuo99"><img src="images/三类厕所判定.png"></div>
+				<div class="pandingbiaoti" id="yileicesuo99"><img class="ui fluid image" src="images/一类厕所判定.png"></div>
+				<div class="pandingbiaoti" id="erleicesuo99"><img class="ui fluid image" src="images/二类厕所判定.png"></div>
+				<div class="pandingbiaoti" id="sanleicesuo99"><img class="ui fluid image" src="images/三类厕所判定.png"></div>
 			</div>
 
 		</div>
 		<div id="suburb99">
 			<div id="tianjiabiaoji299">
 				<p id="suburbtitle99" class="titles">建设一个农村厕所
-					<button type="reset" class="btn btn-light chongjian">上一步</button>
+					<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
 				</p>
 			</div>
 			<div id="suburbmain99" class="gamemain">
 				<div id="dragsuburb99">
 					<div id="dragsuburb199" class="chuxian">
-						<div class="aaa">选择您喜欢的墙面</div>
+						<div class="aaa">筑墙成为室内厕所</div>
 						<div id="农村图标区199">
 							<img src="images/农村/墙.png" id="墙99" class="icons icons1" title="墙">
+						</div>
+					</div>
+					<div id="dragsuburb1-199" class="chuxian">
+						<div class="aaa">选择您喜欢的墙面</div>
+						<div id="农村图标区1-1">
+						   <img src="images/农村/水泥.png" id="水泥99" class="icons icons3" title="水泥墙面">
+							<img src="images/农村/瓷砖.png" id="瓷砖99" class="icons icons3" title="瓷砖墙面">
 						</div>
 					</div>
 					<div id="dragsuburb299" class="chuxian">
@@ -497,21 +650,20 @@ top:-9px;
 						</div>
 						<div id="农村图标区299">
 							<img src="images/农村/苍蝇拍.png" id="苍蝇拍99" class="icons icons3" title="苍蝇拍">
-							<img src="images/农村/水泥.png" id="水泥99" class="icons icons3" title="水泥墙面">
-							<img src="images/农村/瓷砖.png" id="瓷砖99" class="icons icons3" title="瓷砖墙面">
 							<img src="images/农村/化粪池.png" id="化粪池99" class="icons icons3" title="化粪池">
 							<img src="images/农村/坑位.png" id="坑位99" class="icons icons3" title="坑位">
 							<img src="images/农村/垃圾桶.png" id="垃圾桶99" class="icons icons3" title="垃圾桶">
 							<img src="images/农村/水池.png" id="水池99" class="icons icons3" title="水池">
 							<img src="images/农村/窗户.png" id="窗户99" class="icons icons3" title="窗户">
 							<img src="images/农村/苍蝇拍.png" id="占位99" class="icons3" style="opacity: 0">
+
 						</div>
 
 					</div>
 
 					<div id="ditumen299">
 						<img src="images/农村/图层初始界面.png" id="suburb底图99" class="background dropsuburb">
-						<img src="images/农村/图层苍蝇.png" id="tuceng-cang99" class="tuceng dropsuburb">
+						<img src="images/农村/图层苍蝇.png" id="tuceng-cang99" class="background dropsuburb">
 						<img src="images/农村/图层窗户.png" id="tuceng-chuang99" class="tuceng dropsuburb">
 						<img src="images/农村/图层瓷砖.png" id="tuceng-ci99" class="tuceng dropsuburb">
 						<img src="images/农村/图层水泥.png" id="tuceng-shuini99" class="tuceng dropsuburb">
@@ -520,13 +672,14 @@ top:-9px;
 						<img src="images/农村/图层垃圾桶.png" id="tuceng-la99" class="tuceng dropsuburb">
 						<img src="images/农村/图层白底.png" id="tuceng-bai99" class="tuceng dropsuburb">
 						<img src="images/农村/图层水池.png" id="tuceng-shui99" class="tuceng dropsuburb">
+						<img src="images/农村/化粪池解释.png" id="huafenchijieshi99" class="jieshi tuceng dropsuburb">
 
 					</div>
 				</div>
 			</div>
 			<div id="pandingsuburb99">
-				<div class="pandingbiaoti" id="wuhai99"><img src="images/农村/成功无害化.png"></div>
-				<div class="pandingbiaoti" id="youhai99"><img src="images/农村/失败无害化.png"></div>
+				<div class="pandingbiaoti" id="wuhai99"><img class="ui fluid image" src="images/农村/成功无害化.png"></div>
+				<div class="pandingbiaoti" id="youhai99"><img class="ui fluid image" src="images/农村/失败无害化.png"></div>
 			</div>
 
 		</div>
@@ -534,33 +687,58 @@ top:-9px;
 	<div id="cityessay99">
 		<div class="ui text container">
 
-			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。
+			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
 
-				三类厕所，是最低级的一种，但也是厕所卫生达标的门槛。其主要设置于一般街道，坑与坑之间没有隔档，厕位在2-2.9平方米，可以使用水泥墙面或贴瓷砖至1.5米处即可
+				<p>三类厕所，是最低级的一种，但也是厕所卫生达标的门槛。其主要设置于一般街道，坑与坑之间没有隔档，厕位在2-2.9平方米，可以使用水泥墙面或贴瓷砖至1.5米处即可。</p>
 
-				二类厕所，适合建设于主要街道，相比三类厕所，坑位需要达到3-4.9平方米，可以设置独立单间，也可以不建设隔档，但瓷砖需要贴到屋顶。
+				<p>二类厕所，适合建设于主要街道，相比三类厕所，坑位需要达到3-4.9平方米，可以设置独立单间，也可以不建设隔档，但瓷砖需要贴到屋顶。</p>
 
-				一类厕所，作为最高级的公厕，主要设置在对外开放游览景点和繁华街道。坑位要达到5-7平方米。值得注意的是，一类厕所有着独特的要求——必须拥有第三类卫生间，且外观需与周围景色融合。
+				<p>一类厕所，作为最高级的公厕，主要设置在对外开放游览景点和繁华街道。坑位要达到5-7平方米。值得注意的是，一类厕所有着独特的要求——必须拥有第三类卫生间，且外观需与周围景色融合。</p>
 
-				近年来，全国三类以上厕所不断增多，在2017年突破十万大关。
-				（图）
-				这来自于国家新建、改建城市公厕，尤其是旅游景区厕所的高强力度。仅2015年至17年，国家旅游发展基金就投入了16.4亿元进行旅游厕所革命，据文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。
+				<p>近年来，全国三类以上厕所不断增多，在2017年突破十万大关。</p>
+			</div>
+		<div class="ui text container">
+				<div><img id="lollipop" src="img/lollipop1.png"></div>
+				<p>这来自于国家新建、改建城市公厕，尤其是旅游景区厕所的高强力度。仅2015年至17年，国家旅游发展基金就投入了16.4亿元进行旅游厕所革命，据文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
 
-				改建之外，一些老旧的已达标厕所也进行了重新修缮。2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体的翻新，“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民投拖把。”
-				彭川和妻子共同负责这一整个厕所的清洁。别无例外，所有二类厕所都必须由一对夫妻承担管理员的职责。为了保持景区厕所24小时的清洁，清洁员们每天要从清晨六点一直工作到晚上十点，下班后也要住在厕所内几乎只容得下一张床的管理员间里，以备突发情况。“不是夫妻谁能愿意？”他顿了顿，“主要是人家姑娘不愿意啊。”彭川哈哈笑着，顺带躲过了床另一头妻子的拳头。
-				在十四个小时的工作时间内，彭川每隔30分钟左右就要检查并打扫一次厕所卫生，2015年厕所革命的大力推广，更使厕所卫生监察日益严格。每天早上的定期巡检之外，还出现了越来越多来自环卫各层级的不定期抽查。彭川笑了笑
-				改建、翻新、严格监管与维护……种种举措共同促进了城市厕所的进步。
-				在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。
-			</p>
+				<p>改建之外，一些老旧的已达标厕所也进行了重新修缮。2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体的翻新，“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民投拖把。”</p>
+			<p>	彭川和妻子共同负责这一整个厕所的清洁。别无例外，所有二类厕所都必须由一对夫妻承担管理员的职责。为了保持景区厕所24小时的清洁，清洁员们每天要从清晨六点一直工作到晚上十点，下班后也要住在厕所内几乎只容得下一张床的管理员间里，以备突发情况。
+				“不是夫妻谁能愿意？”他顿了顿，“主要是人家姑娘不愿意啊。”彭川哈哈笑着，顺带躲过了床另一头妻子的拳头。
+				在十四个小时的工作时间内，彭川每隔30分钟左右就要检查并打扫一次厕所卫生，2015年厕所革命的大力推广，更使厕所卫生监察日益严格。每天早上的定期巡检之外，还出现了越来越多来自环卫各层级的不定期抽查。彭川笑了笑。</p>
+			<p>	改建、翻新、严格监管与维护……种种举措共同促进了城市厕所的进步。</p>
 		</div>
 	</div>
+
 	<div id="suburbessay99">
 		<div class="ui text container">
 			<p>
 				无害化卫生厕所，要求不再露天，有墙有顶；贮粪池不渗不漏、密闭有盖，粪便能够按时清出。同时，厕所内没有蝇蛆和臭味。
 				在国家的大力推行与政策补贴下，农村无害化厕所普及率逐年提高，全国爱卫办预计将于2030年实现无害化厕所全覆盖。
-				（无害化厕所普及率图）</p>
+				</p>
 		</div>
+<div class="ui text container">
+	<div id="buttons">
+	        <button id="data2007">2007年</button>
+	        <button id="data2009">2009年</button>
+	        <button id="data2011">2011年</button>
+	        <button id="data2013">2013年</button>
+	        <button id="data2015">2015年</button>
+	        <button id="data2017">2017年</button>
+	        </div>
+
+	        <div id="chart">
+	        </div>
+	        <div class="data2007"></div>
+	        <div class="data2009"></div>
+	        <div class="data2011"></div>
+	        <div class="data2013"></div>
+	        <div class="data2015"></div>
+	        <div class="data2017"></div>
+	<div id="chart"></div>
+
+</div>
+
+
 	</div>
 	<div class="ui text container">
 		<h>重要意义</h>
@@ -598,7 +776,7 @@ top:-9px;
 		<div id="slider">
 
 			<p style="padding-top:20px;">
-				<label for="amount">Year:</label>
+				<label for="amount">年份:</label>
 				<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;background-color: transparent;">
 			</p>
 		</div>
@@ -652,7 +830,7 @@ top:-9px;
 
 	<script src="dist/slider.js"></script>
 
-
+<script src="RadarChart.js"></script>
 </body>
 
 </html>

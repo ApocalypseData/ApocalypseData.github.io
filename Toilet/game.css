@@ -118,7 +118,9 @@
   width: 400px;
   margin-top: auto;
 }
-
+#tuceng-cang,#tuceng-cang99{
+			z-index: 100;
+		}
 #tijiao，#tijiao99 {
   display: block;
   position: absolute;
@@ -134,8 +136,9 @@
 }
 
 .pandingbiaoti {
-  margin-left: 200px;
-  height: 100%
+	width: 100%;
+	margin:0 auto;
+  height: auto
 }
 
 .chongjian {
@@ -149,6 +152,20 @@
 }
 
 .chongjian:hover {
+  background-color: #e7e7e7;
+}
+
+.jieshiniu {
+  margin: auto;
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+  border-radius: 12px;
+  font-size: 15px;
+  margin-left: 1%;
+}
+
+.jieshiniu:hover {
   background-color: #e7e7e7;
 }
 
