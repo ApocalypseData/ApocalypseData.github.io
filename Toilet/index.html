@@ -51,8 +51,14 @@
 	background-color: white;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 19px;
-	width: 100%
+	width: 100%;
+	/* background: url("img/backwhite.jpg");
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: 100% 100%; */
+
 }
+
 
 h1 {
 	font-size: 24px;
@@ -62,10 +68,25 @@ h1 {
 }
 
 p {
-	font-size: 16px;
-	margin: 10px 0 0 0;
-
+	font-size: 20px;
+	margin: 19px 0 0 0;
+	line-height: 1.5;
 	text-align: justify;
+	letter-spacing: 1px;
+}
+
+.bouncy{
+ animation:bouncy 5s infinite linear;
+ position:relative;
+}
+@keyframes bouncy {
+ 0%{top:0em}
+ 40%{top:0em}
+ 43%{top:-0.9em}
+ 46%{top:0em}
+ 48%{top:-0.4em}
+ 50%{top:0em}
+ 100%{top:0em;}
 }
 
 .wrapper {
@@ -85,7 +106,6 @@ p {
 }
 #game {
 	height: 100vh;
-
 }
 
 #game99{
@@ -120,6 +140,7 @@ width: 600px;
 }
 .ui.text.container {
 			padding: 1.5rem;
+background-color: rgba(255,250,250,0.6);
 
 		}
 .ui.text.container.mapChart{
@@ -128,18 +149,18 @@ width: 600px;
 
 		/* duan */
 		button {
-		                background-color: #e6e6e6;
-		                -webkit-border-radius: 5;
-		                -moz-border-radius: 5;
-		                border-radius: 5px;
-		                font-family: Arial;
-		                color: #3498db;
-		                font-size: 20px;
-		                padding: 10px 20px 10px 20px;
-		                text-decoration: none;
-		                cursor: pointer;
-		                margin-right: 10px;
-		                margin-bottom: 10px;
+			 background-color: #e6e6e6;
+			 -webkit-border-radius: 5;
+			 -moz-border-radius: 5;
+			 border-radius: 5px;
+			 font-family: Arial;
+			 color: #3498db;
+			 font-size: 20px;
+			 padding: 10px 20px 10px 20px;
+			 text-decoration: none;
+			 cursor: pointer;
+			 margin-right: 10px;
+			 margin-bottom: 10px;
 		            }
 
 		            button:hover {
@@ -218,12 +239,28 @@ width: 600px;
 			font-weight: 500;
 		  color: #081F2C;
 		}
+		.tubiao2{
+			height:123px;
+			width:77%;
+		}
+		.tubiao3{
+			height: 123px;
+			width: 35%;
+		}
 @media screen and (max-width: 800px) {
 	#wrapperM{
 		display:block;
 	}
 #wrapperZ{
 	display: none;
+}
+.tubiao2{
+	height:73px;
+	width:77%;
+}
+.tubiao3{
+	height: 73px;
+	width: 35%;
 }
 /* map适配 */
 .ui.text.container.mapChart{
@@ -267,11 +304,16 @@ top:-9px;
 	}
 	#图标区2-2,#图标区2-299{
 		position: absolute;
-		top:-9px;
+		top:-25px;
+	}
+	#图标区3,#图标区399{
+		margin-left: 0;
+		margin-top: 10px;
 	}
 	#农村图标区1, #农村图标区199{
 	position: absolute;
 	top:0;
+	margin-left:50vw;
 	}
 	#农村图标区2, #农村图标区299{
 	position: absolute;
@@ -279,7 +321,7 @@ top:-9px;
 	left:19px;
 	}
 	.aaa{
-		margin-left: 25vw;
+		margin-left: 5vw;
 		font-family: 'Noto Serif SC', serif;
 	}
 	#dragstep2,#dragstep299{margin-left: 0vw;
@@ -300,12 +342,10 @@ top:-9px;
 	}
 	.icons3{
 		margin-top: -3vw;
-		width:80px;
+		width:75px;
 	}
 
-	#图标区3,#图标区399{
-		margin-left: 10vw;
-	}
+
 	#choosecity, #choosesuburb, #choosecity99, #choosesuburb99 {
 	height: auto;
 	padding-right: 30px;
@@ -368,8 +408,8 @@ top:-9px;
 	<div id="game">
 		<div id="choicepage">
 			<h1 id="choiceplaces" class="titles">选择您建设厕所的地区</h1>
-			<img src="images/选择城市.png" id="choosecity" class="choice">
-			<img src="images/选择农村.png" id="choosesuburb" class="choice">
+			<img src="images/选择城市.png" id="choosecity" class="bouncy">
+			<img src="images/选择农村.png" id="choosesuburb" style="animation-delay: 0.07s" class="bouncy">
 		</div>
 		<div id="city">
 			<div id="tianjiabiaoji">
@@ -506,11 +546,11 @@ top:-9px;
 		<div class="ui text container">
 
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
-
+<img class="tubiao3" src="images/icons/三类图标.png" alt="">
 				<p>三类厕所，是最低级的一种，但也是厕所卫生达标的门槛。其主要设置于一般街道，坑与坑之间没有隔档，厕位在2-2.9平方米，可以使用水泥墙面或贴瓷砖至1.5米处即可。</p>
-
+<img class="tubiao2" src="images/icons/二类图标.png" alt="">
 				<p>二类厕所，适合建设于主要街道，相比三类厕所，坑位需要达到3-4.9平方米，可以设置独立单间，也可以不建设隔档，但瓷砖需要贴到屋顶。</p>
-
+<img class="ui fluid image" src="images/icons/一类图标.png" alt="">
 				<p>一类厕所，作为最高级的公厕，主要设置在对外开放游览景点和繁华街道。坑位要达到5-7平方米。值得注意的是，一类厕所有着独特的要求——必须拥有第三类卫生间，且外观需与周围景色融合。</p>
 
 				<p>近年来，全国三类以上厕所不断增多，在2017年突破十万大关。</p>
@@ -558,8 +598,8 @@ top:-9px;
 	<div id="game99">
 		<div id="choicepage99">
 			<h1 id="choiceplaces99" class="titles">试试另一地点的厕所建设吧</h1>
-			<img src="images/选择城市.png" id="choosecity99" class="choice">
-			<img src="images/选择农村.png" id="choosesuburb99" class="choice">
+			<img src="images/选择城市.png" id="choosecity99" class="bouncy">
+			<img src="images/选择农村.png" id="choosesuburb99" class="bouncy" style="animation-delay:0.07s">
 		</div>
 		<div id="city99">
 			<div id="tianjiabiaoji99">
@@ -589,7 +629,7 @@ top:-9px;
 						</div>
 					</div>
 					<div id="dragstep399" class="chuxian">
-						<div class="aaa">最后，增加一些高级设施吧<br>
+						<div class="aaa">最后，增加一些高级设施吧
 							<button type="button" class="tiny ui button" id="tijiao99">完成建设</button>
 						</div>
 						<div id="图标区399">
@@ -686,14 +726,13 @@ top:-9px;
 	</div>
 	<div id="cityessay99">
 		<div class="ui text container">
-
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
-
+			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
 				<p>三类厕所，是最低级的一种，但也是厕所卫生达标的门槛。其主要设置于一般街道，坑与坑之间没有隔档，厕位在2-2.9平方米，可以使用水泥墙面或贴瓷砖至1.5米处即可。</p>
-
+			<img class="tubiao2" src="images/icons/二类图标.png" alt="">
 				<p>二类厕所，适合建设于主要街道，相比三类厕所，坑位需要达到3-4.9平方米，可以设置独立单间，也可以不建设隔档，但瓷砖需要贴到屋顶。</p>
-
-				<p>一类厕所，作为最高级的公厕，主要设置在对外开放游览景点和繁华街道。坑位要达到5-7平方米。值得注意的是，一类厕所有着独特的要求——必须拥有第三类卫生间，且外观需与周围景色融合。</p>
+			<img class="ui fluid image" src="images/icons/一类图标.png" alt="">
+						<p>一类厕所，作为最高级的公厕，主要设置在对外开放游览景点和繁华街道。坑位要达到5-7平方米。值得注意的是，一类厕所有着独特的要求——必须拥有第三类卫生间，且外观需与周围景色融合。</p>
 
 				<p>近年来，全国三类以上厕所不断增多，在2017年突破十万大关。</p>
 			</div>
