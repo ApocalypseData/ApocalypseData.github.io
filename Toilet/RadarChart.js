@@ -333,7 +333,7 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
           for(var j = 0; j<propertyData.length; j++){
             var grade = propertyData[j];
             if (grade.area == d){
-          
+
               html += '<div>' + grade.name + grade.area + '的无害化卫生厕所普及率为: ' + grade.value + '%</div>';//tootip文字
             }
           }
