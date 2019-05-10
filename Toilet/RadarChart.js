@@ -14,7 +14,7 @@ var RadarChart = {
      ToRight: 5,
      TranslateX: 200,
      TranslateY: 50,
-     ExtraWidthX: 100,
+     ExtraWidthX: 200,
      ExtraWidthY: 100,
      color: d3.scaleOrdinal().range(["#D15C33","#D15C33","#D15C33","#D15C33","#D15C33","#D15C33"])//更改颜色
     };
@@ -34,13 +34,13 @@ var RadarChart = {
     var total = allAxis.length;
     var radius = cfg.factor*Math.min(cfg.w/2, cfg.h/2);
     var Format = d3.format('%');
-    d3.select(id).select("svg").remove();
+    d3.select("#duan").select("svg").remove();
 
 
 
-    var g = d3.select(id)
+    var g = d3.select("#duan")
         .append("svg")
-        .attr("width", cfg.w+cfg.ExtraWidthX)
+        .attr("width", cfg.w+cfg.ExtraWidthX+200)
         .attr("height", cfg.h+cfg.ExtraWidthY)
         .append("g")
         .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+
 <head>
-<script src="dist/jquery-1.11.3.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
+  <script src="dist/jquery-1.11.3.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
 
 </head>
 <style>
-	body{align-content: center;}
+  body{align-content: center;}
 	svg{width: 50%;
 	height:50%}
   #block {
@@ -35,7 +36,7 @@ button {
   box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
   cursor: pointer;
 
-/* Just for presentation */  
+/* Just for presentation */
 
   margin-left: 20px;
 }
@@ -68,10 +69,10 @@ button:after {
   border-left: 16px solid transparent;
   border-right: 20px solid #187dbc;
   position: absolute;
-  opacity: 0.6; 
+  opacity: 0.6;
   right: 0;
   top: 0;
-  border-radius: 0 5px 5px 0;  
+  border-radius: 0 5px 5px 0;
 }
 
             button:hover {
@@ -109,11 +110,11 @@ button:after {
   shape-rendering: crispEdges;
 }
 #chart {
-  width: 100%;
+  max-width: 1000px;
   padding-top: 77.77%;
   position: relative;
 }
-  
+
   #chart svg {
 		position: absolute;
     top: 0;
@@ -121,7 +122,7 @@ button:after {
     left: 0;
     height: 100%
   }
-  
+
   .toolTip {
   pointer-events: none;
 	position: absolute;
@@ -147,11 +148,12 @@ button:after {
   bottom: -10px;
   left: 50%;
   margin-left: -12px;
-}  
+}
 .toolTip span {
 	font-weight: 500;
   color: #081F2C;
 }
+
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -159,48 +161,49 @@ button:after {
 <div id="container" class="bouncy">
 
 
-<div id="buttons" class="bouncy">
-        <button id="data2007">2007年</button>
-        <button id="data2009">2009年</button>
-        <button id="data2011">2011年</button>
-        <button id="data2013">2013年</button>
-        <button id="data2015">2015年</button>
-        <button id="data2017">2017年</button>
-        </div>
+  <div id="buttons" class="bouncy">
+    <button id="data2007">2007年</button>
+    <button id="data2009">2009年</button>
+    <button id="data2011">2011年</button>
+    <button id="data2013">2013年</button>
+    <button id="data2015">2015年</button>
+    <button id="data2017">2017年</button>
+  </div>
 
-        <div id="chart">
-        </div>
-        <div class="data2007"></div>
-        <div class="data2009"></div>
-        <div class="data2011"></div>
-        <div class="data2013"></div>
-        <div class="data2015"></div>
-        <div class="data2017"></div>
+  <div id="chart">
+    <!-- <svg id="duan" view-box="0,0,600,1000" preserveAspectRatio="xMidYMidslice"></svg> -->
+    <svg id="duan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="	http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-100 -20 1100 900" enable-background="new 0 0 940 450" xml:space="preserve" preserveAspectRatio="xMidYMid slice"></svg>
+  </div>
+  <div class="data2007"></div>
+  <div class="data2009"></div>
+  <div class="data2011"></div>
+  <div class="data2013"></div>
+  <div class="data2015"></div>
+  <div class="data2017"></div>
 
 </div>
 <script>
-
-var width = 500,
+  var width = 500,
     height = 500;
 
-// Config for the Radar chart
-var config = {
+  // Config for the Radar chart
+  var config = {
     w: width,
     h: height,
     maxValue: 100,
     levels: 5,
     ExtraWidthX: 100
-}
+  }
 
-//Call function to draw the Radar chart
-d3.json("data.json", function(error, data) {
+  //Call function to draw the Radar chart
+  d3.json("data.json", function(error, data) {
     if (error) throw error;
     RadarChart.draw("#chart", data, config);
-});
+  });
 
-var svg = d3.select('body')
-	.selectAll('svg')
-	.append('svg')
-	.attr("width", width)
-	.attr("height", height);
+  // var svg = d3.select('body')
+  //   .selectAll('svg')
+  //   .append('svg')
+  //   .attr("width", width)
+  //   .attr("height", height);
 </script>

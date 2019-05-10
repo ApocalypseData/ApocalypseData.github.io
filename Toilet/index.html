@@ -10,13 +10,12 @@
 	<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
 	<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
-
 	<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
 	<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
 	<script src="dist/semantic.js"></script>
 	<script type="text/javascript">
 	$(window).on('load', function() {
-		$("#preloader").delay(10000).fadeOut();
+		$("#preloader").delay(1000).fadeOut();
 	});
 	</script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
@@ -25,9 +24,8 @@
 
 	<script src="game.js"></script>
 	<link rel="stylesheet" href="game.css">
+
 	<script type="text/javascript">
-
-
 
 		function scrollnumber(element, offset) {
 			var a, b, c, d, e;
@@ -44,14 +42,14 @@
 		function scrollfun() {
 			scrollnumber("#try", 740);
 		}
-
-
 		$(window).scroll(function() {
 			scrollfun();
 		});
 	</script>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
 	<style>
 		body {
 	background-color: white;
@@ -62,24 +60,19 @@
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-size: 100% 100%; */
-
 }
-
-
 h1 {
 	font-size: 24px;
 	color:#002d73;
 	margin: 0;
 	text-align:center;
 }
-
 p {
 	font-size: 18px;
 	margin: 22px 0 0 0;
 	line-height: 1.8;
 	text-align: justify;
 }
-
 #ticks{
 	position:absolute;
 	left:-3px;
@@ -157,6 +150,20 @@ background-color: rgba(255,250,250,0.6);
 	left:1rem;
 	top:0;
   width:75px;
+}
+.tubiao2{
+	height:123px;
+	width:77%;
+	margin-top: 2rem;
+}
+.tubiao3{
+	height: 123px;
+	width: 35%;
+	margin-top: 2rem;
+}
+.fenge{
+	width: 50px;
+	margin: 40px 0 40px 45%;
 }
 		/* duan */
 		button {
@@ -250,20 +257,8 @@ background-color: rgba(255,250,250,0.6);
 			font-weight: 500;
 		  color: #081F2C;
 		}
-		.tubiao2{
-			height:123px;
-			width:77%;
-			margin-top: 2rem;
-		}
-		.tubiao3{
-			height: 123px;
-			width: 35%;
-			margin-top: 2rem;
-		}
-		.fenge{
-			width: 50px;
-			margin: 40px 0 40px 45%;
-		}
+
+
 @media screen and (max-width: 800px) {
 	#wrapperM{
 		display:block;
@@ -272,7 +267,7 @@ background-color: rgba(255,250,250,0.6);
 	display: none;
 }
 #radarchart1,#radarchart2{
- margin-left: 220px;
+ margin-left: 0px;
 }
 #ticks{
 	width:80vw;
