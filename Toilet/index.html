@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>小游戏</title>
 	<link rel="stylesheet" type="text/css" href="dist/semantic.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 	<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
 	<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
@@ -28,7 +28,7 @@
         a = eval(d + offset);
         b = $(window).scrollTop();
         c = $(window).height();
-		e=a+10;
+		e=a+8;
         if (b + c >a && b+c<e) {
             $("body").css("overflow","hidden")
         }
@@ -68,25 +68,17 @@ h1 {
 }
 
 p {
-	font-size: 20px;
-	margin: 19px 0 0 0;
-	line-height: 1.5;
+	font-size: 18px;
+	margin: 22px 0 0 0;
+	line-height: 1.8;
 	text-align: justify;
-	letter-spacing: 1px;
 }
 
-.bouncy{
- animation:bouncy 5s infinite linear;
- position:relative;
-}
-@keyframes bouncy {
- 0%{top:0em}
- 40%{top:0em}
- 43%{top:-0.9em}
- 46%{top:0em}
- 48%{top:-0.4em}
- 50%{top:0em}
- 100%{top:0em;}
+#ticks{
+	position:absolute;
+	left:-3px;
+	top:0px;
+	width:500px;
 }
 
 .wrapper {
@@ -112,7 +104,11 @@ p {
 	height:100vh;
 }
 
-#lollipop{
+#lollipop1{
+	width:100%;
+margin-bottom: 10px;
+		}
+	#lollipop2{
 	width:100%;
 margin-bottom: 10px;
 		}
@@ -120,8 +116,8 @@ margin-bottom: 10px;
 #slider{
 	position: absolute;
 	width: 500px;
-	height: 7px;
-	margin-top: 300px;
+	height: 15px;
+	margin-top: 275px;
 	margin-left: 50px;
 }
 
@@ -135,7 +131,7 @@ width: 600px;
 	position:absolute;
 	margin: 10px 0 0 0;
 	width: 600px;
-	margin-top: 350px;
+	margin-top: 315px;
 	opacity:0;
 }
 .ui.text.container {
@@ -146,7 +142,12 @@ background-color: rgba(255,250,250,0.6);
 .ui.text.container.mapChart{
 			height: 1000px;
 		}
-
+.matong {
+	position: absolute;
+	left:1rem;
+	top:0;
+  width:75px;
+}
 		/* duan */
 		button {
 			 background-color: #e6e6e6;
@@ -254,6 +255,9 @@ background-color: rgba(255,250,250,0.6);
 #wrapperZ{
 	display: none;
 }
+#ticks{
+	width:80vw;
+}
 .tubiao2{
 	height:73px;
 	width:77%;
@@ -261,6 +265,10 @@ background-color: rgba(255,250,250,0.6);
 .tubiao3{
 	height: 73px;
 	width: 35%;
+}
+.matong{
+	left:0.5rem;
+	width:10vw;
 }
 /* map适配 */
 .ui.text.container.mapChart{
@@ -288,8 +296,13 @@ height: 100vh;
 	}
 
 	/* game适配 */
-	.titles{
+	#game, #game99 {
+		height: 110vh;
+	}
+	p#citytitle{margin-bottom: 10px;}
+	p.titles {
 		line-height: 2rem;
+		margin-bottom:10px;
 	}
 	#choosecity{
     margin-left: 10vw;
@@ -324,6 +337,7 @@ top:-9px;
 		margin-left: 5vw;
 		font-family: 'Noto Serif SC', serif;
 	}
+	#dragsuburb2, #dragsuburb299{}
 	#dragstep2,#dragstep299{margin-left: 0vw;
 		margin-bottom: -65vw;
 	}
@@ -341,8 +355,12 @@ top:-9px;
 
 	}
 	.icons3{
-		margin-top: -3vw;
-		width:75px;
+		/* margin:-10px 10px 10px 20px; */
+		width:93px;
+	}
+	.icons1{
+		width:130px;
+		margin:10px;
 	}
 
 
@@ -396,12 +414,10 @@ top:-9px;
 		<img class="wrapper" id="wrapperM" src="images/headpicM.jpg">
 	</div>
 	<div class="ui text container">
-		<p>70亿。</p>
-		<p>中国今年预计再花整整70亿在厕所改革上。</p>
-		<p>“就是个随便解个手的地方，至于投这么多钱吗？”河北沧州市仵龙堂乡的小张站在用了十多年的旱厕旁毫不避讳地说道，家养的猪在仅有一板之隔的牲圈里哼哼叫着。
-		</p>
-		<p>2015年起，中国大力推行厕所革命，并以旅游厕所和农村旱厕改革作为两大主要内容。3年过去，中国厕所现状有了巨大的推进，但像小张一样的质疑也始终存在。然而，这绝不仅仅是“随便解个手的地方”，如今的厕所早已不是普遍认为的“有坑就行”，从新建改建开始，厕所门便有着严格的规定和细致的分类，需要建设者考虑遵循。
-		</p>
+		<p>70亿，相当于10架美国最先进的五代战机F-22的价格。</p>
+		<p>这70亿，中国今年预计再次拨入厕所改革之中，甚至只是拨入厕所改革的一角——农村改厕之中。</p>
+		<p>“就是个随便解个手的地方，至于投这么多钱吗？”河北沧州市仵龙堂乡的张松（化名）站在用了十多年的旱厕旁毫不避讳地说道，家养的猪在仅有一板之隔的牲圈里哼哼叫着。</p>
+		<p>2015年，中国以旅游厕所和农村无害化厕所改革作为两大主要内容，开始大力推行厕所革命。3年过去，中国厕所的现状有了巨大的改善，但像张松一样的质疑也始终存在。然而，这绝不仅仅是“随便解个手的地方”，如今的厕所早已不是普遍认为的“有墙就尿，有坑就拉”，从新建改建开始，厕所便有着严格的规定和细致的分类，需要建设者考虑遵循。</p>
 		<p>不信的话，自己试试，看看你能建成什么等级的厕所？</p>
 	</div>
 <div id="try"></div>
@@ -413,10 +429,10 @@ top:-9px;
 		</div>
 		<div id="city">
 			<div id="tianjiabiaoji">
-				<p id="citytitle" class="titles">建设一个城市厕所
-					<button type="reset" class="btn btn-light chongjian">上一步</button>
-					<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
+				<p id="citytitle" class="titles" >建设一个城市厕所
 				</p>
+				<button type="reset" class="btn btn-light chongjian">重选地区</button>
+					<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
 			</div>
 			<div id="citymain" class="gamemain">
 
@@ -456,8 +472,8 @@ top:-9px;
 						</div>
 					</div>
 					<div id="dragstep3" class="chuxian">
-						<div class="aaa">最后，增加一些高级设施吧<br>
-							<button type="button" class="tiny ui button" id="tijiao">完成建设</button>
+						<div class="aaa">最后，增加一些高级设施吧
+							<button type="button" class="btn btn-light" id="tijiao">完成建设</button>
 						</div>
 						<div id="图标区3">
 							<img src="images/step3-手纸架.png" id="step3-手纸架" class="icons icons3" title="手纸架">
@@ -480,10 +496,10 @@ top:-9px;
 
 		<div id="suburb">
 			<div id="tianjiabiaoji2">
-				<p id="suburbtitle" class="titles">建设一个农村厕所
-					<button type="reset" class="btn btn-light chongjian">上一步</button>
+				<p id="suburbtitle" class="titles">建设一个农村厕所</p>
+					<button type="reset" class="btn btn-light chongjian">重选地区</button>
 					<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
-				</p>
+
 			</div>
 			<div id="suburbmain" class="gamemain">
 				<div id="dragsuburb">
@@ -502,7 +518,7 @@ top:-9px;
 					</div>
 					<div id="dragsuburb2" class="chuxian">
 						<div class="aaa">进行进一步建设
-							<button type="button" class="tiny ui button" id="tijiao2">完成建设</button>
+							<button type="button" class="btn btn-light" id="tijiao2">完成建设</button>
 						</div>
 						<div id="农村图标区2">
 							<img src="images/农村/苍蝇拍.png" id="苍蝇拍" class="icons icons3" title="苍蝇拍">
@@ -544,55 +560,70 @@ top:-9px;
 	<!--	第二条支线玩耍-->
 	<div id="cityessay">
 		<div class="ui text container">
+			<div class="xiaobiaoti" style="position:relative;">
+				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
 
+			</div>
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
 <img class="tubiao3" src="images/icons/三类图标.png" alt="">
-				<p>三类厕所，是最低级的一种，但也是厕所卫生达标的门槛。其主要设置于一般街道，坑与坑之间没有隔档，厕位在2-2.9平方米，可以使用水泥墙面或贴瓷砖至1.5米处即可。</p>
+				<p>三类厕所，是厕所卫生达标的门槛，是城市公厕分类最低级的一种。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
 <img class="tubiao2" src="images/icons/二类图标.png" alt="">
-				<p>二类厕所，适合建设于主要街道，相比三类厕所，坑位需要达到3-4.9平方米，可以设置独立单间，也可以不建设隔档，但瓷砖需要贴到屋顶。</p>
+				<p>二类厕所，适合建设在主要街道。相比三类厕所，每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。此外，二类厕所必须配备面镜、手纸架、洗手液等附属设施。</p>
 <img class="ui fluid image" src="images/icons/一类图标.png" alt="">
-				<p>一类厕所，作为最高级的公厕，主要设置在对外开放游览景点和繁华街道。坑位要达到5-7平方米。值得注意的是，一类厕所有着独特的要求——必须拥有第三类卫生间，且外观需与周围景色融合。</p>
+				<p>一类厕所，作为最高级的公厕，主要设置在对外开放的游览景点和繁华街道。在二类厕所标准的基础上，要求厕位要达到5-7平方米。相比于二类，一类厕所有着独特的要求——必须配备第三卫生间，且厕所建筑外观需与周围景色相称。</p>
 
 				<p>近年来，全国三类以上厕所不断增多，在2017年突破十万大关。</p>
 			</div>
 		<div class="ui text container">
-				<div><img id="lollipop" src="img/lollipop1.png"></div>
-				<p>这来自于国家新建、改建城市公厕，尤其是旅游景区厕所的高强力度。仅2015年至17年，国家旅游发展基金就投入了16.4亿元进行旅游厕所革命，据文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
+				<div><img id="lollipop1" src="img/lollipop1.png"></div>
+				<p>2006年以来，全国三类以上厕所数量不断增多，2017年已突破十万座，约占城市公共厕所总数的75%。</p>
+<p>2004年，第四届世界厕所峰会在北京举办，这届峰会直接推进了北京天安门广场、长城等景点以及北京市内胡同里4000个公共厕所的整改工作。“北京奥运的成功，也是厕所的成功。因为厕所不成功，也不会给别人留下好印象。”世界厕所组织创始人沈锐华评价道。</p>
 
-				<p>改建之外，一些老旧的已达标厕所也进行了重新修缮。2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体的翻新，“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民投拖把。”</p>
-			<p>	彭川和妻子共同负责这一整个厕所的清洁。别无例外，所有二类厕所都必须由一对夫妻承担管理员的职责。为了保持景区厕所24小时的清洁，清洁员们每天要从清晨六点一直工作到晚上十点，下班后也要住在厕所内几乎只容得下一张床的管理员间里，以备突发情况。
-				“不是夫妻谁能愿意？”他顿了顿，“主要是人家姑娘不愿意啊。”彭川哈哈笑着，顺带躲过了床另一头妻子的拳头。
-				在十四个小时的工作时间内，彭川每隔30分钟左右就要检查并打扫一次厕所卫生，2015年厕所革命的大力推广，更使厕所卫生监察日益严格。每天早上的定期巡检之外，还出现了越来越多来自环卫各层级的不定期抽查。彭川笑了笑。</p>
-			<p>	改建、翻新、严格监管与维护……种种举措共同促进了城市厕所的进步。</p>
+<p>2015年至2017年，国家旅游发展基金投入了16.4亿元进行旅游厕所革命。文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
+
+
+
+
+	<p>在改建之外，一些虽然能够勉强达标、但是老旧程度严重的厕所，也完成了修缮工作。在2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体翻新。“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民清洗拖把。”</p>
+
+<p>彭川和他的妻子共同负责这一整个厕所的清洁。在每天十四个小时的工作时间内，彭川每隔30分钟左右就要检查并打扫一次厕所卫生，在旅游旺季更是要时时守着，找准厕所里人少的时候“插空”进去打扫。自2015年大力推广厕所革命以来，对于厕所卫生的检查日益严格。除了每天早上的定期巡检之外，越来越多来自环卫各层级的也开始了不定期的抽查。</p>
+
+<p>“主要就是来检查厕所卫生是否达标、设备是否损坏之类的，还有就是检查我们保洁人员是不是守在岗位上。”彭川介绍道。</p>
+
+<p>别无例外，所有二类厕所都必须由一对夫妻承担管理员的职责。为了保持景区厕所24小时的清洁，清洁员们每天要从清晨六点一直工作到晚上十点，下班后也要住在厕所内几乎只容得下一张床的管理员间里，以备突发情况。“不是夫妻谁能愿意？”彭川顿了顿，“主要是人家姑娘不愿意啊。”他哈哈地笑着。</p>
+
+
+ <p>在排污系统完善，卫生状况基本合格的城市，厕所的整洁、便捷、甚至是美观，成为了改革的主要目标。改建、翻新、严格监管与维护……种种举措共同促进了城市厕所的进步。</p>
+
 		</div>
 	</div>
 	<div id="suburbessay">
 		<div class="ui text container">
-			<p>
-				无害化卫生厕所，要求不再露天，有墙有顶；贮粪池不渗不漏、密闭有盖，粪便能够按时清出。同时，厕所内没有蝇蛆和臭味。
-				在国家的大力推行与政策补贴下，农村无害化厕所普及率逐年提高，全国爱卫办预计将于2030年实现无害化厕所全覆盖。
-				</p>
+			<div class="xiaobiaoti" style="position:relative;">
+				<img class="ui fluid image" src="images/小标题/无害化处理.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+			</div>
+			<img class="ui fluid image" src="images/icons/无害化.png" alt="">
+			<p>无害化卫生厕所，要求厕所不再露天、有墙有顶，化粪池不渗不漏、密闭有盖，厕所内没有蝇蛆和臭味，有通风设施。据调查，没有经过无害化处理的粪便将导致多种疾病传染，会严重影响农民健康。</p>
+
+<p>“连排水系统都没有，怎么改啊？”张松所在的仵龙堂乡，大部分村民都将农村的改厕计划简单想象为旱厕改水厕——这也是大部分人谈及农村改厕的第一反应。然而事实并非如此。“如果全中国几亿农村人口都使用水厕，三峡大坝的储水量四年就会全部用完，这是不符合实际和国情的。”钱军表明。作为全国首家致力于厕所公益的非公募基金会——昆山昱庭公益基金会的创始人，他也被诸多媒体称为 “中国厕所先生”。</p>
+
+<p>实际上，共有6种厕所类型供农村无害化厕所改建选择。各地可以因地制宜，根据功能、价格、生活习惯进行挑选。如习惯使用液态粪肥的地区可修建双瓮漏斗式厕所，而干旱缺水地区则宜选择修建粪尿分集式厕所。</p>
+
+<p>2019年中央财政计划安排70亿元，推动全国3万个村庄、约1000万户农户实现改厕。“小厕所是大民生，如厕难不仅是农民的烦心事，也是很多城里人不愿意到农村去的一个重要原因。” 3月5日，在两会部长通道上，农业农村部部长韩长赋表示：“必须把改善农村人居环境作为乡村振兴战略的重点任务来推进。”</p>
+		</div>
+
+			<div id="radarchart1" style="margin-left: 200px">
+				<iframe align="center" width="100%" height=700px src="radarchart.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
 		</div>
 		<div class="ui text container">
-			<div id="buttons">
-			        <button id="data2007">2007年</button>
-			        <button id="data2009">2009年</button>
-			        <button id="data2011">2011年</button>
-			        <button id="data2013">2013年</button>
-			        <button id="data2015">2015年</button>
-			        <button id="data2017">2017年</button>
-			        </div>
+			<p>在国家的大力推行与政策补贴下，农村无害化厕所普及率逐年提高，全国爱国卫生运动委员会办公室预计中国将于2030年实现无害化厕所全覆盖。 </p>
 
-			        <div id="chart">
-			        </div>
-			        <div class="data2007"></div>
-			        <div class="data2009"></div>
-			        <div class="data2011"></div>
-			        <div class="data2013"></div>
-			        <div class="data2015"></div>
-			        <div class="data2017"></div>
-			<div id="chart"></div>
+<p>但值得注意的是，虽然2007年以来，农村无害化卫生厕所普及率整体呈上升趋势，但地区分布不平衡问题仍然突出。截至2017年，已有7个省份普及率达到90%以上，但仍有两省普及率在20%以下。山东、海南、江苏改革效果较好，上海、天津无害化厕所普及率一直保持较高的水平，可黑龙江、青海、河南等省份改革效果并不是很明显，陕西甚至出现了倒退现象。</p>
 
+<p>哪怕是一个乡，不平衡现象也较为显著。以张松所在的仵龙堂乡后仵龙堂村为例，虽然隔壁许多村在2015年就开始了改厕，乡内甚至已有两个村完成了100%无害化厕所普及，但后仵龙堂村的无害化厕所不超过5家。“每个村经济情况、侧重点和观念意识都不一样，很难齐头并进。”仵龙堂乡副乡长马新普解释道。</p>
 		</div>
 	</div>
 	<div id="game99">
@@ -603,9 +634,10 @@ top:-9px;
 		</div>
 		<div id="city99">
 			<div id="tianjiabiaoji99">
-				<p id="citytitle99" class="titles">建设一个城市厕所
+				<p id="citytitle99" class="titles">建设一个城市厕所			</p>
+
 					<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
-				</p>
+
 			</div>
 			<div id="citymain99" class="gamemain">
 				<div id="drag99">
@@ -630,7 +662,7 @@ top:-9px;
 					</div>
 					<div id="dragstep399" class="chuxian">
 						<div class="aaa">最后，增加一些高级设施吧
-							<button type="button" class="tiny ui button" id="tijiao99">完成建设</button>
+							<button type="button" class="btn btn-light" id="tijiao99">完成建设</button>
 						</div>
 						<div id="图标区399">
 							<img src="images/step3-手纸架.png" id="step3-手纸架99" class="icons icons3" title="手纸架">
@@ -665,9 +697,9 @@ top:-9px;
 		</div>
 		<div id="suburb99">
 			<div id="tianjiabiaoji299">
-				<p id="suburbtitle99" class="titles">建设一个农村厕所
+				<p id="suburbtitle99" class="titles">建设一个农村厕所</p>
 					<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
-				</p>
+
 			</div>
 			<div id="suburbmain99" class="gamemain">
 				<div id="dragsuburb99">
@@ -686,7 +718,7 @@ top:-9px;
 					</div>
 					<div id="dragsuburb299" class="chuxian">
 						<div class="aaa">进行进一步建设<br>
-							<button type="button" class="tiny ui button" id="tijiao299">完成建设</button>
+							<button type="button" class="btn btn-light" id="tijiao299">完成建设</button>
 						</div>
 						<div id="农村图标区299">
 							<img src="images/农村/苍蝇拍.png" id="苍蝇拍99" class="icons icons3" title="苍蝇拍">
@@ -725,76 +757,93 @@ top:-9px;
 		</div>
 	</div>
 	<div id="cityessay99">
+		<div class="xiaobiaoti" style="position:relative;">
+			<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
+			<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+
+		</div>
 		<div class="ui text container">
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
-			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
-				<p>三类厕所，是最低级的一种，但也是厕所卫生达标的门槛。其主要设置于一般街道，坑与坑之间没有隔档，厕位在2-2.9平方米，可以使用水泥墙面或贴瓷砖至1.5米处即可。</p>
-			<img class="tubiao2" src="images/icons/二类图标.png" alt="">
-				<p>二类厕所，适合建设于主要街道，相比三类厕所，坑位需要达到3-4.9平方米，可以设置独立单间，也可以不建设隔档，但瓷砖需要贴到屋顶。</p>
-			<img class="ui fluid image" src="images/icons/一类图标.png" alt="">
-						<p>一类厕所，作为最高级的公厕，主要设置在对外开放游览景点和繁华街道。坑位要达到5-7平方米。值得注意的是，一类厕所有着独特的要求——必须拥有第三类卫生间，且外观需与周围景色融合。</p>
+<img class="tubiao3" src="images/icons/三类图标.png" alt="">
+				<p>三类厕所，是厕所卫生达标的门槛，是城市公厕分类最低级的一种。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
+<img class="tubiao2" src="images/icons/二类图标.png" alt="">
+				<p>二类厕所，适合建设在主要街道。相比三类厕所，每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。此外，二类厕所必须配备面镜、手纸架、洗手液等附属设施。</p>
+<img class="ui fluid image" src="images/icons/一类图标.png" alt="">
+				<p>一类厕所，作为最高级的公厕，主要设置在对外开放的游览景点和繁华街道。在二类厕所标准的基础上，要求厕位要达到5-7平方米。相比于二类，一类厕所有着独特的要求——必须配备第三卫生间，且厕所建筑外观需与周围景色相称。</p>
 
 				<p>近年来，全国三类以上厕所不断增多，在2017年突破十万大关。</p>
 			</div>
-		<div class="ui text container">
-				<div><img id="lollipop" src="img/lollipop1.png"></div>
-				<p>这来自于国家新建、改建城市公厕，尤其是旅游景区厕所的高强力度。仅2015年至17年，国家旅游发展基金就投入了16.4亿元进行旅游厕所革命，据文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
+	<div class="ui text container">
+				<div><img id="lollipop2" src="img/lollipop1.png"></div>
+				<p>2006年以来，全国三类以上厕所数量不断增多，2017年已突破十万座，约占城市公共厕所总数的75%。</p>
+<p>2004年，第四届世界厕所峰会在北京举办，这届峰会直接推进了北京天安门广场、长城等景点以及北京市内胡同里4000个公共厕所的整改工作。“北京奥运的成功，也是厕所的成功。因为厕所不成功，也不会给别人留下好印象。”世界厕所组织创始人沈锐华评价道。</p>
 
-				<p>改建之外，一些老旧的已达标厕所也进行了重新修缮。2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体的翻新，“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民投拖把。”</p>
-			<p>	彭川和妻子共同负责这一整个厕所的清洁。别无例外，所有二类厕所都必须由一对夫妻承担管理员的职责。为了保持景区厕所24小时的清洁，清洁员们每天要从清晨六点一直工作到晚上十点，下班后也要住在厕所内几乎只容得下一张床的管理员间里，以备突发情况。
-				“不是夫妻谁能愿意？”他顿了顿，“主要是人家姑娘不愿意啊。”彭川哈哈笑着，顺带躲过了床另一头妻子的拳头。
-				在十四个小时的工作时间内，彭川每隔30分钟左右就要检查并打扫一次厕所卫生，2015年厕所革命的大力推广，更使厕所卫生监察日益严格。每天早上的定期巡检之外，还出现了越来越多来自环卫各层级的不定期抽查。彭川笑了笑。</p>
-			<p>	改建、翻新、严格监管与维护……种种举措共同促进了城市厕所的进步。</p>
+<p>2015年至2017年，国家旅游发展基金投入了16.4亿元进行旅游厕所革命。文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
+
+
+
+
+	<p>在改建之外，一些虽然能够勉强达标、但是老旧程度严重的厕所，也完成了修缮工作。在2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体翻新。“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民清洗拖把。”</p>
+
+<p>彭川和他的妻子共同负责这一整个厕所的清洁。在每天十四个小时的工作时间内，彭川每隔30分钟左右就要检查并打扫一次厕所卫生，在旅游旺季更是要时时守着，找准厕所里人少的时候“插空”进去打扫。自2015年大力推广厕所革命以来，对于厕所卫生的检查日益严格。除了每天早上的定期巡检之外，越来越多来自环卫各层级的也开始了不定期的抽查。</p>
+
+<p>“主要就是来检查厕所卫生是否达标、设备是否损坏之类的，还有就是检查我们保洁人员是不是守在岗位上。”彭川介绍道。</p>
+
+<p>别无例外，所有二类厕所都必须由一对夫妻承担管理员的职责。为了保持景区厕所24小时的清洁，清洁员们每天要从清晨六点一直工作到晚上十点，下班后也要住在厕所内几乎只容得下一张床的管理员间里，以备突发情况。“不是夫妻谁能愿意？”彭川顿了顿，“主要是人家姑娘不愿意啊。”他哈哈地笑着。</p>
+
+
+ <p>在排污系统完善，卫生状况基本合格的城市，厕所的整洁、便捷、甚至是美观，成为了改革的主要目标。改建、翻新、严格监管与维护……种种举措共同促进了城市厕所的进步。</p>
+
 		</div>
 	</div>
-
 	<div id="suburbessay99">
 		<div class="ui text container">
-			<p>
-				无害化卫生厕所，要求不再露天，有墙有顶；贮粪池不渗不漏、密闭有盖，粪便能够按时清出。同时，厕所内没有蝇蛆和臭味。
-				在国家的大力推行与政策补贴下，农村无害化厕所普及率逐年提高，全国爱卫办预计将于2030年实现无害化厕所全覆盖。
-				</p>
+			<div class="xiaobiaoti" style="position:relative;">
+				<img class="ui fluid image" src="images/小标题/无害化处理.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+			</div>
+			<img class="ui fluid image" src="images/icons/无害化.png" alt="">
+			<p>无害化卫生厕所，要求厕所不再露天、有墙有顶，化粪池不渗不漏、密闭有盖，厕所内没有蝇蛆和臭味，有通风设施。据调查，没有经过无害化处理的粪便将导致多种疾病传染，会严重影响农民健康。</p>
+
+<p>“连排水系统都没有，怎么改啊？”张松所在的仵龙堂乡，大部分村民都将农村的改厕计划简单想象为旱厕改水厕——这也是大部分人谈及农村改厕的第一反应。然而事实并非如此。“如果全中国几亿农村人口都使用水厕，三峡大坝的储水量四年就会全部用完，这是不符合实际和国情的。”钱军表明。作为全国首家致力于厕所公益的非公募基金会——昆山昱庭公益基金会的创始人，他也被诸多媒体称为 “中国厕所先生”。</p>
+
+<p>实际上，共有6种厕所类型供农村无害化厕所改建选择。各地可以因地制宜，根据功能、价格、生活习惯进行挑选。如习惯使用液态粪肥的地区可修建双瓮漏斗式厕所，而干旱缺水地区则宜选择修建粪尿分集式厕所。</p>
+
+<p>2019年中央财政计划安排70亿元，推动全国3万个村庄、约1000万户农户实现改厕。“小厕所是大民生，如厕难不仅是农民的烦心事，也是很多城里人不愿意到农村去的一个重要原因。” 3月5日，在两会部长通道上，农业农村部部长韩长赋表示：“必须把改善农村人居环境作为乡村振兴战略的重点任务来推进。”</p>
 		</div>
 <div class="ui text container">
-	<div id="buttons">
-	        <button id="data2007">2007年</button>
-	        <button id="data2009">2009年</button>
-	        <button id="data2011">2011年</button>
-	        <button id="data2013">2013年</button>
-	        <button id="data2015">2015年</button>
-	        <button id="data2017">2017年</button>
-	        </div>
-
-	        <div id="chart">
-	        </div>
-	        <div class="data2007"></div>
-	        <div class="data2009"></div>
-	        <div class="data2011"></div>
-	        <div class="data2013"></div>
-	        <div class="data2015"></div>
-	        <div class="data2017"></div>
-	<div id="chart"></div>
-
+	<div id="radarchart2">
+				<iframe align="center" width="100%" height=700px src="radarchart.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+			</div>
 </div>
 
+<div class="ui text container">
+			<p>在国家的大力推行与政策补贴下，农村无害化厕所普及率逐年提高，全国爱国卫生运动委员会办公室预计中国将于2030年实现无害化厕所全覆盖。 </p>
 
+<p>但值得注意的是，虽然2007年以来，农村无害化卫生厕所普及率整体呈上升趋势，但地区分布不平衡问题仍然突出。截至2017年，已有7个省份普及率达到90%以上，但仍有两省普及率在20%以下。山东、海南、江苏改革效果较好，上海、天津无害化厕所普及率一直保持较高的水平，可黑龙江、青海、河南等省份改革效果并不是很明显，陕西甚至出现了倒退现象。</p>
+
+<p>哪怕是一个乡，不平衡现象也较为显著。以张松所在的仵龙堂乡后仵龙堂村为例，虽然隔壁许多村在2015年就开始了改厕，乡内甚至已有两个村完成了100%无害化厕所普及，但后仵龙堂村的无害化厕所不超过5家。“每个村经济情况、侧重点和观念意识都不一样，很难齐头并进。”仵龙堂乡副乡长马新普解释道。</p>
+		</div>
 	</div>
 	<div class="ui text container">
-		<h>重要意义</h>
+		<div class="xiaobiaoti" style="position:relative;">
+			<img class="ui fluid image" src="images/小标题/解个手的地方.png" alt="">
+			<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+		</div>
 
 
-		<p>厕所状况越来越好，小张却不以为意。从小住在仵龙堂乡的他早已习惯了家里“临猪而建”的旱厕，对于改厕，他觉得毫无必要。大举推进的厕所建设，着实引发了越来越多像小张 一样的困惑——花这么多钱，有必要吗？
-		</p>
-		<p>世界卫生组织显示，平均对厕所1美元的投入，可以带来5.3倍的回报。“长期来看，这是一件会盈利的事情。”世界厕所组织创始人沈锐华举例说，“印度投入厕所革命的10亿美元，10年左右就能收回成本。”对于厕所革命的经济效益，他同样非常看好。
-		</p>
-		<p>城市旅游厕所的卫生情况、美观程度，对游客的旅游体验有着直接影响，进而关系到景点获得推荐的可能性。“我之前有去厦门玩，当时那里厕所真的很脏，”沈锐华回忆道，“回新加坡之后，我就告诉朋友别去玩了。”
-		</p>
-		<p>“国外机构曾经研究过，厕所给商业体能带来7%的经济效益。” “中国厕所先生”钱军表明。钱军是全国首家致力于厕所公益的非公募基金会——昆山昱庭公益基金会的创始人他表示，卫生美观的厕所会增加人们在其附近徘徊的时长，从而提高了消费的可能性。 （这里钱老师没举景点的例子，这样举例还得麻烦师姐给看看合不合适）以南锣古巷为例，干净的厕所使游客，尤其是女性游客不再需要离开景区解决个人问题，延长了其在景区内游玩的时间，进入商铺消费的几率也就大了起来。
-		</p>
-		<p>对于旅游用途并不明显的农村厕所，新建、改建厕所则带来了显著的卫生进步。中国疾病预防控制中心、农村改水改厕技术指导中心研究员付彦芬表示，改厕可以从根本上控制肠道传染病的发生，是卫生防病的主要措施。
-		</p>
-		<p>以血吸虫病为例，这是一种沿河多发的粪口疾病，其传染源是粪便中的虫卵。随着改厕的不断进行，历年血吸虫病发病人数不断减少，疫情得到了有效控制。
-		</p>
+		<p>不过对于自家村子厕所情况的落后，张松却毫不在意。从小住在村子里的他，早已习惯了家里“临猪而建”的旱厕，对于农村的改厕计划，他觉得没有任何必要，甚至称之为“糟蹋钱”。</p>
+<p>而且，这也并不只是他一个人的看法。大举推进的厕所建设，引发了人们越来越多的类似问题——花这么多钱，真的有必要吗？</p>
+
+<p>世界卫生组织统计显示，平均对厕所1美元的投入，可以带来5.3倍的回报。“长期来看，这是一件会盈利的事情。”沈锐华举例说，“印度投入厕所革命的10亿美元成本，10年左右就能收回。”</p>
+
+<p>“国外机构曾经研究过，厕所给商业体能带来7%的经济效益。” 钱军表示，卫生美观的厕所会增加人们在其附近徘徊的时长，从而提高了消费的可能性。以南锣古巷为例，干净的厕所使游客，尤其是女性游客不再需要离开景区解决个人问题，延长了其在景区内游玩的时间，进入商铺消费的几率也就大了起来。</p>
+
+<p>同时，城市旅游厕所的卫生情况、美观程度也直接影响着游客的旅游体验，进而关系到景点获得推荐的可能性。沈锐华回忆道，“我很久之前有去厦门玩，当时那里厕所真的很脏，回新加坡之后，我就告诉朋友别去玩了。”</p>
+
+<p>对于旅游用途并不明显的农村厕所，其新建、改建带来了显著的卫生进步。中国疾病预防控制中心、农村改水改厕技术指导中心研究员付彦芬表示，农村改厕可以从根本上控制肠道传染病的发生，是卫生防病的主要措施。</p>
+
+<p>血吸虫病是一种沿河多发的粪口疾病，其传染源是粪便中的虫卵。随着改厕的不断进行，历年血吸虫病发病人数不断减少，疫情得到了有效控制。</p>
 
 	</div>
 
@@ -813,8 +862,8 @@ top:-9px;
 
 
 		<div id="slider">
-
-			<p style="padding-top:20px;">
+<img id="ticks" src="img/ticks.png" alt="">
+			<p style="padding-top:10px; margin-top:-45px;">
 				<label for="amount">年份:</label>
 				<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;background-color: transparent;">
 			</p>
@@ -834,34 +883,43 @@ top:-9px;
 
 	<div class="ui text container">
 
-		<p>而卫生情况的完善，会带来生病误工、医疗投入等方面成本下降，从而使农村厕所同样拥有可观的经济效益。 “厕所卫生好了，大家不生病了，工作时间就有保障，还不需要花钱看病了，医护上需要的投入也少了，对经济是很好的。”沈锐华详细分析道。
-		</p>
-		<p>沈锐华认为，虽然短期内厕所革命需要较大的投入资金，但长期来看，这项举措不论是对国家形象，还是经济与健康卫生发展，都有着巨大的益处。
+		<p>生病少了，误工损失和医疗投入等多方面的额外成本也就相应下降了。因此，农村厕所改革同样拥有可观的经济效益。 “厕所卫生好了，大家不生病了，工作时间就有保障，还不需要花钱看病了，医护上需要的投入也少了，对经济是很好的帮助。”沈锐华详细分析道。</p>
+
+	<p>沈锐华认为，虽然短期内厕所革命需要较大的投入资金，但长期来看，这项举措不论是对国家形象，还是对经济与健康卫生发展，都有着巨大的益处。
 		</p>
 
 	</div>
 
 	<div class="ui text container">
-		<h>意识part</h>
-		<p>厕所清洁如此重要，但小张“改厕没必要”的的想法却是可以理解的。 也不怪钱军母亲对儿子投身厕所公益只留下一句“脑子被门挤了”——自古以来，厕所一直被人们当做难登大雅之堂的事情，而这，也是这现在厕所革命严重的阻碍因素之一。
-		</p>
-		<p>小张家里，客厅、厨房都收拾的卫生整洁，唯独厕所，还维持着三十年前的样子。 “大家的观念是最主要的问题。”副乡长马新普说。“厕所嘛。”他意味深长的补了一句。为了推动厕所革命，小张所在的仵龙堂乡推出了大力的补贴政策，农民自家旱厕改双瓮式蹲坑不用花一分钱。然而2018年，乡里还是没能完成上级布置的1000所左右的改厕任务 。
-		</p>
+		<div class="xiaobiaoti" style="position:relative;">
+			<img class="ui fluid image" src="images/小标题/革卫生革观念.png" alt="">
+			<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+		</div>
+		  <p>虽然厕所改革很重要，但张松“改厕没必要”的想法却是很多人的共识。对与儿子所投身的厕所公益，钱军母亲只留下一句“他脑子被门挤了”——自古以来，厕所这一话题一直被人们当做难登大雅之堂之事，而这，也是现在厕所革命严重的阻碍因素之一。</p>
+
+	<p>在张松的家里，客厅、厨房都收拾得卫生整洁，唯独他的厕所，还维持着三十年前的样子。</p>
+
+ <p>“除了钱，大家的观念是最主要的问题。”副乡长马新普说。“厕所嘛……”他意味深长的补了一句。</p>
+
+<p>为了推动厕所革命，张松所在的仵龙堂乡推出了大力的补贴政策，农民自家旱厕改双瓮式蹲坑不用花一分钱。然而2018年，乡里还是没能完成上级布置的1000所左右的改厕任务。</p>
+
 
 	</div>
 
 	<div class="ui text container">
 
-		<p>“咱们中国人这一块的素质真的要提高！”谈及对厕所革命的建议，彭川激动的脱口而出，“有些人觉得厕所就该脏，建的多漂亮他都能搞乱！”每一天，他都会碰到许多不冲厕所，或者将纸巾随处乱扔的游客，成为了他清洁厕所的主要负担之一。
-		</p>
-		<p>对于中国人，厕所这个解决日常生活需求的关键之地，似乎从生活里剥离了出来……“画厕所是会被老师骂的啊。”学室内设计的小王说，“老师每次都教育我们，人家买的是房子，又不是厕所……”
-		</p>
-		<p>如何解决观念上的偏差？钱军认为厕所文化的培养十分关键。在日本，厕所不仅有一个专管的神明，在学生教科书中，也有着大量相关的教育。而中国在相关文化方面却几乎是一片空白。向日本学习，钱军决定以小学校园为切入点，其团队推出《疯狂的厕所》漫画，搭配“废纸置换厕纸”计划，给学生科普“如厕和健康”、“如厕和性保护”等问题，让孩子们正视厕所，也重视厕所，通过辐射性的作用，慢慢影响家长、教师的观念。
-		</p>
-		<p>“人人有粪”。这是沈锐华给自己在中国演讲的命名。根据世界卫生组织统计，人平均每天要进入6-8次厕所，一生共有3年时间呆在厕所。作为人合理的需求，人们应该意识到，出口与入口，同样重要。也只有人们改变对厕所的观念，厕所革命才能拥有更光明的前景。
-		</p>
-		<p>“作为开始，中国的成果非常显著。”沈锐华说，“但这是个漫长的过程，中国还有很长的路要走。”
-		</p>
+		<p>“有些人觉得厕所就该脏，建的多漂亮他都能搞乱！”谈及对厕所革命的建议，彭川激动的脱口而出，“咱们中国人这一块的素质真的要提高！”每一天，他都会碰到许多不冲厕所，或者将纸巾随处乱扔的游客，这成为了他清洁厕所的主要负担。</p>
+
+<p>“画厕所是会被老师骂的啊。”学室内设计的小王说，“老师说，人家买的是房子，又不是厕所。” 对中国人来说，厕所这个解决日常生活需求的关键之地，似乎从生活里剥离了出来。</p>
+
+<p>如何解决观念上的偏差呢？</p>
+
+<p>钱军认为，厕所文化的培养十分关键。在日本，不仅在信仰上有一个专管厕所的神明，学生教科书中也有着大量相关的厕所知识。而中国在这方面却几乎是一片空白。针对现状，钱军决定以小学校园为切入点，其团队推出《疯狂的厕所》漫画，搭配“废纸置换厕纸”计划，给学生科普“如厕和健康”、“如厕和性保护”等问题，让孩子们正视厕所，也重视厕所，通过辐射性的作用，慢慢影响家长、教师的观念。</p>
+
+			<p> “人人有粪”——这是沈锐华给自己在中国演讲的命名。根据世界卫生组织统计，人平均每天要进入6-8次厕所，一生共有3年时间呆在厕所。作为人合理的需求，人们应该意识到，出口与入口，同样重要。也只有人们改变对厕所的观念，厕所革命才能拥有更光明的前景。</p>
+
+	<p>“作为开始，中国的成果非常显著。”沈锐华说，“但这是个漫长的过程，中国还有很长的路要走。”</p>
+
 
 	</div>
 

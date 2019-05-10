@@ -182,7 +182,7 @@ $( document ).tooltip({
 			 console.log(erlei)
 			 
 			 
-			 if(sanlei===0.9){
+			 if(sanlei==="0.9"){
 				  $("#citymain").remove();
 				  $("#sanleicesuo").fadeIn(1000);
 				 $("#cityessay").fadeIn(4000);
@@ -195,8 +195,8 @@ $( document ).tooltip({
 		  });
 			  $("#choosecity99:hover").css("opacity","0.7")
 			 }
-			 else if(sanlei!==0.9&&yilei!=="11"&&erlei=="11"){
-				  $("#citymain").remove();
+			 else {
+				 if(yilei!=="11"&&erlei=="11"){$("#citymain").remove();
 				  $("#erleicesuo").fadeIn(1000);
 				 $("#cityessay").fadeIn(4000);
 				 $("body").css("overflow-y","visible");
@@ -206,9 +206,8 @@ $( document ).tooltip({
 			  $("#choicepage99").hide();
 			  $("#suburb99").fadeIn("slow");
 		  });
-			  $("#choosecity99:hover").css("opacity","0.7")
-					 }
-			  else if(yilei=="11"&&erlei=="11"){
+			  $("#choosecity99:hover").css("opacity","0.7")}
+				 else if(yilei=="11"&&erlei=="11"){
 				  $("#citymain").remove();
 				  $("#yileicesuo").fadeIn(1000);
 				  $("#cityessay").fadeIn(4000);
@@ -221,7 +220,7 @@ $( document ).tooltip({
 		  });
 			  $("#choosecity99:hover").css("opacity","0.7")
 					 }
-			 else {
+				 else{
 				 $("#citymain").remove();
 				  $("#sanleicesuo").fadeIn(1000);
 				 $("#cityessay").fadeIn(4000);
@@ -233,6 +232,7 @@ $( document ).tooltip({
 			  $("#suburb99").fadeIn("slow");
 		  });
 			  $("#choosecity99:hover").css("opacity","0.7")
+			 }
 			 }
 
 		 });
@@ -251,7 +251,7 @@ $( document ).tooltip({
 			 console.log(erlei99)
 			 
 			 
-			 if(sanlei99==0.9){
+			 if(sanlei99=="0.9"){
 				  $("#citymain99").remove();
 				  $("#sanleicesuo99").fadeIn(1000);
 				 $("#cityessay99").fadeIn(4000);

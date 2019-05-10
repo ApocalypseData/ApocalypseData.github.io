@@ -11,10 +11,12 @@
   font-size: 40px;
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   font-family: 'ZCOOL XiaoWei', serif;
 }
-
+.btn.btn-light{
+  margin-bottom: 15px;
+}
 #choicepage, #choicepage99 {
   text-align: center;
 }
@@ -47,7 +49,7 @@
 .chuxian {
   position: absolute;
   left: 23vw;
-  width: 30vw;
+  width: 260px;
 }
 
 #drag, #drag99 {
@@ -64,7 +66,9 @@
   margin-left: 20px;
   line-height: 34px;
 }
-
+#tianjiabiaoji, #tianjiabiaoji2, #tianjiabiaoji99, #tianjiabiaoji299{
+  text-align: center;
+}
 #图标区1, #图标区199 {}
 
 #图标区2, #图标区299 {}
@@ -83,7 +87,7 @@
 
 .icons1 {
   width: 150px;
-  height: 150px;
+
 }
 
 .icons2 {
@@ -96,7 +100,7 @@
 
 .iconssuburb {
   width: 100px;
-  height: 100px;
+
   float: left;
 }
 
@@ -126,6 +130,7 @@
   position: absolute;
   left: 380px;
   top: 270px;
+  margin-top:15px;
 }
 
 #tijiao2，#tijiao299 {
@@ -133,6 +138,7 @@
   position: absolute;
   left: 350px;
   top: 350px;
+  margin-top:15px;
 }
 
 .pandingbiaoti {
@@ -152,6 +158,20 @@
 }
 
 .chongjian:hover {
+  background-color: #e7e7e7;
+}
+
+#tijiao,#tijiao2,#tijiao99,#tijiao299 {
+  margin: auto;
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+  border-radius: 12px;
+  font-size: 15px;
+  margin-left: 1%;
+}
+
+#tijiao:hover,#tijiao2:hover,#tijiao99:hover,#tijiao299:hover {
   background-color: #e7e7e7;
 }
 
