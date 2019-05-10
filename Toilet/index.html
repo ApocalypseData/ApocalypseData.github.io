@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>小游戏</title>
+	<title>厕所革命? 不服来建</title>
 	<link rel="stylesheet" type="text/css" href="dist/semantic.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 	<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
@@ -21,6 +21,12 @@
 	<script src="game.js"></script>
 	<link rel="stylesheet" href="game.css">
 	<script type="text/javascript">
+
+	$(window).on('load',function()
+    {
+        $("#preloader").delay(1000).fadeOut();
+    });
+
 		function scrollnumber(element, offset) {
 			var a, b, c, d, e;
 			d = $(element).offset().top;
@@ -412,10 +418,40 @@ top:-9px;
 
 }
 }
+.preloader{
+	position: absolute;
+	left: 0;
+	right:0;
+	top: 0;
+	bottom: 0;
+}
+
+.preloader #rushPee{
+	position: absolute;
+	width: 20%;
+	height: auto;
+	left: 40%;
+	top: 20%;
+}
+
+.preloader #seeking{
+	position: absolute;
+	width: 40%;
+	height: auto;
+	left: 33%;
+	top: 60%;
+}
 </style>
 </head>
 
 <body>
+
+	<div class="preloader">
+
+		<img id = "rushPee" src="images/尿急厕所08.gif" alt=""/>
+		<img id = "seeking" src="images/正在搜寻厕所.png" alt=""/>
+
+	</div>
 	<div id="wrapperC">
 
 		<img class="wrapper" id="wrapperZ" src="images/headpic.jpg">
@@ -596,6 +632,15 @@ top:-9px;
 
 
 			<p>在改建之外，一些虽然能够勉强达标、但是老旧程度严重的厕所，也完成了修缮工作。在2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体翻新。“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民清洗拖把。”</p>
+
+			<div class="ui one column grid">
+		<div class="column">
+			<div class="ui segment">
+				<img style="width:100%" src="img/高级厕所.jpg">
+			</div>
+		</div>
+		</div>
+
 
 			<p>彭川和他的妻子共同负责这一整个厕所的清洁。在每天十四个小时的工作时间内，彭川每隔30分钟左右就要检查并打扫一次厕所卫生，在旅游旺季更是要时时守着，找准厕所里人少的时候“插空”进去打扫。自2015年大力推广厕所革命以来，对于厕所卫生的检查日益严格。除了每天早上的定期巡检之外，越来越多来自环卫各层级的也开始了不定期的抽查。</p>
 
@@ -940,13 +985,22 @@ top:-9px;
 
 		<p>钱军认为，厕所文化的培养十分关键。在日本，不仅在信仰上有一个专管厕所的神明，学生教科书中也有着大量相关的厕所知识。而中国在这方面却几乎是一片空白。针对现状，钱军决定以小学校园为切入点，其团队推出《疯狂的厕所》漫画，搭配“废纸置换厕纸”计划，给学生科普“如厕和健康”、“如厕和性保护”等问题，让孩子们正视厕所，也重视厕所，通过辐射性的作用，慢慢影响家长、教师的观念。</p>
 
+		<div class="ui one column grid">
+	<div class="column">
+		<div class="ui segment">
+			<img style="width:100%" src="img/沈锐华.jpg">
+		</div>
+	</div>
+	</div>
+
+
 		<p> “人人有粪”——这是沈锐华给自己在中国演讲的命名。根据世界卫生组织统计，人平均每天要进入6-8次厕所，一生共有3年时间呆在厕所。作为人合理的需求，人们应该意识到，出口与入口，同样重要。也只有人们改变对厕所的观念，厕所革命才能拥有更光明的前景。</p>
 
 		<p>“作为开始，中国的成果非常显著。”沈锐华说，“但这是个漫长的过程，中国还有很长的路要走。”</p>
 
 
 	</div>
-
+<img class="ui fluid image" src="img/footer.png" alt="">
 
 
 	<script src="dist/slider.js"></script>
