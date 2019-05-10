@@ -14,16 +14,20 @@
 	<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
 	<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
 	<script src="dist/semantic.js"></script>
+	<script type="text/javascript">
+	$(window).on('load', function() {
+		$("#preloader").delay(10000).fadeOut();
+	});
+	</script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<!--	线上字体库-->
-	<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC|ZCOOL+XiaoWei" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC|ZCOOL+XiaoWei" rel="stylesheet"> -->
 
 	<script src="game.js"></script>
 	<link rel="stylesheet" href="game.css">
 	<script type="text/javascript">
-		$(window).on('load', function() {
-			$("#preloader").delay(1000).fadeOut();
-		});
+
+
 
 		function scrollnumber(element, offset) {
 			var a, b, c, d, e;
@@ -38,7 +42,7 @@
 		}
 
 		function scrollfun() {
-			scrollnumber("#try", 560);
+			scrollnumber("#try", 600);
 		}
 
 
@@ -397,8 +401,8 @@ top:-9px;
 		position:absolute;
 		z-index: -1;
 		display: block;
-		margin-left: 0;
-		width: 100vw;
+		margin-left: 5vw;
+		width: 90vw;
 		height:430px;
 		margin-top: auto;
 	}
@@ -407,8 +411,8 @@ top:-9px;
 		position: absolute;
 		z-index:1;
 		opacity:0;
-		margin-left: 0;
-		width: 100vw;
+		margin-left: 5vw;
+		width: 90vw;
 		height: 430px;
 		margin-top: auto;
 	}
@@ -449,8 +453,8 @@ top:-9px;
 
 	<div class="preloader">
 
-		<img id="rushPee" src="images/尿急厕所08.gif" alt="" />
-		<img id="seeking" src="images/正在搜寻厕所.png" alt="" />
+		<img id="rushPee" src="img/niaoji.gif" alt="" />
+		<img id="seeking" src="img/seeking.png" alt="" />
 
 	</div>
 	<div id="wrapperC">
@@ -773,7 +777,7 @@ top:-9px;
 						</div>
 					</div>
 					<div id="dragsuburb299" class="chuxian">
-						<div class="aaa">进行进一步建设<br>
+						<div class="aaa">进行进一步建设
 							<button type="button" class="btn btn-light" id="tijiao299">完成建设</button>
 						</div>
 						<div id="农村图标区299">
