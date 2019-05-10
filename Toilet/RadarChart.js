@@ -18,7 +18,7 @@ var RadarChart = {
      ExtraWidthY: 100,
      color: d3.scaleOrdinal().range(["#D15C33","#D15C33","#D15C33","#D15C33","#D15C33","#D15C33"])//更改颜色
     };
-  
+
     if('undefined' !== typeof options){
       for(var i in options){
       if('undefined' !== typeof options[i]){
@@ -26,10 +26,10 @@ var RadarChart = {
       }
       }
     }
-    
+
     cfg.maxValue = 100;
     //y轴range
-    
+
     var allAxis = (d[0].map(function(i, j){return i.area}));
     var total = allAxis.length;
     var radius = cfg.factor*Math.min(cfg.w/2, cfg.h/2);
@@ -44,7 +44,7 @@ var RadarChart = {
         .attr("height", cfg.h+cfg.ExtraWidthY)
         .append("g")
         .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
-    
+
     // d3.select("svg")
     // .call(d3.zoom()
     //     .scaleExtent([1, 8])
@@ -63,7 +63,7 @@ var RadarChart = {
         .enter()
         .append("g")
         .attr("class", "axis");
-    
+
     axis.append("line")
       .attr("x1", cfg.w/2)
       .attr("y1", cfg.h/2)
@@ -72,7 +72,7 @@ var RadarChart = {
       .attr("class", "line")
       .style("stroke", "grey")
       .style("stroke-width", "1px");
-    
+
 
     axis.append("text")
       .attr("class", "legend")
@@ -90,10 +90,10 @@ var RadarChart = {
       dataValues = [];
       g.selectAll(".nodes")
       .data(y, function(j, i){
-        console.log(j, i);
+
         var value = (j.value - j.minValue) / (j.maxValue - j.minValue) * 100;
         dataValues.push([
-        cfg.w/2*(1-(parseFloat(Math.max(value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)), 
+        cfg.w/2*(1-(parseFloat(Math.max(value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
         cfg.h/2*(1-(parseFloat(Math.max(value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
         ]);
       });
@@ -119,7 +119,7 @@ var RadarChart = {
                       z = "polygon."+d3.select(this).attr("class");
                       g.selectAll("polygon")
                        .transition(200)
-                       .style("fill-opacity", 0.1); 
+                       .style("fill-opacity", 0.1);
                       g.selectAll(z)
                        .transition(200)
                        .style("fill-opacity", 0.7);
@@ -127,7 +127,7 @@ var RadarChart = {
              .on('mouseon', function (d){
                       z = "polygon."+d3.select(this).attr("class");
                       g.selectAll("polygon")
-                       .style("fill-opacity", 0.1); 
+                       .style("fill-opacity", 0.1);
                       g.selectAll(z)
                        .style("fill-opacity", 0.7);
                       })
@@ -202,12 +202,12 @@ $(function() {
 });
   //连接上控制器
 
-    
+
 //………………………………………………………………………………………………………………………………………………点击跳跃
 
 d3.select("#data2007")
             .on("click", function(d,i) {
-                console.log(this)
+
                 d3.select(this).classed("selected", true);
                 d3.select("#data2009").classed("selected", false);
                 d3.select("#data2011").classed("selected", false);
@@ -226,7 +226,7 @@ d3.select("#data2007")
 // })
 d3.select("#data2009")
             .on("click", function(d,i) {
-                console.log(this)
+
                 d3.select(this).classed("selected", true);
                 d3.select("#data2007").classed("selected", false);
                 d3.select("#data2011").classed("selected", false);
@@ -242,7 +242,7 @@ d3.select("#data2009")
             });
 d3.select("#data2011")
             .on("click", function(d,i) {
-                console.log(this)
+
                 d3.select(this).classed("selected", true);
                 d3.select("#data2007").classed("selected", false);
                 d3.select("#data2009").classed("selected", false);
@@ -259,7 +259,7 @@ d3.select("#data2011")
 
 d3.select("#data2013")
             .on("click", function(d,i) {
-                console.log(this)
+
                 d3.select(this).classed("selected", true);
                 d3.select("#data2007").classed("selected", false);
                 d3.select("#data2011").classed("selected", false);
@@ -276,7 +276,7 @@ d3.select("#data2013")
 
 d3.select("#data2015")
             .on("click", function(d,i) {
-                console.log(this)
+
                 d3.select(this).classed("selected", true);
                 d3.select("#data2007").classed("selected", false);
                 d3.select("#data2011").classed("selected", false);
@@ -293,7 +293,7 @@ d3.select("#data2015")
 
 d3.select("#data2017")
             .on("click", function(d,i) {
-                console.log(this)
+
                 d3.select(this).classed("selected", true);
                 d3.select("#data2007").classed("selected", false);
                 d3.select("#data2011").classed("selected", false);
@@ -307,7 +307,7 @@ d3.select("#data2017")
                 d3.select(".radar-chart-serie1").transition(200).style("fill-opacity", "0.2");
                 d3.select(".radar-chart-serie4").transition(200).style("fill-opacity", "0.2");
             });
-//………………………………………………………………………………………………………………………………………………点击跳跃           
+//………………………………………………………………………………………………………………………………………………点击跳跃
 
     var axis2 = g.selectAll(".axis2")
         .data(allAxis)
@@ -333,7 +333,7 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
           for(var j = 0; j<propertyData.length; j++){
             var grade = propertyData[j];
             if (grade.area == d){
-              console.log(grade);
+          
               html += '<div>' + grade.name + grade.area + '的无害化卫生厕所普及率为: ' + grade.value + '%</div>';//tootip文字
             }
           }

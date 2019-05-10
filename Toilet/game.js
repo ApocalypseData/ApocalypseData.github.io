@@ -24,7 +24,7 @@ $( document ).tooltip({
 		   $("#dragsuburb1-1").hide()
 		  $("#dragsuburb2").hide()
 		  $("#suburbessay").hide();
-		  
+
 		  $("#city99").hide()
 		  $("#suburb99").hide()
 		  $(".pandingbiaoti").hide()
@@ -32,7 +32,7 @@ $( document ).tooltip({
 		  $("#dragsuburb1-199").hide()
 		  $("#dragsuburb299").hide()
 		  $("#suburbessay99").hide();
-         
+
 		  $("#choosecity").click(function(){
 			  $("#choicepage").hide();
 			  $("#city").fadeIn("slow");
@@ -42,15 +42,15 @@ $( document ).tooltip({
 			  $("#suburb").fadeIn("slow");
 			  $("#tuceng-cang").animate({opacity:"1"});
 		  });
-		 
+
 		  var panding=$("#底图0").attr("src");
-		  console.log(panding)
+
 	  $("#dragstep2").hide();
 	  $("#dragstep2-2").hide();
 	  $("#dragstep3").hide();
-		  
+
 	    var panding99=$("#底图099").attr("src");
-		  console.log(panding99);
+		 
 	  $("#dragstep299").hide();
 	  $("#dragstep2-299").hide();
 	  $("#dragstep399").hide();
@@ -62,12 +62,12 @@ $( document ).tooltip({
           drop: function(event,ui) {
 			  var sourceElement = $(ui.helper.context);
 			  var icons=sourceElement.attr("id");
-			  
+
 			  if (icons==="step1-瓷砖99"){
             $( "#底图099").attr("src","images/占位图2.jpg");
 			$("#dragstep199").hide();
 	        $("#dragstep299").show().animate({opacity:"1",zIndex:"1000"});
-		   
+
 			  }
 			  else if(icons==="step1-水泥99"){
 		    $( "#底图099").attr("src","images/占位图3.jpg");
@@ -75,14 +75,14 @@ $( document ).tooltip({
 	        $("#dragstep299").show().animate({opacity:"1",zIndex:"1000"});
 			$("#step3-母婴台99").draggable({ disabled: true }).attr("title","第一步选择水泥墙面就不可以选择母婴台了哦").css("opacity","0.9");
 			$("#step3-一键美化99").draggable({ disabled: true }).attr("title","第一步选择水泥墙面就不可以一键美化了哦");}
-			  
+
 			  else if(icons==="step2-便器99"){
 				  $("#tuceng2-便器99").animate({opacity:"1"})
 				  $("#kengweijieshi99").show().animate({opacity:"1",zIndex:"1000"})
 				  $("#dragstep299").hide();
 	              $("#dragstep2-299").show().animate({opacity:"1",zIndex:"1000"});
 			  }
-			  
+
 			  else if(icons==="step2-水池99"){
 				  $("#tuceng2-水池99").animate({opacity:"1"})
 				  $("#dragstep2-299").hide();
@@ -106,20 +106,20 @@ $( document ).tooltip({
 				  $("#tuceng3-母婴台99").animate({opacity:"1"}).css("zIndex","0")
 				  $("#muyingtaijieshi99").show().animate({opacity:"1",zIndex:"1000"})
 				  $("#step3-母婴台99").remove();
-				  
-				  
+
+
 			  }
 			  else if(icons==="step3-一键美化99"){
 				  $("#tuceng3-一键美化99").animate({opacity:"1"}).css("zIndex","0")
 				  $("#tuceng2-水池99").remove();
 				  $("#step3-一键美化99").remove();
 			  }
-			  
+
 			  else if (icons==="step1-瓷砖"){
             $( "#底图0").attr("src","images/占位图2.jpg");
 			$("#dragstep1").hide();
 	        $("#dragstep2").show().animate({opacity:"1",zIndex:"1000"});
-		   
+
 			  }
 			  else if(icons==="step1-水泥"){
 		    $( "#底图0").attr("src","images/占位图3.jpg");
@@ -127,13 +127,13 @@ $( document ).tooltip({
 	        $("#dragstep2").show().animate({opacity:"1",zIndex:"1000"});
 			$("#step3-母婴台").draggable({ disabled: true }).attr("title","第一步选择水泥墙面就不可以选择母婴台了哦").css("opacity","0.9");
 			$("#step3-一键美化").draggable({ disabled: true }).attr("title","第一步选择水泥墙面就不可以一键美化了哦");}
-			  
+
 			  else if(icons==="step2-便器"){
 				  $("#tuceng2-便器").animate({opacity:"1"})
 				  $("#kengweijieshi").show().animate({opacity:"1",zIndex:"1000"})
 				  $("#dragstep2").hide();
 	              $("#dragstep2-2").show().animate({opacity:"1",zIndex:"1000"});}
-			  
+
 			  else if(icons==="step2-水池"){
 				  $("#tuceng2-水池").animate({opacity:"1"})
 				  $("#dragstep2-2").hide();
@@ -156,7 +156,7 @@ $( document ).tooltip({
 				  $("#tuceng3-母婴台").animate({opacity:"1"}).css("zIndex","0")
 				  $("#muyingtaijieshi").show().animate({opacity:"1"}).css("zIndex","1000")
 				  $("#step3-母婴台").remove();
-				  
+
 			  }
 			  else if(icons==="step3-一键美化"){
 				  $("#tuceng3-一键美化").animate({opacity:"1"}).css("zIndex","0")
@@ -164,10 +164,10 @@ $( document ).tooltip({
 				  $("#step3-一键美化").remove();
 			  }
 		  }
-		  
-		  
+
+
     });
-		 
+
 		 $("#tijiao").click(function(){
 			  $("#tianjiabiaoji").hide();
 			 var shouzhijia=$("#tuceng3-手纸架").css("opacity");
@@ -180,8 +180,8 @@ $( document ).tooltip({
 			 console.log(muyingtai)
 			 console.log(yijianmeihua)
 			 console.log(erlei)
-			 
-			 
+
+
 			 if(sanlei==="0.9"){
 				  $("#citymain").remove();
 				  $("#sanleicesuo").fadeIn(1000);
@@ -236,7 +236,7 @@ $( document ).tooltip({
 			 }
 
 		 });
-		  
+
 		  $("#tijiao99").click(function(){
 			   $("#tianjiabiaoji99").hide();
 			 var shouzhijia99=$("#tuceng3-手纸架99").css("opacity");
@@ -249,8 +249,8 @@ $( document ).tooltip({
 			 console.log(muyingtai99)
 			 console.log(yijianmeihua99)
 			 console.log(erlei99)
-			 
-			 
+
+
 			 if(sanlei99=="0.9"){
 				  $("#citymain99").remove();
 				  $("#sanleicesuo99").fadeIn(1000);
@@ -281,13 +281,13 @@ $( document ).tooltip({
 			  }
 
 		 });
-		  
+
 		    $( ".dropsuburb" ).droppable({
             drop: function(event,ui) {
 				  var sourceElement = $(ui.helper.context);
 			  var icons=sourceElement.attr("id");
-			  
-			  	  
+
+
 			  if (icons==="苍蝇拍99"){
               $("#tuceng-cang99").animate({opacity:"0"});
 				   $("#苍蝇拍99").remove();
@@ -324,7 +324,7 @@ $( document ).tooltip({
 				else if(icons==="墙99"){
 				$("#suburb底图99").remove();
 				$("#tuceng-bai99").animate({opacity:"1"}).css("zIndex","-3");
-				
+
 				$("#dragsuburb199").hide();
 				$("#dragsuburb1-199").fadeIn();
 			}
@@ -378,19 +378,19 @@ $( document ).tooltip({
 			}
 			}
 			});
-		  
+
 		  $("#tijiao2").click(function(){
 			  $("#tianjiabiaoji2").hide();
-			  
+
 			 var a=$("#tuceng-cang").css("opacity");
 			 var b=$("#tuceng-chuang").css("opacity");
 			 var c=$("#tuceng-shui").css("opacity");
 			 var d=$("#tuceng-hua").css("opacity");
 			 var e=$("#tuceng-keng").css("opacity");
-			 
+
 			 var g=a+b+c+d+e
 			 console.log(g)
-			 
+
 			 if(g=="01111"){
 				  $("#suburbmain").remove();
 				 $("#wuhai").fadeIn(1000);
@@ -417,7 +417,7 @@ $( document ).tooltip({
 		  });
 			  $("#choosesuburb99:hover").css("opacity","0.7")
 					 }
-		  
+
   });
 		   $("#tijiao299").click(function(){
 			    $("#tianjiabiaoji299").hide();
@@ -426,10 +426,10 @@ $( document ).tooltip({
 			 var c99=$("#tuceng-shui99").css("opacity");
 			 var d99=$("#tuceng-hua99").css("opacity");
 			 var e99=$("#tuceng-keng99").css("opacity");
-			
+
 			 var g99=a99+b99+c99+d99+e99
 			 console.log(g99)
-			 
+
 			 if(g99=="01111"){
 				  $("#suburbmain99").remove();
 				 $("#wuhai99").fadeIn(1000);
@@ -444,18 +444,18 @@ $( document ).tooltip({
 				 $("body").css("overflow-y","visible");
 				  $("#try").remove();
 					 }
-		  
+
   });
 //		   $(".chongjian").click(function(){
 //			   $("#city").load(location.href+" #city").hide();
 //		       $("#suburb").hide();
 //			   $("#choicepage").fadeIn();
 //		  });
-		 
+
 		  $(".chongjian").click(function(){
 			  window.location.reload();
 		  });
 		   });
 
-          
+
 		// JavaScript Document

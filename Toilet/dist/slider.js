@@ -19,6 +19,7 @@ $( function() {
 
  // if (slider == 2007 ){$("#map2017").css("display","none");}
     $(".imgmapchart").css("opacity",0);
+    $("#riverMap").css("opacity",1);
     $("#mapBase").css("opacity",1);
     $("#map2007").css("opacity",1);
 
