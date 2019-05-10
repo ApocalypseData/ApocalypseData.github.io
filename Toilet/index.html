@@ -21,11 +21,9 @@
 	<script src="game.js"></script>
 	<link rel="stylesheet" href="game.css">
 	<script type="text/javascript">
-
-	$(window).on('load',function()
-    {
-        $("#preloader").delay(1000).fadeOut();
-    });
+		$(window).on('load', function() {
+			$("#preloader").delay(1000).fadeOut();
+		});
 
 		function scrollnumber(element, offset) {
 			var a, b, c, d, e;
@@ -105,8 +103,8 @@ p {
 	margin-top: 40px;
 }
 
-{
-	height:100vh;
+#radarchart1,#radarchart2{
+ margin-left: 220px;
 }
 
 #lollipop1{
@@ -268,6 +266,9 @@ background-color: rgba(255,250,250,0.6);
 	}
 #wrapperZ{
 	display: none;
+}
+#radarchart1,#radarchart2{
+ margin-left: 220px;
 }
 #ticks{
 	width:80vw;
@@ -448,8 +449,8 @@ top:-9px;
 
 	<div class="preloader">
 
-		<img id = "rushPee" src="images/尿急厕所08.gif" alt=""/>
-		<img id = "seeking" src="images/正在搜寻厕所.png" alt=""/>
+		<img id="rushPee" src="images/尿急厕所08.gif" alt="" />
+		<img id="seeking" src="images/正在搜寻厕所.png" alt="" />
 
 	</div>
 	<div id="wrapperC">
@@ -634,12 +635,12 @@ top:-9px;
 			<p>在改建之外，一些虽然能够勉强达标、但是老旧程度严重的厕所，也完成了修缮工作。在2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体翻新。“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民清洗拖把。”</p>
 
 			<div class="ui one column grid">
-		<div class="column">
-			<div class="ui segment">
-				<img style="width:100%" src="img/高级厕所.jpg">
+				<div class="column">
+					<div class="ui segment">
+						<img style="width:100%" src="img/高级厕所.jpg">
+					</div>
+				</div>
 			</div>
-		</div>
-		</div>
 
 
 			<p>彭川和他的妻子共同负责这一整个厕所的清洁。在每天十四个小时的工作时间内，彭川每隔30分钟左右就要检查并打扫一次厕所卫生，在旅游旺季更是要时时守着，找准厕所里人少的时候“插空”进去打扫。自2015年大力推广厕所革命以来，对于厕所卫生的检查日益严格。除了每天早上的定期巡检之外，越来越多来自环卫各层级的也开始了不定期的抽查。</p>
@@ -669,7 +670,7 @@ top:-9px;
 			<p>2019年中央财政计划安排70亿元，推动全国3万个村庄、约1000万户农户实现改厕。“小厕所是大民生，如厕难不仅是农民的烦心事，也是很多城里人不愿意到农村去的一个重要原因。” 3月5日，在两会部长通道上，农业农村部部长韩长赋表示：“必须把改善农村人居环境作为乡村振兴战略的重点任务来推进。”</p>
 		</div>
 
-		<div id="radarchart1" style="margin-left: 200px">
+		<div id="radarchart1">
 			<iframe align="center" width="100%" height=700px src="radarchart.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 		</div>
@@ -866,11 +867,11 @@ top:-9px;
 
 			<p>2019年中央财政计划安排70亿元，推动全国3万个村庄、约1000万户农户实现改厕。“小厕所是大民生，如厕难不仅是农民的烦心事，也是很多城里人不愿意到农村去的一个重要原因。” 3月5日，在两会部长通道上，农业农村部部长韩长赋表示：“必须把改善农村人居环境作为乡村振兴战略的重点任务来推进。”</p>
 		</div>
-		<div class="ui text container">
-			<div id="radarchart2">
-				<iframe align="center" width="100%" height=700px src="radarchart.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-			</div>
+
+		<div id="radarchart2">
+			<iframe align="center" width="100%" height=700px src="radarchart.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 		</div>
+
 
 		<div class="ui text container">
 			<p>在国家的大力推行与政策补贴下，农村无害化厕所普及率逐年提高，全国爱国卫生运动委员会办公室预计中国将于2030年实现无害化厕所全覆盖。 </p>
@@ -960,18 +961,18 @@ top:-9px;
 
 		<p>为了推动厕所革命，张松所在的仵龙堂乡推出了大力的补贴政策，农民自家旱厕改双瓮式蹲坑不用花一分钱。然而2018年，乡里还是没能完成上级布置的1000所左右的改厕任务。</p>
 		<div class="ui two column grid">
-  <div class="column">
-    <div class="ui segment">
-      <img style="width:100%" src="img/卧室.jpg">
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-      <img style="width:100%" src="img/茅坑.jpg">
-    </div>
-  </div>
+			<div class="column">
+				<div class="ui segment">
+					<img style="width:100%" src="img/卧室.jpg">
+				</div>
+			</div>
+			<div class="column">
+				<div class="ui segment">
+					<img style="width:100%" src="img/茅坑.jpg">
+				</div>
+			</div>
 
-</div>
+		</div>
 
 	</div>
 
@@ -986,12 +987,12 @@ top:-9px;
 		<p>钱军认为，厕所文化的培养十分关键。在日本，不仅在信仰上有一个专管厕所的神明，学生教科书中也有着大量相关的厕所知识。而中国在这方面却几乎是一片空白。针对现状，钱军决定以小学校园为切入点，其团队推出《疯狂的厕所》漫画，搭配“废纸置换厕纸”计划，给学生科普“如厕和健康”、“如厕和性保护”等问题，让孩子们正视厕所，也重视厕所，通过辐射性的作用，慢慢影响家长、教师的观念。</p>
 
 		<div class="ui one column grid">
-	<div class="column">
-		<div class="ui segment">
-			<img style="width:100%" src="img/沈锐华.jpg">
+			<div class="column">
+				<div class="ui segment">
+					<img style="width:100%" src="img/沈锐华.jpg">
+				</div>
+			</div>
 		</div>
-	</div>
-	</div>
 
 
 		<p> “人人有粪”——这是沈锐华给自己在中国演讲的命名。根据世界卫生组织统计，人平均每天要进入6-8次厕所，一生共有3年时间呆在厕所。作为人合理的需求，人们应该意识到，出口与入口，同样重要。也只有人们改变对厕所的观念，厕所革命才能拥有更光明的前景。</p>
@@ -1000,7 +1001,7 @@ top:-9px;
 
 
 	</div>
-<img class="ui fluid image" src="img/footer.png" alt="">
+	<img class="ui fluid image" src="img/footer.png" alt="">
 
 
 	<script src="dist/slider.js"></script>
