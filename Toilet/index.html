@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +9,7 @@
 	<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
 	<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
-	<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+	<!-- <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"> -->
 	<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
 	<script src="dist/semantic.js"></script>
 	<script type="text/javascript">
@@ -18,6 +17,7 @@
 		$("#preloader").delay(1000).fadeOut();
 	});
 	</script>
+
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<!--	线上字体库-->
 	<!-- <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC|ZCOOL+XiaoWei" rel="stylesheet"> -->
@@ -40,7 +40,7 @@
 		}
 
 		function scrollfun() {
-			scrollnumber("#try", 740);
+			scrollnumber("#try", 650);
 		}
 		$(window).scroll(function() {
 			scrollfun();
@@ -73,12 +73,21 @@ p {
 	line-height: 1.8;
 	text-align: justify;
 }
+
+.zhushi {
+			font-size: 14px;
+			text-align: center;
+			color:rgba(132,132,132,1.00);
+			margin-top: 0;
+		}
 #ticks{
 	position:absolute;
 	left:-3px;
 	top:0px;
 	width:500px;
 }
+
+
 
 .wrapper {
 	width: 100%;
@@ -96,7 +105,7 @@ p {
 	display: none;
 }
 #game, #game99{
-	height: 100vh;
+	height: 110vh;
 	margin-top: 40px;
 }
 
@@ -182,23 +191,15 @@ background-color: rgba(255,250,250,0.6);
 		            }
 
 		            button:hover {
-		                background: #3cb0fd;
-		                background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-		                background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-		                background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-		                background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-		                background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+		                background: #dddddd;
 		                text-decoration: none;
-		                color: #e6e6e6;
+		                color: #000000;
 		            }
 
 		            .selected {
-		                background-image: -webkit-linear-gradient(top, #3cb0fd, #286b94);
-		                background-image: -moz-linear-gradient(top, #3cb0fd, #286b94);
-		                background-image: -ms-linear-gradient(top, #3cb0fd, #286b94);
-		                background-image: -o-linear-gradient(top, #3cb0fd, #286b94);
-		                background-image: linear-gradient(to bottom, #3cb0fd, #286b94);
-		                color: #e6e6e6;
+		                background: #dddddd;
+		                text-decoration: none;
+		                color: #000000;
 		            }
 		.test-opacity{
 		  opacity: 1;
@@ -313,7 +314,7 @@ height: 100vh;
 		}
 	/* game适配 */
 	#game, #game99 {
-		height: 110vh;
+		height: 770px;
 	}
 	p#citytitle{margin-bottom: 10px;}
 	p.titles {
@@ -464,13 +465,14 @@ top:-9px;
 		<p>70亿，相当于10架美国最先进的五代战机F-22的价格。</p>
 		<p>这70亿，中国今年预计再次拨入厕所改革之中，甚至只是拨入厕所改革的一角——农村改厕之中。</p>
 		<p>“就是个随便解个手的地方，至于投这么多钱吗？”河北沧州市仵龙堂乡的张松（化名）站在用了十多年的旱厕旁毫不避讳地说道，家养的猪在仅有一板之隔的牲圈里哼哼叫着。</p>
-		<p>2015年，中国以旅游厕所和农村无害化厕所改革作为两大主要内容，开始大力推行厕所革命。3年过去，中国厕所的现状有了巨大的改善，但像张松一样的质疑也始终存在。然而，这绝不仅仅是“随便解个手的地方”，如今的厕所早已不是普遍认为的“有墙就尿，有坑就拉”，从新建改建开始，厕所便有着严格的规定和细致的分类，需要建设者考虑遵循。</p>
-		<p>不信的话，自己试试，看看你能建成什么等级的厕所？</p>
+		<p>2015年，中国以旅游厕所和农村无害化厕所改革作为两大主要内容，开始大力推行厕所革命。3年过去，厕所现状有了巨大的改善，而像张松这样的质疑声也始终存在。是从“随便解个手的地方”到一个成为一座城市的“门面”，从“有墙就尿，有坑就拉”到健康观念的树立，厕所的新建改建一次次改善了生活环境推动文明进程。严格的规定和细致的分类，让厕所有了等级差别。</p>
+		<p>试试看，你能建成什么等级的厕所？</p>
 	</div>
 	<div id="try"></div>
 	<div id="game">
 		<div id="choicepage">
-			<h1 id="choiceplaces" class="titles">选择您建设厕所的地区</h1>
+			<h1 id="choiceplaces" class="titles">
+				<span style="color: rgba(155,4,7,1.00)">点击</span>选择您建设厕所的地区</h1>
 			<img src="images/选择城市.png" id="choosecity" class="bouncy">
 			<img src="images/选择农村.png" id="choosesuburb" style="animation-delay: 0.07s" class="bouncy">
 		</div>
@@ -486,6 +488,7 @@ top:-9px;
 
 				<div id="ditumen">
 					<img src="images/占位图1.jpg" id="底图0" class="background drop">
+					<img src="images/城市手手.png" id="tishiC" class="background drop animated infinite bounce">
 					<img src="images/图层2-便器.png" id="tuceng2-便器" class="tuceng drop">
 					<img src="images/图层2-水池.png" id="tuceng2-水池" class="tuceng drop">
 					<img src="images/图层3-手纸架.png" id="tuceng3-手纸架" class="tuceng drop">
@@ -524,7 +527,7 @@ top:-9px;
 						</div>
 						<div id="图标区3">
 							<img src="images/step3-手纸架.png" id="step3-手纸架" class="icons icons3" title="手纸架">
-							<img src="images/step3-配件.png" id="step3-配件" class="icons icons3" title="配件：洗手液+烘手机+空气净化器">
+							<img src="images/step3-配件.png" id="step3-配件" class="icons icons3" title="配件：洗手液+烘手机+镜子">
 							<img src="images/step3-空气净化器.png" id="step3-空气净化器" class="icons icons3" title="空气净化器">
 							<img src="images/step3-母婴台.png" id="step3-母婴台" class="icons icons3" title="母婴台">
 							<img src="images/step3-一键美化.png" id="step3-一键美化" class="icons icons3" title="一键美化外观">
@@ -582,6 +585,7 @@ top:-9px;
 
 					<div id="ditumen2">
 						<img src="images/农村/图层初始界面.png" id="suburb底图" class="background dropsuburb">
+						<img src="images/农村手手.png" id="tishiS" class="background drop animated infinite bounce">
 						<img src="images/农村/图层苍蝇.png" id="tuceng-cang" class="background dropsuburb">
 						<img src="images/农村/图层窗户.png" id="tuceng-chuang" class="tuceng dropsuburb">
 						<img src="images/农村/图层瓷砖.png" id="tuceng-ci" class="tuceng dropsuburb">
@@ -614,41 +618,42 @@ top:-9px;
 			</div>
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
 			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
-			<p>三类厕所，是厕所卫生达标的门槛，是城市公厕分类最低级的一种。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
+			<p>三类厕所，是城市公厕中最低级的一种，也是厕所卫生达标的门槛。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
 			<img class="tubiao2" src="images/icons/二类图标.png" alt="">
-			<p>二类厕所，适合建设在主要街道。相比三类厕所，每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。此外，二类厕所必须配备面镜、手纸架、洗手液等附属设施。</p>
+			<p>二类厕所，适合建设在主要街道。与三类厕所相比，厕位更大，瓷砖更高。每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。面镜、手纸架、洗手液等附属设施也是必需品。</p>
 			<img class="ui fluid image" src="images/icons/一类图标.png" style="margin-top: 2rem;" alt="">
-			<p>一类厕所，作为最高级的公厕，主要设置在对外开放的游览景点和繁华街道。在二类厕所标准的基础上，要求厕位要达到5-7平方米。相比于二类，一类厕所有着独特的要求——必须配备第三卫生间，且厕所建筑外观需与周围景色相称。</p>
+			<p>一类厕所，作为最高级的公厕，常出现在游览景点和繁华街道。不仅必须配备第三卫生间，且建筑外观也需与周围景色相称。同时厕位要达到5-7平方米。</p>
 
 		</div>
 		<div class="ui text container">
 			<img class="ui fluid image" src="images/小标题/三类数量.png" alt="">
 
 			<div><img id="lollipop1" src="img/lollipop1.png"></div>
-			<p>2006年以来，全国三类以上厕所数量不断增多，2017年已突破十万座，约占城市公共厕所总数的75%。</p>
-			<p>2004年，第四届世界厕所峰会在北京举办，这届峰会直接推进了北京天安门广场、长城等景点以及北京市内胡同里4000个公共厕所的整改工作。“北京奥运的成功，也是厕所的成功。因为厕所不成功，也不会给别人留下好印象。”世界厕所组织创始人沈锐华评价道。</p>
+			<p>2004年，第四届世界厕所峰会在北京举办，这届峰会直接推进了北京天安门广场、长城等景点以及北京市内胡同里4000个公共厕所的整改工作。2006年以来，全国三类以上厕所数量不断增多。近年来，厕所改建工作仍备受国家关注。2015年至2017年，国家旅游发展基金投入了16.4亿元进行旅游厕所革命。截至2017年，全国三类以上厕所已突破十万座，约占城市公共厕所总数的75%。而后续的发展还未停止，文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
+			<p>在改建之外，一些能够勉强达标、但是老旧严重的厕所，也完成了修缮工作。在2016年，北京南锣鼓巷二类厕所进行了整体翻新。“以前连瓷砖都掉了。”负责这片区域厕所的彭川（化名）说道，“现在好多了，还加了一个污物池让居民清洗拖把。”</p>
 
-			<p>2015年至2017年，国家旅游发展基金投入了16.4亿元进行旅游厕所革命。文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
-
-
+			<p>彭川和他的妻子分别负责这一座厕所的男女卫生间清洁。每隔30分钟，彭川就要检查并打扫一次厕所卫生，这样的工作状态每天要持续14个小时。旅游旺季的时候，彭川时时守着，找准人少的时候“插空”进去打扫。</p>
 
 
-			<p>在改建之外，一些虽然能够勉强达标、但是老旧程度严重的厕所，也完成了修缮工作。在2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体翻新。“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民清洗拖把。”</p>
+
+
+			<p>别无例外，所有二类厕所都必须由一对夫妻承担管理员的职责。为了保持景区厕所24小时的清洁，清洁员们每天要从清晨六点一直工作到晚上十点，下班后也要住在厕所内几乎只容得下一张床的管理员间里，以备突发情况。“不是夫妻谁能愿意？” 彭川笑道。</p>
 
 			<div class="ui one column grid">
 				<div class="column">
 					<div class="ui segment">
 						<img style="width:100%" src="img/高级厕所.jpg">
+					<p class="zhushi">西安某旅游厕所</p>
 					</div>
 				</div>
+
 			</div>
 
 
-			<p>彭川和他的妻子共同负责这一整个厕所的清洁。在每天十四个小时的工作时间内，彭川每隔30分钟左右就要检查并打扫一次厕所卫生，在旅游旺季更是要时时守着，找准厕所里人少的时候“插空”进去打扫。自2015年大力推广厕所革命以来，对于厕所卫生的检查日益严格。除了每天早上的定期巡检之外，越来越多来自环卫各层级的也开始了不定期的抽查。</p>
+			<p>自2015年大力推广厕所革命以来，对于厕所卫生的检查日益严格。除了每天早上的定期巡检之外，越来越多来自环卫各层级的领导也开始了不定期的抽查。</p>
 
 			<p>“主要就是来检查厕所卫生是否达标、设备是否损坏之类的，还有就是检查我们保洁人员是不是守在岗位上。”彭川介绍道。</p>
 
-			<p>别无例外，所有二类厕所都必须由一对夫妻承担管理员的职责。为了保持景区厕所24小时的清洁，清洁员们每天要从清晨六点一直工作到晚上十点，下班后也要住在厕所内几乎只容得下一张床的管理员间里，以备突发情况。“不是夫妻谁能愿意？”彭川顿了顿，“主要是人家姑娘不愿意啊。”他哈哈地笑着。</p>
 
 
 			<p>在排污系统完善，卫生状况基本合格的城市，厕所的整洁、便捷、甚至是美观，成为了改革的主要目标。改建、翻新、严格监管与维护……种种举措共同促进了城市厕所的进步。</p>
@@ -678,16 +683,16 @@ top:-9px;
 		<div class="ui text container">
 			<p>在国家的大力推行与政策补贴下，农村无害化厕所普及率逐年提高，全国爱国卫生运动委员会办公室预计中国将于2030年实现无害化厕所全覆盖。 </p>
 
-			<p>但值得注意的是，虽然2007年以来，农村无害化卫生厕所普及率整体呈上升趋势，但地区分布不平衡问题仍然突出。截至2017年，已有7个省份普及率达到90%以上，但仍有两省普及率在20%以下。山东、海南、江苏改革效果较好，上海、天津无害化厕所普及率一直保持较高的水平，可黑龙江、青海、河南等省份改革效果并不是很明显，陕西甚至出现了倒退现象。</p>
+			<p>值得注意的是，2007年以来，农村无害化卫生厕所普及率整体呈上升趋势，但地区分布不平衡问题仍然突出。截至2017年，已有7个省份普及率达到90%以上，但黑龙江、青海两省普及率在20%以下。山东、海南、江苏改革效果较好，上海、天津无害化厕所普及率一直保持较高的水平，可湖南、河南等省份改革效果并不是很明显，陕西甚至出现了倒退现象。</p>
 
-			<p>哪怕是一个乡，不平衡现象也较为显著。以张松所在的仵龙堂乡后仵龙堂村为例，虽然隔壁许多村在2015年就开始了改厕，乡内甚至已有两个村完成了100%无害化厕所普及，但后仵龙堂村的无害化厕所不超过5家。“每个村经济情况、侧重点和观念意识都不一样，很难齐头并进。”仵龙堂乡副乡长马新普解释道。</p>
+			<p>哪怕是一个乡，也可能出现明显的不平衡现象。张松所在的仵龙堂乡，虽然在2015年就开始了改厕，乡内甚至已有两个村完成了100%无害化厕所普及，但后仵龙堂村的无害化厕所不超过5家。“每个村经济情况、侧重点和观念意识都不一样，很难齐头并进。”仵龙堂乡副乡长马新普解释道。</p>
 		</div>
 	</div>
 	<div id="game99">
 		<div id="choicepage99">
 			<h1 id="choiceplaces99" class="titles">试试另一地点的厕所建设吧</h1>
-			<img src="images/选择城市.png" id="choosecity99" class="bouncy">
-			<img src="images/选择农村.png" id="choosesuburb99" class="bouncy" style="animation-delay:0.07s">
+			<img src="images/选择城市.png" id="choosecity99">
+			<img src="images/选择农村.png" id="choosesuburb99">
 		</div>
 		<div id="city99">
 			<div id="tianjiabiaoji99">
@@ -723,7 +728,7 @@ top:-9px;
 						</div>
 						<div id="图标区399">
 							<img src="images/step3-手纸架.png" id="step3-手纸架99" class="icons icons3" title="手纸架">
-							<img src="images/step3-配件.png" id="step3-配件99" class="icons icons3" title="配件：洗手液+烘手机+空气净化器">
+							<img src="images/step3-配件.png" id="step3-配件99" class="icons icons3" title="配件：洗手液+烘手机+镜子">
 							<img src="images/step3-空气净化器.png" id="step3-空气净化器99" class="icons icons3" title="空气净化器">
 							<img src="images/step3-母婴台.png" id="step3-母婴台99" class="icons icons3" title="母婴台">
 							<img src="images/step3-一键美化.png" id="step3-一键美化99" class="icons icons3" title="一键美化外观">
@@ -733,6 +738,7 @@ top:-9px;
 
 				<div id="ditumen99">
 					<img src="images/占位图1.jpg" id="底图099" class="background drop">
+					<img src="images/城市手手.png" id="tishiC99" class="background drop animated infinite bounce">
 					<img src="images/图层2-便器.png" id="tuceng2-便器99" class="tuceng drop">
 					<img src="images/图层2-水池.png" id="tuceng2-水池99" class="tuceng drop">
 					<img src="images/图层3-手纸架.png" id="tuceng3-手纸架99" class="tuceng drop">
@@ -792,6 +798,7 @@ top:-9px;
 
 					<div id="ditumen299">
 						<img src="images/农村/图层初始界面.png" id="suburb底图99" class="background dropsuburb">
+						<img src="images/农村手手.png" id="tishiS99" class="background drop animated infinite bounce">
 						<img src="images/农村/图层苍蝇.png" id="tuceng-cang99" class="background dropsuburb">
 						<img src="images/农村/图层窗户.png" id="tuceng-chuang99" class="tuceng dropsuburb">
 						<img src="images/农村/图层瓷砖.png" id="tuceng-ci99" class="tuceng dropsuburb">
@@ -814,6 +821,7 @@ top:-9px;
 		</div>
 	</div>
 	<div id="cityessay99">
+		<div class="ui text container">
 		<div class="xiaobiaoti" style="position:relative;">
 			<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
 			<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
@@ -822,31 +830,42 @@ top:-9px;
 		<div class="ui text container">
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
 			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
-			<p>三类厕所，是厕所卫生达标的门槛，是城市公厕分类最低级的一种。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
+			<p>三类厕所，是城市公厕中最低级的一种，也是厕所卫生达标的门槛。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
 			<img class="tubiao2" src="images/icons/二类图标.png" alt="">
-			<p>二类厕所，适合建设在主要街道。相比三类厕所，每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。此外，二类厕所必须配备面镜、手纸架、洗手液等附属设施。</p>
+			<p>二类厕所，适合建设在主要街道。与三类厕所相比，厕位更大，瓷砖更高。每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。面镜、手纸架、洗手液等附属设施也是必需品。</p>
 			<img class="ui fluid image" src="images/icons/一类图标.png" style="margin-top:2rem;" alt="">
-			<p>一类厕所，作为最高级的公厕，主要设置在对外开放的游览景点和繁华街道。在二类厕所标准的基础上，要求厕位要达到5-7平方米。相比于二类，一类厕所有着独特的要求——必须配备第三卫生间，且厕所建筑外观需与周围景色相称。</p>
+			<p>一类厕所，作为最高级的公厕，常出现在游览景点和繁华街道。不仅必须配备第三卫生间，且建筑外观也需与周围景色相称。同时厕位要达到5-7平方米。</p>
 
 			<img class="ui fluid image" src="images/小标题/三类数量.png" alt="">
 		</div>
+			</div>
 		<div class="ui text container">
 			<div><img id="lollipop2" src="img/lollipop1.png"></div>
-			<p>2006年以来，全国三类以上厕所数量不断增多，2017年已突破十万座，约占城市公共厕所总数的75%。</p>
-			<p>2004年，第四届世界厕所峰会在北京举办，这届峰会直接推进了北京天安门广场、长城等景点以及北京市内胡同里4000个公共厕所的整改工作。“北京奥运的成功，也是厕所的成功。因为厕所不成功，也不会给别人留下好印象。”世界厕所组织创始人沈锐华评价道。</p>
+			<p>2004年，第四届世界厕所峰会在北京举办，这届峰会直接推进了北京天安门广场、长城等景点以及北京市内胡同里4000个公共厕所的整改工作。2006年以来，全国三类以上厕所数量不断增多。近年来，厕所改建工作仍备受国家关注。2015年至2017年，国家旅游发展基金投入了16.4亿元进行旅游厕所革命。截至2017年，全国三类以上厕所已突破十万座，约占城市公共厕所总数的75%。而后续的发展还未停止，文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
+			<p>在改建之外，一些能够勉强达标、但是老旧严重的厕所，也完成了修缮工作。在2016年，北京南锣鼓巷二类厕所进行了整体翻新。“以前连瓷砖都掉了。”负责这片区域厕所的彭川（化名）说道，“现在好多了，还加了一个污物池让居民清洗拖把。”</p>
 
-			<p>2015年至2017年，国家旅游发展基金投入了16.4亿元进行旅游厕所革命。文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
-
-
+			<p>彭川和他的妻子分别负责这一座厕所的男女卫生间清洁。每隔30分钟，彭川就要检查并打扫一次厕所卫生，这样的工作状态每天要持续14个小时。旅游旺季的时候，彭川时时守着，找准人少的时候“插空”进去打扫。</p>
 
 
-			<p>在改建之外，一些虽然能够勉强达标、但是老旧程度严重的厕所，也完成了修缮工作。在2016年，彭川（化名）负责的南锣鼓巷二类厕所进行了整体翻新。“以前连瓷砖都掉了。”他说道，“现在好多了，还加了一个污物池让居民清洗拖把。”</p>
 
-			<p>彭川和他的妻子共同负责这一整个厕所的清洁。在每天十四个小时的工作时间内，彭川每隔30分钟左右就要检查并打扫一次厕所卫生，在旅游旺季更是要时时守着，找准厕所里人少的时候“插空”进去打扫。自2015年大力推广厕所革命以来，对于厕所卫生的检查日益严格。除了每天早上的定期巡检之外，越来越多来自环卫各层级的也开始了不定期的抽查。</p>
+
+			<p>别无例外，所有二类厕所都必须由一对夫妻承担管理员的职责。为了保持景区厕所24小时的清洁，清洁员们每天要从清晨六点一直工作到晚上十点，下班后也要住在厕所内几乎只容得下一张床的管理员间里，以备突发情况。“不是夫妻谁能愿意？” 彭川笑道。</p>
+
+			<div class="ui one column grid">
+				<div class="column">
+					<div class="ui segment">
+						<img style="width:100%" src="img/高级厕所.jpg">
+					<p class="zhushi">西安某旅游厕所</p>
+					</div>
+				</div>
+
+			</div>
+
+
+			<p>自2015年大力推广厕所革命以来，对于厕所卫生的检查日益严格。除了每天早上的定期巡检之外，越来越多来自环卫各层级的领导也开始了不定期的抽查。</p>
 
 			<p>“主要就是来检查厕所卫生是否达标、设备是否损坏之类的，还有就是检查我们保洁人员是不是守在岗位上。”彭川介绍道。</p>
 
-			<p>别无例外，所有二类厕所都必须由一对夫妻承担管理员的职责。为了保持景区厕所24小时的清洁，清洁员们每天要从清晨六点一直工作到晚上十点，下班后也要住在厕所内几乎只容得下一张床的管理员间里，以备突发情况。“不是夫妻谁能愿意？”彭川顿了顿，“主要是人家姑娘不愿意啊。”他哈哈地笑着。</p>
 
 
 			<p>在排污系统完善，卫生状况基本合格的城市，厕所的整洁、便捷、甚至是美观，成为了改革的主要目标。改建、翻新、严格监管与维护……种种举措共同促进了城市厕所的进步。</p>
@@ -877,9 +896,9 @@ top:-9px;
 		<div class="ui text container">
 			<p>在国家的大力推行与政策补贴下，农村无害化厕所普及率逐年提高，全国爱国卫生运动委员会办公室预计中国将于2030年实现无害化厕所全覆盖。 </p>
 
-			<p>但值得注意的是，虽然2007年以来，农村无害化卫生厕所普及率整体呈上升趋势，但地区分布不平衡问题仍然突出。截至2017年，已有7个省份普及率达到90%以上，但仍有两省普及率在20%以下。山东、海南、江苏改革效果较好，上海、天津无害化厕所普及率一直保持较高的水平，可黑龙江、青海、河南等省份改革效果并不是很明显，陕西甚至出现了倒退现象。</p>
+			<p>值得注意的是，2007年以来，农村无害化卫生厕所普及率整体呈上升趋势，但地区分布不平衡问题仍然突出。截至2017年，已有7个省份普及率达到90%以上，但黑龙江、青海两省普及率在20%以下。山东、海南、江苏改革效果较好，上海、天津无害化厕所普及率一直保持较高的水平，可湖南、河南等省份改革效果并不是很明显，陕西甚至出现了倒退现象。</p>
 
-			<p>哪怕是一个乡，不平衡现象也较为显著。以张松所在的仵龙堂乡后仵龙堂村为例，虽然隔壁许多村在2015年就开始了改厕，乡内甚至已有两个村完成了100%无害化厕所普及，但后仵龙堂村的无害化厕所不超过5家。“每个村经济情况、侧重点和观念意识都不一样，很难齐头并进。”仵龙堂乡副乡长马新普解释道。</p>
+			<p>哪怕是一个乡，也可能出现明显的不平衡现象。张松所在的仵龙堂乡，虽然在2015年就开始了改厕，乡内甚至已有两个村完成了100%无害化厕所普及，但后仵龙堂村的无害化厕所不超过5家。“每个村经济情况、侧重点和观念意识都不一样，很难齐头并进。”仵龙堂乡副乡长马新普解释道。</p>
 		</div>
 	</div>
 	<div class="ui text container">
@@ -900,7 +919,7 @@ top:-9px;
 
 		<p>对于旅游用途并不明显的农村厕所，其新建、改建带来了显著的卫生进步。中国疾病预防控制中心、农村改水改厕技术指导中心研究员付彦芬表示，农村改厕可以从根本上控制肠道传染病的发生，是卫生防病的主要措施。</p>
 
-		<p>血吸虫病是一种沿河多发的粪口疾病，其传染源是粪便中的虫卵。随着改厕的不断进行，历年血吸虫病发病人数不断减少，疫情得到了有效控制。</p>
+		<p>随着改厕的不断进行，一种以粪便中虫卵为传染源，沿河多发的粪口疾病——血吸虫病，其历年发病人数不断减少，疫情得到了有效控制。</p>
 
 	</div>
 
@@ -954,7 +973,7 @@ top:-9px;
 			<img class="ui fluid image" style="margin-top:30px;" src="images/小标题/革卫生革观念.png" alt="">
 			<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
 		</div>
-		<p>虽然厕所改革很重要，但张松“改厕没必要”的想法却是很多人的共识。对与儿子所投身的厕所公益，钱军母亲只留下一句“他脑子被门挤了”——自古以来，厕所这一话题一直被人们当做难登大雅之堂之事，而这，也是现在厕所革命严重的阻碍因素之一。</p>
+		<p> 即便厕所改革很重要，但跟张松一样认为“改厕没必要”的人却是大多数。对于儿子所投身的厕所公益，钱军母亲只留下一句“他脑子被门挤了”——厕所这一话题难登大雅之堂，自古以来从没变过。这恰恰是现在厕所革命严重的阻碍因素之一。</p>
 
 		<p>在张松的家里，客厅、厨房都收拾得卫生整洁，唯独他的厕所，还维持着三十年前的样子。</p>
 
@@ -965,11 +984,13 @@ top:-9px;
 			<div class="column">
 				<div class="ui segment">
 					<img style="width:100%" src="img/卧室.jpg">
+					<p class="zhushi">张松家的卧室</p>
 				</div>
 			</div>
 			<div class="column">
 				<div class="ui segment">
 					<img style="width:100%" src="img/茅坑.jpg">
+					<p class="zhushi">张松家的厕所</p>
 				</div>
 			</div>
 
@@ -979,7 +1000,7 @@ top:-9px;
 
 	<div class="ui text container">
 
-		<p>“有些人觉得厕所就该脏，建的多漂亮他都能搞乱！”谈及对厕所革命的建议，彭川激动的脱口而出，“咱们中国人这一块的素质真的要提高！”每一天，他都会碰到许多不冲厕所，或者将纸巾随处乱扔的游客，这成为了他清洁厕所的主要负担。</p>
+		<p> 即使在城市，厕所观念也没能完全树立起来。“有些人觉得厕所就该脏，建得多漂亮他都能搞乱！”谈及对厕所革命的建议，南锣鼓巷厕所保洁员彭川激动地脱口而出，“咱们中国人这一块的素质真的要提高！”每一天，他都会碰到许多不冲厕所，或者将纸巾随处乱扔的游客，这成为了他清洁厕所的主要负担。</p>
 
 		<p>“画厕所是会被老师骂的啊。”学室内设计的小王说，“老师说，人家买的是房子，又不是厕所。” 对中国人来说，厕所这个解决日常生活需求的关键之地，似乎从生活里剥离了出来。</p>
 
@@ -991,6 +1012,7 @@ top:-9px;
 			<div class="column">
 				<div class="ui segment">
 					<img style="width:100%" src="img/沈锐华.jpg">
+					<p class="zhushi">沈锐华在罗阳村考察绿色校园厕所（“彩虹校厕”项目）建设</p>
 				</div>
 			</div>
 		</div>
