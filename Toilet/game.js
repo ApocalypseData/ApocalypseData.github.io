@@ -50,7 +50,7 @@ $( document ).tooltip({
 	  $("#dragstep3").hide();
 
 	    var panding99=$("#底图099").attr("src");
-		 
+
 	  $("#dragstep299").hide();
 	  $("#dragstep2-299").hide();
 	  $("#dragstep399").hide();
@@ -72,7 +72,7 @@ $( document ).tooltip({
 			  }
 			  else if(icons==="step1-水泥99"){
 		    $( "#底图099").attr("src","images/占位图3.jpg");
-		    $("#tuceng3-配件99").attr("src","images/图层3配件ahhhh.png")
+		    $("#tuceng3-配件99").attr("src","images/图层3-配件2.png")
 	        $("#dragstep199").hide();
 			$("#tishiC99").hide();
 	        $("#dragstep299").show().animate({opacity:"1",zIndex:"1000"});
