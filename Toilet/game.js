@@ -183,12 +183,16 @@ $( document ).tooltip({
 			 var sanlei=$("#step3-母婴台").css("opacity");
 			 var erlei=shouzhijia+peijian;
 			 var yilei=muyingtai+yijianmeihua;
-			 console.log(muyingtai)
-			 console.log(yijianmeihua)
-			 console.log(erlei)
+			 var duankou=$(window).width();
+			 console.log(duankou)
+			 console.log(muyingtai);
+			 console.log(yijianmeihua);
+			 console.log(erlei);
 
 
 			 if(sanlei==="0.45"){
+				 if(duankou<800){$("#sanleicesuoimg").attr("src","images/三类厕所判定M.jpg")}
+
 				  $("#citymain").remove();
 				  $("#sanleicesuo").fadeIn(1000);
 				 $("#cityessay").fadeIn(4000);
@@ -200,9 +204,10 @@ $( document ).tooltip({
 			  $("#suburb99").fadeIn("slow");
 		  });
 			  $("#choosecity99").hide();
-			 }
+				 }
 			 else {
 				 if(yilei!=="11"&&erlei=="11"){$("#citymain").remove();
+					 if(duankou<800){$("#erleicesuoimg").attr("src","images/二类厕所判定M.jpg")}
 				  $("#erleicesuo").fadeIn(1000);
 				 $("#cityessay").fadeIn(4000);
 				 $("body").css("overflow-y","visible");
@@ -215,6 +220,7 @@ $( document ).tooltip({
 			  $("#choosecity99").hide();}
 				 else if(yilei=="11"&&erlei=="11"){
 				  $("#citymain").remove();
+				 if(duankou<800){$("#yileicesuoimg").attr("src","images/一类厕所判定M.jpg")}
 				  $("#yileicesuo").fadeIn(1000);
 				  $("#cityessay").fadeIn(4000);
 				  $("body").css("overflow-y","visible");
@@ -228,6 +234,7 @@ $( document ).tooltip({
 					 }
 				 else{
 				 $("#citymain").remove();
+				 if(duankou<800){$("#sanleicesuoimg").attr("src","images/三类厕所判定M.jpg")}
 				  $("#sanleicesuo").fadeIn(1000);
 				 $("#cityessay").fadeIn(4000);
 				 $("body").css("overflow-y","visible");
@@ -252,12 +259,14 @@ $( document ).tooltip({
 			 var sanlei99=$("#step3-母婴台99").css("opacity");
 			 var erlei99=shouzhijia99+peijian99;
 			 var yilei99=muyingtai99+yijianmeihua99;
+       var duankou=$(window).width();
 			 console.log(muyingtai99)
 			 console.log(yijianmeihua99)
 			 console.log(erlei99)
 
 
 			 if(sanlei99=="0.45"){
+         	 if(duankou<800){$("#sanleicesuoimg99").attr("src","images/三类厕所判定M.jpg")}
 				  $("#citymain99").remove();
 				  $("#sanleicesuo99").fadeIn(1000);
 				 $("#cityessay99").fadeIn(4000);
@@ -265,6 +274,7 @@ $( document ).tooltip({
 				 $("#try").remove();
 			 }
 			 else if(sanlei99!==0.45&&yilei99!=="11"&&erlei99=="11"){
+         	 if(duankou<800){$("#erleicesuoimg99").attr("src","images/二类厕所判定M.jpg")}
 				  $("#citymain99").remove();
 				  $("#erleicesuo99").fadeIn(1000);
 				 $("#cityessay99").fadeIn(4000);
@@ -272,6 +282,7 @@ $( document ).tooltip({
 				 $("#try").remove();
 					 }
 			   else if(yilei99=="11"&&erlei99=="11"){
+           if(duankou<800){$("#yileicesuoimg99").attr("src","images/一类厕所判定M.jpg")}
 				  $("#citymain99").remove();
 				  $("#yileicesuo99").fadeIn(1000);
 				  $("#cityessay99").fadeIn(4000);
@@ -279,6 +290,7 @@ $( document ).tooltip({
 				  $("#try").remove();
 					 }
 			  else{
+          if(duankou<800){$("#sanleicesuoimg99").attr("src","images/三类厕所判定M.jpg")}
 				   $("#citymain99").remove();
 				  $("#sanleicesuo99").fadeIn(1000);
 				 $("#cityessay99").fadeIn(4000);
@@ -395,13 +407,15 @@ $( document ).tooltip({
 			 var c=$("#tuceng-shui").css("opacity");
 			 var d=$("#tuceng-hua").css("opacity");
 			 var e=$("#tuceng-keng").css("opacity");
-
+       var duankou2=$(window).width();
 			 var g=a+b+c+d+e
 			 console.log(g)
 
 			 if(g=="01111"){
+
 				  $("#suburbmain").remove();
 				 $("#wuhai").fadeIn(1000);
+           if(duankou2<800){$("#wuhaiimg").attr("src","images/农村/成功无害化M.jpg")}
 				  $("#suburbessay").fadeIn(4000);
 				 $("body").css("overflow-y","visible");
 			     $("#try").remove();
@@ -413,8 +427,10 @@ $( document ).tooltip({
 			  $("#choosesuburb99").hide();
 			 }
 			 else if(g!=="01111"){
+
 				  $("#suburbmain").remove();
 				  $("#youhai").fadeIn(1000);
+           if(duankou2<800){$("#youhaiimg").attr("src","images/农村/失败无害化M.jpg")}
 				  $("#suburbessay").fadeIn(4000);
 				 $("body").css("overflow-y","visible");
 				  $("#try").remove();
@@ -434,20 +450,24 @@ $( document ).tooltip({
 			 var c99=$("#tuceng-shui99").css("opacity");
 			 var d99=$("#tuceng-hua99").css("opacity");
 			 var e99=$("#tuceng-keng99").css("opacity");
-
+       var duankou299=$(window).width();
 			 var g99=a99+b99+c99+d99+e99
 			 console.log(g99)
 
 			 if(g99=="01111"){
+
 				  $("#suburbmain99").remove();
 				 $("#wuhai99").fadeIn(1000);
+             if(duankou299<800){$("#wuhaiimg99").attr("src","images/农村/成功无害化M.jpg")}
 				  $("#suburbessay99").fadeIn(4000);
 				 $("body").css("overflow-y","visible");
 			     $("#try").remove();
 			 }
 			 else if(g99!=="01111"){
+
 				  $("#suburbmain99").remove();
 				  $("#youhai99").fadeIn(1000);
+            if(duankou299<800){$("#youhaiimg99").attr("src","images/农村/失败无害化M.jpg")}
 				  $("#suburbessay99").fadeIn(4000);
 				 $("body").css("overflow-y","visible");
 				  $("#try").remove();

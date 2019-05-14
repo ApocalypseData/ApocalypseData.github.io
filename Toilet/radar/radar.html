@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+
+</head>
+<style>
+    html, body {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    #container {
+      height: auto;
+
+    padding: 20px;
+    /*outline: 1px dashed orange;*/
+}
+
+    .selected {
+      background-color: #ffffd0;
+            }
+
+.test-opacity{
+  opacity: 1;
+}
+
+.axis {
+	font: 14px sans-serif;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #D4D8DA;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+#chart {
+  width: 100%;
+  height: auto;
+  padding-top: 1%;
+  position: relative;
+}
+  
+  #chart svg {
+		position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: auto;
+  }
+  
+  .toolTip {
+  pointer-events: none;
+	position: absolute;
+  display: none;
+  min-width: 50px;
+  height: auto;
+  background:rgba(255,255,255,0.75);
+
+  padding: 9px 14px 6px 14px;
+  border-radius: 2px;
+  text-align: justify;
+  line-height: 1.5;
+  color: #5B6770;
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, .1);
+}
+
+.satck_button{
+          padding-top: 1%;
+          margin: 1rem auto;
+          text-align: center;
+
+        }
+
+
+.satck_button span{
+/*      color:#fff;*/
+      margin:0 auto;
+      padding: 0.4em;
+      border: #306084 2px solid ;
+      font-size: 1.3em;
+      border-radius: 5px;
+    }
+
+.satck_button #prev_year{
+border: #fff 2px solid ;
+padding: 2em;
+}
+
+.satck_button #next_year{
+border: #fff 2px solid ;
+padding: 2em;
+}
+
+.satck_button span:hover{
+      cursor: pointer;
+
+    }
+
+
+</style>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script src="js/d3.v4.min.js"></script>
+<script src="js/RadarChart.js"></script>
+<!-- ……………………………………………………………………………………………………………………………………………………………………………………………… -->
+
+
+<!-- ……………………………………………………………………………………………………………………………………………………………………………………………… -->
+
+<body>
+  
+
+<div id="container">
+
+
+
+<div class="satck_button">
+        <span id="prev_year" class="yearControl"><img src="img/prev_arrow.png" align="center"></span>
+        <span id="data2007"  class="radarYearButton">2007年</span>
+        <span id="data2009"  class="radarYearButton">2009年</span>
+        <span id="data2011"  class="radarYearButton">2011年</span>
+        <span id="data2013"  class="radarYearButton">2013年</span>
+        <span id="data2015"  class="radarYearButton">2015年</span>
+        <span id="data2017"  class="radarYearButton">2017年</span>
+        <span id="next_year" class="yearControl"><img src="img/next_arrow.png" align="center"></span>
+</div>
+
+<svg id="chart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=" http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 500" enable-background="new 0 0 700 500" xml:space="preserve" preserveAspectRatio="xMidYMid slice">
+
+        </svg>
+
+<!-- <div id="chart"></div> -->
+
+</body>
+<script>
+
+var width = 350,
+    height = 350;
+
+// Config for the Radar chart
+var config = {
+    w: width,
+    h: height,
+    maxValue: 100,
+    levels: 5,
+    ExtraWidthX: 500
+}
+
+//Call function to draw the Radar chart
+d3.json("data/data.json", function(error, data) {
+    if (error) throw error;
+    RadarChart.draw("#chart", data, config);
+});
+
+</script>
