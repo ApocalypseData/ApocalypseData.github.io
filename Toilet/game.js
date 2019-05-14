@@ -128,7 +128,7 @@ $( document ).tooltip({
 			  else if(icons==="step1-水泥"){
 		    $( "#底图0").attr("src","images/占位图3.jpg");
 			$("#tishiC").hide();
-			$("#tuceng3-配件99").attr("src","images/图层3配件ahhhh.png");
+			$("#tuceng3-配件99").attr("src","images/图层3-配件2.png");
 	        $("#dragstep1").hide();
 	        $("#dragstep2").show().animate({opacity:"1",zIndex:"1000"});
 			$("#step3-母婴台").draggable({ disabled: true }).attr("title","第一步选择水泥墙面就不可以选择母婴台了哦").css("opacity","0.45");
