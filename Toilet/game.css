@@ -12,8 +12,9 @@
   text-align: center;
   margin-top: 50px;
   margin-bottom: 0px;
-  font-family: 'ZCOOL XiaoWei', serif;
+  font-family: '黑体', serif;
 }
+
 .btn.btn-light{
   margin-bottom: 20px;
 }
@@ -62,7 +63,7 @@
 
 /*		小游戏每一步小标题的样式*/
 .aaa {
-  font-family: 'Noto Serif SC', serif;
+  font-family: '黑体', serif;
   margin-left: 20px;
   line-height: 25px;
 }

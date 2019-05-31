@@ -14,7 +14,7 @@
 	<script src="dist/semantic.js"></script>
 	<script type="text/javascript">
 		$(window).on('load', function() {
-			$("#preloader").delay(1000).fadeOut();
+			$("#preloader").delay(100).fadeOut();
 		});
 		window.onbeforeunload = function() {
 		  window.scrollTo(0,0);
@@ -51,8 +51,9 @@ h1 {
 }
 p {
 	font-size: 18px;
+	font-weight: 300;
 	margin: 22px 0 0 0;
-	line-height: 1.6;
+	line-height: 2;
 	text-align: justify;
 }
 
@@ -68,9 +69,9 @@ p {
 }
 #ticks{
 	position:absolute;
-	left:-3px;
+	left:-8px;
 	top:0px;
-	width:500px;
+	width:510px;
 }
 
 .wrapper {
@@ -123,9 +124,19 @@ p {
 	width:350px;
 	margin-top: 20px;
 }
+
+@keyframes myfirst
+{
+0%   {left:0px; top:0px;}
+100%  {left:200px; top:0px;}
+}
+
 #huashou{
+	animation:myfirst 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function:ease-in-out;
 	position:absolute;
-	right:-55px;
+	right:-50px;
 	top:-25px;
 	width:100px;
 }
@@ -150,12 +161,26 @@ width: 600px;
 .ui.text.container.mapChart{
 			height: 830px;
 		}
+
+@keyframes myMatong
+{
+0%,20%,100%{transform:scale(1) rotate(0);}                       /*0%,100%时保持图形的原大小且不旋转*/
+    2%,6%{transform: scale(0.9) rotate(3deg);}                  /*10%,30%时图形缩小成0.9倍，并且顺时针旋转3度*/
+    4%,8%,12%,16%{transform:scale(1.1) rotate(-3deg);}         /*20%,40%,60%,80%时图形扩大成1.1倍，并且逆时针旋转3度*/
+    10%,14%{ transform:scale(1.1) rotate(3deg);} 
+}
+
 .matong {
+	animation:myMatong 15s;
+	animation-iteration-count: infinite;
 	position: absolute;
 	left:1rem;
-	top:0;
-  width:75px;
+	bottom:1rem;
+	left:0.5rem;
+	width:5vw;
 }
+
+
 .tubiao2{
 	height:123px;
 	width:77%;
@@ -171,12 +196,15 @@ width: 600px;
 	margin: 40px 0 40px 45%;
 }
 		/* duan */
+		
+.wanchengjianshe{margin-top: 10px;}
+
 		button {
 			 background-color: #e6e6e6;
 			 -webkit-border-radius: 5;
 			 -moz-border-radius: 5;
 			 border-radius: 5px;
-			 font-family: Arial;
+			 font-family:'黑体';
 			 color: #3498db;
 			 font-size: 20px;
 			 padding: 10px 20px 10px 20px;
@@ -315,10 +343,7 @@ width: 600px;
 	height: 73px;
 	width: 35%;
 }
-.matong{
-	left:0.5rem;
-	width:10vw;
-}
+
 /* map适配 */
 .ui.text.container.mapChart{
 	padding:0;
@@ -359,6 +384,7 @@ height: 750px;
 	p.titles {
 		line-height: 2rem;
 		margin-bottom:10px;
+		font-family: "黑体"
 	}
 	#choosecity{
     margin-left: 10vw;
@@ -391,7 +417,7 @@ top:-9px;
 	}
 	.aaa{
 		margin-left: 5vw;
-		font-family: 'Noto Serif SC', serif;
+		font-family:"黑体",serif;
 	}
 	#dragsuburb2, #dragsuburb299{}
 	#dragstep2,#dragstep299{margin-left: 0vw;
@@ -489,7 +515,7 @@ top:-9px;
 	<div id="try" style="height: 15px"></div>
 	<div id="game">
 		<div id="choicepage">
-			<h1 id="choiceplaces" class="titles">
+			<h1 id="choiceplaces" class="titles" style="margin-bottom:10px">
 				<span style="color: rgba(155,4,7,1.00)">点击</span>选择您建设厕所的地区</h1>
 			<img src="images/选择城市.png" id="choosecity" class="bouncy">
 			<img src="images/选择农村.png" id="choosesuburb" style="animation-delay: 0.07s" class="bouncy">
@@ -530,7 +556,7 @@ top:-9px;
 						</div>
 					</div>
 					<div id="dragstep2" class="chuxian">
-						<div class="aaa">接下来，请放入最基础的便器</div>
+						<div class="aaa">接下来，放入最基础的便器</div>
 						<div id="图标区2">
 							<img src="images/step2-便器.png" id="step2-便器" class="icons icons2" title="便器">
 						</div>
@@ -543,7 +569,7 @@ top:-9px;
 					</div>
 					<div id="dragstep3" class="chuxian">
 						<div class="aaa">最后，增加一些高级设施吧
-							<button type="button" class="btn btn-light" id="tijiao">完成建设</button>
+							<button type="button" class="btn btn-light wanchengjianshe" id="tijiao" style="margin-top: 10px;">完成建设</button>
 						</div>
 						<div id="图标区3">
 							<img src="images/step3-手纸架.png" id="step3-手纸架" class="icons icons3" title="手纸架">
@@ -562,7 +588,7 @@ top:-9px;
 				<div class="ui text container fenleiC">
 			<div class="xiaobiaoti" style="position:relative;">
 				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+				<img class="matong" src="images/小标题/tap3.png" alt="">
 
 			</div>
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
@@ -584,7 +610,7 @@ top:-9px;
 					<div class="ui text container fenleiC">
 			<div class="xiaobiaoti" style="position:relative;">
 				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+				<img class="matong" src="images/小标题/tap3.png" alt="">
 
 			</div>
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
@@ -607,7 +633,7 @@ top:-9px;
 				<div class="ui text container  fenleiC">
 			<div class="xiaobiaoti" style="position:relative;">
 				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+				<img class="matong" src="images/小标题/tap3.png" alt="">
 
 			</div>
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
@@ -630,6 +656,7 @@ top:-9px;
 				<p id="suburbtitle" class="titles">建设一个农村厕所</p>
 				<button type="reset" class="btn btn-light chongjian">重选地区</button>
 				<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
+				<button type="reset" class="btn btn-light jieshixianshi">显示注释</button>
 
 			</div>
 			<div id="suburbmain" class="gamemain">
@@ -649,7 +676,7 @@ top:-9px;
 					</div>
 					<div id="dragsuburb2" class="chuxian">
 						<div class="aaa">进行进一步建设
-							<button type="button" class="btn btn-light" id="tijiao2">完成建设</button>
+							<button type="button" class="btn btn-light wanchengjianshe" id="tijiao2" style="margin-top: 10px;">完成建设</button>
 						</div>
 						<div id="农村图标区2">
 							<img src="images/农村/苍蝇拍.png" id="苍蝇拍" class="icons icons3" title="苍蝇拍">
@@ -732,7 +759,7 @@ top:-9px;
 		<div class="ui text container">
 			<div class="xiaobiaoti" style="position:relative;">
 				<img class="ui fluid image"  src="images/小标题/无害化处理.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap4.png" alt="">
+				<img class="matong" src="images/小标题/tap4.png" alt="">
 			</div>
 			<img class="ui fluid image" style="margin-top:20px;" src="images/icons/无害化.png" alt="">
 			<p>无害化卫生厕所，要求厕所不再露天、有墙有顶，化粪池不渗不漏、密闭有盖，厕所内没有蝇蛆和臭味，有通风设施。据调查，没有经过无害化处理的粪便将导致多种疾病传染，会严重影响农民健康。</p>
@@ -761,7 +788,7 @@ top:-9px;
 	<div id="try99"></div>
 	<div id="game99">
 		<div id="choicepage99">
-			<h1 id="choiceplaces99" class="titles">试试另一地点的厕所建设吧</h1>
+			<h1 id="choiceplaces99" class="titles" style="margin-top: 10px;margin-bottom: 10px">试试另一地点的厕所建设吧</h1>
 			<img src="images/选择城市.png" id="choosecity99">
 			<img src="images/选择农村.png" id="choosesuburb99">
 		</div>
@@ -770,6 +797,7 @@ top:-9px;
 				<p id="citytitle99" class="titles">建设一个城市厕所 </p>
 
 				<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
+				<button type="reset" class="btn btn-light jieshixianshi">显示注释</button>
 
 			</div>
 			<div id="citymain99" class="gamemain">
@@ -782,7 +810,7 @@ top:-9px;
 						</div>
 					</div>
 					<div id="dragstep299" class="chuxian">
-						<div class="aaa">接下来，请放入最基础的便器</div>
+						<div class="aaa">接下来，放入最基础的便器</div>
 						<div id="图标区299">
 							<img src="images/step2-便器.png" id="step2-便器99" class="icons icons2" title="便器">
 						</div>
@@ -795,7 +823,7 @@ top:-9px;
 					</div>
 					<div id="dragstep399" class="chuxian">
 						<div class="aaa">最后，增加一些高级设施吧
-							<button type="button" class="btn btn-light" id="tijiao99">完成建设</button>
+							<button type="button" class="btn btn-light wanchengjianshe" id="tijiao99" style="margin-top: 10px;">完成建设</button>
 						</div>
 						<div id="图标区399">
 							<img src="images/step3-手纸架.png" id="step3-手纸架99" class="icons icons3" title="手纸架">
@@ -828,7 +856,7 @@ top:-9px;
 				<div class="ui text container  fenleiC">
 			<div class="xiaobiaoti" style="position:relative;">
 				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+				<img class="matong" src="images/小标题/tap3.png" alt="">
 
 			</div>
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
@@ -849,7 +877,7 @@ top:-9px;
 				<div class="ui text container  fenleiC">
 			<div class="xiaobiaoti" style="position:relative;">
 				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+				<img class="matong" src="images/小标题/tap3.png" alt="">
 
 			</div>
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
@@ -873,7 +901,7 @@ top:-9px;
 				<div class="ui text container  fenleiC">
 			<div class="xiaobiaoti" style="position:relative;">
 				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+				<img class="matong" src="images/小标题/tap3.png" alt="">
 
 			</div>
 			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
@@ -895,6 +923,7 @@ top:-9px;
 			<div id="tianjiabiaoji299">
 				<p id="suburbtitle99" class="titles">建设一个农村厕所</p>
 				<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
+				<button type="reset" class="btn btn-light jieshixianshi">显示注释</button>
 
 			</div>
 			<div id="suburbmain99" class="gamemain">
@@ -914,7 +943,7 @@ top:-9px;
 					</div>
 					<div id="dragsuburb299" class="chuxian">
 						<div class="aaa">进行进一步建设
-							<button type="button" class="btn btn-light" id="tijiao299">完成建设</button>
+							<button type="button" class="btn btn-light wanchengjianshe" id="tijiao299" style="margin-top: 10px;">完成建设</button>
 						</div>
 						<div id="农村图标区299">
 							<img src="images/农村/苍蝇拍.png" id="苍蝇拍99" class="icons icons3" title="苍蝇拍">
@@ -957,7 +986,7 @@ top:-9px;
 		<div class="ui text container  fenleiC">
 		<div class="xiaobiaoti" style="position:relative;">
 			<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
-			<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+			<img class="matong" src="images/小标题/tap3.png" alt="">
 
 		</div>
 		<div class="ui text container">
@@ -1009,7 +1038,7 @@ top:-9px;
 		<div class="ui text container">
 			<div class="xiaobiaoti" style="position:relative;">
 				<img class="ui fluid image" src="images/小标题/无害化处理.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap4.png" alt="">
+				<img class="matong" src="images/小标题/tap4.png" alt="">
 			</div>
 			<img class="ui fluid image" style="margin-top:20px;" src="images/icons/无害化.png" alt="">
 			<p>无害化卫生厕所，要求厕所不再露天、有墙有顶，化粪池不渗不漏、密闭有盖，厕所内没有蝇蛆和臭味，有通风设施。据调查，没有经过无害化处理的粪便将导致多种疾病传染，会严重影响农民健康。</p>
@@ -1039,7 +1068,7 @@ top:-9px;
 	<div class="ui text container">
 		<div class="xiaobiaoti" style="position:relative;">
 			<img class="ui fluid image" style="margin-top:30px;" src="images/小标题/解个手的地方.png" alt="">
-			<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap1.png" alt="">
+			<img class="matong" src="images/小标题/tap1.png" alt="">
 		</div>
 
 
@@ -1110,7 +1139,7 @@ top:-9px;
 	<div class="ui text container">
 		<div class="xiaobiaoti" style="position:relative;">
 			<img class="ui fluid image" style="margin-top:30px;" src="images/小标题/革卫生革观念.png" alt="">
-			<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap2.png" alt="">
+			<img class="matong" src="images/小标题/tap2.png" alt="">
 		</div>
 		<p> 即便厕所改革很重要，但跟张松一样认为“改厕没必要”的人却是大多数。对于儿子所投身的厕所公益，钱军母亲只留下一句“他脑子被门挤了”——厕所这一话题难登大雅之堂，自古以来从没变过。这恰恰是现在厕所革命严重的阻碍因素之一。</p>
 
@@ -1151,12 +1180,12 @@ top:-9px;
 
 		<div class="tupian">
 		<div class="ui one column grid">
-			<div class="column">
+			<!-- <div class="column">
 				<div class="ui container">
 					<img style="width:100%" src="img/沈锐华.jpg">
 					<p class="zhushi">沈锐华在罗阳村考察绿色校园厕所（“彩虹校厕”项目）建设</p>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 
