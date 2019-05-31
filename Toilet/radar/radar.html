@@ -9,6 +9,7 @@
         height: auto;
         margin: 0;
         padding: 0;
+		
     }
 
     #container {
@@ -19,7 +20,8 @@
 }
 
     .selected {
-      background-color: #ffffd0;
+
+      color: red;
             }
 
 .test-opacity{
@@ -57,7 +59,7 @@
   display: none;
   min-width: 50px;
   height: auto;
-  background:rgba(255,255,255,0.75);
+  background:rgba(255,255,255,0.9);
 
   padding: 9px 14px 6px 14px;
   border-radius: 2px;
@@ -78,9 +80,9 @@
 .satck_button span{
 /*      color:#fff;*/
       margin:0 auto;
-      padding: 0.4em;
+      padding: 0.3em;
       border: #306084 2px solid ;
-      font-size: 1.3em;
+      font-size: 1.2em;
       border-radius: 5px;
     }
 
@@ -96,16 +98,40 @@ padding: 2em;
 
 .satck_button span:hover{
       cursor: pointer;
-
     }
 
+.axis2,.legend{
+  cursor:crosshair;
+}
+
+p{
+  text-align: center;
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  width: 50%;
+  font-size: 1em;
+  color: grey;
+}
 
 @media screen and (max-width: 600px) {
   #chart {
     width: 365px;
     height: 365px;
   }
+  
+  p{
+  text-align: center;
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  font-size: 0.2em;
+  }
 }
+
+
+
 
 </style>
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
@@ -132,11 +158,16 @@ padding: 2em;
         <span id="data2015"  class="radarYearButton">2015年</span>
         <span id="data2017"  class="radarYearButton">2017年</span>
         <span id="next_year" class="yearControl"><img src="img/next_arrow.png" align="center"></span>
+
 </div>
 
-<svg id="chart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=" http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 500" enable-background="new 0 0 700 500" xml:space="preserve" preserveAspectRatio="xMidYMid slice">
+<svg id="chart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink=" http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 415" enable-background="new 0 0 700 500" xml:space="preserve" preserveAspectRatio="xMidYMid slice">
+    <p>
+  注：西藏自治区与台湾省的卫生厕所普及率数据暂缺。
+  </p>
 
         </svg>
+
 
 <!-- <div id="chart"></div> -->
 

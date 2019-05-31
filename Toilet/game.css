@@ -11,11 +11,11 @@
   font-size: 40px;
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-family: 'ZCOOL XiaoWei', serif;
 }
 .btn.btn-light{
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 #choicepage, #choicepage99 {
   text-align: center;
@@ -64,7 +64,7 @@
 .aaa {
   font-family: 'Noto Serif SC', serif;
   margin-left: 20px;
-  line-height: 34px;
+  line-height: 25px;
 }
 #tianjiabiaoji, #tianjiabiaoji2, #tianjiabiaoji99, #tianjiabiaoji299{
   text-align: center;
@@ -83,6 +83,7 @@
 
 .icons {
   float: left;
+  cursor: pointer;
 }
 
 .icons1 {
@@ -121,6 +122,9 @@
   margin-left: 50vw;
   width: 400px;
   margin-top: auto;
+}
+.fenleiC{
+	margin-top: 50px;
 }
 #tuceng-cang,#tuceng-cang99{
 			z-index: 100;
@@ -185,60 +189,70 @@
   margin-left: 1%;
 }
 
+.jieshixianshi {
+  margin: auto;
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+  border-radius: 12px;
+  font-size: 15px;
+  margin-left: 1%;
+}
+
 .jieshiniu:hover {
+  background-color: #e7e7e7;
+}
+.jieshixianshi:hover {
   background-color: #e7e7e7;
 }
 
 /*悬浮框的样式*/
 .ui-tooltip, .arrow:after {
-  background: black;
-  border: 2px solid white;
+    background-color: rgba(0,0,0,0.75);
+    border: 2px solid white;
+  }
+.ui-tooltip-content{
+	text-decoration-color:rgba(255,255,255,1.00);
 }
-
-.ui-tooltip {
-  padding: 10px 20px;
-  color: white;
-  border-radius: 20px;
-  font: bold 14px "Helvetica Neue", Sans-Serif;
-  text-transform: uppercase;
-  box-shadow: 0 0 7px black;
-}
-
-.arrow {
-  width: 70px;
-  height: 16px;
-  overflow: hidden;
-  position: absolute;
-  left: 50%;
-  margin-left: -35px;
-  bottom: -16px;
-}
-
-.arrow.top {
-  top: -16px;
-  bottom: auto;
-}
-
-.arrow.left {
-  left: 20%;
-}
-
-.arrow:after {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: -20px;
-  width: 25px;
-  height: 25px;
-  box-shadow: 6px 5px 9px -9px black;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  tranform: rotate(45deg);
-}
-
-.arrow.top:after {
-  bottom: -20px;
-  top: auto;
-}
+  .ui-tooltip {
+    padding: 10px 20px;
+    color: white;
+    border-radius: 20px;
+    font:bold 14px "Helvetica Neue", Sans-Serif;
+    text-transform: uppercase;
+    box-shadow: 0 0 7px rgba(0,0,0,0.75);
+  }
+  .arrow {
+    width: 70px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: -16px;
+  }
+  .arrow.top {
+    top: -16px;
+    bottom: auto;
+  }
+  .arrow.left {
+    left: 20%;
+  }
+  .arrow:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+    box-shadow: 6px 5px 9px -9px black;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    tranform: rotate(45deg);
+  }
+  .arrow.top:after {
+    bottom: -20px;
+    top: auto;
+  }

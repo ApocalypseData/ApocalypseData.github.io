@@ -13,42 +13,20 @@
 	<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
 	<script src="dist/semantic.js"></script>
 	<script type="text/javascript">
-	$(window).on('load', function() {
-		$("#preloader").delay(1000).fadeOut();
-	});
+		$(window).on('load', function() {
+			$("#preloader").delay(1000).fadeOut();
+		});
+		window.onbeforeunload = function() {
+		  window.scrollTo(0,0);
+		}
 	</script>
-
 
 	<!--	线上字体库-->
 	<!-- <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC|ZCOOL+XiaoWei" rel="stylesheet"> -->
 
-	<script src="game.js"></script>
+
 	<link rel="stylesheet" href="game.css">
 
-	<script type="text/javascript">
-
-		function scrollnumber(element, offset) {
-			var a, b, c, d, e;
-			d = $(element).offset().top;
-			a = eval(d + offset);
-			b = $(window).scrollTop();
-			c = $(window).height();
-			e = a + 3;
-			if (b  > a && b < e) {
-				$("body").css("overflow", "hidden")
-			}
-		}
-
-		function scrollfun() {
-			scrollnumber("#try", 0);
-		}
-		$(window).scroll(function() {
-			scrollfun();
-		});
-	if($(window).width()<600){
-		$("#try").remove();
-	}
-	</script>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -74,7 +52,7 @@ h1 {
 p {
 	font-size: 18px;
 	margin: 22px 0 0 0;
-	line-height: 1.8;
+	line-height: 1.6;
 	text-align: justify;
 }
 
@@ -101,11 +79,9 @@ p {
 
 }
 #wrapperC,#wrapperZ{
-
 	width:100vw;
 	height: inherit;
 	position:relative;
-
 }
 #wrapperT{
 	position:absolute;
@@ -114,9 +90,12 @@ p {
 #wrapperM{
 	display: none;
 }
+.xiaobiaoti{
+	width: 80%;
+}
 #game, #game99{
 	height: 110vh;
-	margin-top: 40px;
+	margin-top: 0px;
 }
 
 #radarchart1,#radarchart2{
@@ -160,7 +139,7 @@ width: 600px;
 	position:absolute;
 	margin: 10px 0 0 0;
 	width: 600px;
-	margin-top: 315px;
+	margin-top: 325px;
 	opacity:0;
 }
 .ui.text.container {
@@ -169,7 +148,7 @@ width: 600px;
 
 		}
 .ui.text.container.mapChart{
-			height: 1070px;
+			height: 830px;
 		}
 .matong {
 	position: absolute;
@@ -315,7 +294,7 @@ width: 600px;
 			width:200px;
 	    margin: 0 auto -20px 10%;
 		}
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
 #wrapperM{
 		display:block;
 	}
@@ -439,7 +418,7 @@ top:-9px;
 		width:130px;
 		margin:10px;
 	}
-
+	..icons:hover{cursor:pointer;}
 
 	#choosecity, #choosesuburb, #choosecity99, #choosesuburb99 {
 	height: auto;
@@ -460,8 +439,8 @@ top:-9px;
 		z-index: -1;
 		display: block;
 		margin-left: 5vw;
-		width: 90vw;
-		height:430px;
+		width: 80vw;
+		height:380px;
 		margin-top: auto;
 	}
 	.tuceng{
@@ -470,8 +449,8 @@ top:-9px;
 		z-index:1;
 		opacity:0;
 		margin-left: 5vw;
-		width: 90vw;
-		height: 430px;
+		width: 80vw;
+		height: 380px;
 		margin-top: auto;
 	}
 	#drag,#drag99,#dragsuburb,#dragsuburb99{
@@ -495,7 +474,7 @@ top:-9px;
 	<div id="wrapperC">
 
 		<img class="wrapper" id="wrapperZ" src="images/headpic.jpg">
-		<img class="wrapper" id="wrapperT" src="images/ToiletRevolution.png">
+		<!-- <img class="wrapper" id="wrapperT" src="images/ToiletRevolution.png"> -->
 		<img class="wrapper" id="wrapperM" src="images/headpicM.jpg">
 
 	</div>
@@ -507,7 +486,7 @@ top:-9px;
 		<p>2015年，中国以旅游厕所和农村无害化厕所改革作为两大主要内容，开始大力推行厕所革命。3年过去，厕所现状有了巨大的改善，而像张松这样的质疑声也始终存在。是从“随便解个手的地方”到一个成为一座城市的“门面”，从“有墙就尿，有坑就拉”到健康观念的树立，厕所的新建改建一次次改善了生活环境推动文明进程。严格的规定和细致的分类，让厕所有了等级差别。</p>
 		<p>试试看，你能建成什么等级的厕所？</p>
 	</div>
-	<div id="try"></div>
+	<div id="try" style="height: 15px"></div>
 	<div id="game">
 		<div id="choicepage">
 			<h1 id="choiceplaces" class="titles">
@@ -521,6 +500,7 @@ top:-9px;
 				</p>
 				<button type="reset" class="btn btn-light chongjian">重选地区</button>
 				<button type="reset" class="btn btn-light jieshiniu">隐藏注释</button>
+				<button type="reset" class="btn btn-light jieshixianshi">显示注释</button>
 			</div>
 			<div id="citymain" class="gamemain">
 
@@ -577,9 +557,70 @@ top:-9px;
 				</div>
 			</div>
 			<div id="panding">
-				<div class="pandingbiaoti" id="yileicesuo"><img class="ui fluid image" id="yileicesuoimg" src="images/一类厕所判定.jpg"></div>
-				<div class="pandingbiaoti" id="erleicesuo"><img class="ui fluid image" id="erleicesuoimg" src="images/二类厕所判定.jpg"></div>
-				<div class="pandingbiaoti" id="sanleicesuo"><img class="ui fluid image" id="sanleicesuoimg" src="images/三类厕所判定.jpg"></div>
+				<div class="pandingbiaoti" id="yileicesuo"><img class="ui fluid image" id="yileicesuoimg" src="images/一类厕所判定.jpg">
+
+				<div class="ui text container fenleiC">
+			<div class="xiaobiaoti" style="position:relative;">
+				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+
+			</div>
+			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
+
+			<img class="ui fluid image" src="images/icons/一类图标.png" style="margin-top: 2rem;" alt="">
+			<p>您刚刚建成的一类厕所，是最高级的公厕，常出现在游览景点和繁华街道。不仅必须配备第三卫生间，且建筑外观也需与周围景色相称。同时厕位要达到5-7平方米。</p>
+			<p>除此之外，还有两类厕所。</p>
+			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
+			<p>三类厕所，是城市公厕中最低级的一种，也是厕所卫生达标的门槛。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
+			<img class="tubiao2" src="images/icons/二类图标.png" alt="">
+			<p>二类厕所，适合建设在主要街道。与三类厕所相比，厕位更大，瓷砖更高。每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。面镜、手纸架、洗手液等附属设施也是必需品。</p>
+
+
+		</div>
+
+				</div>
+				<div class="pandingbiaoti" id="erleicesuo"><img class="ui fluid image" id="erleicesuoimg" src="images/二类厕所判定.jpg">
+
+					<div class="ui text container fenleiC">
+			<div class="xiaobiaoti" style="position:relative;">
+				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+
+			</div>
+			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
+					<img class="tubiao2" src="images/icons/二类图标.png" alt="">
+			<p>您刚刚建成的二类厕所，适合建设在主要街道。与刚刚达标的三类厕所相比，厕位更大，瓷砖更高。每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。面镜、手纸架、洗手液等附属设施也是必需品。</p>
+
+
+			<p>除此之外，还有两类厕所。</p>
+
+			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
+			<p>三类厕所，是城市公厕中最低级的一种，也是厕所卫生达标的门槛。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
+			<img class="ui fluid image" src="images/icons/一类图标.png" style="margin-top: 2rem;" alt="">
+			<p>一类厕所，则是最高级的公厕，常出现在游览景点和繁华街道。不仅必须配备第三卫生间，且建筑外观也需与周围景色相称。同时厕位要达到5-7平方米。</p>
+
+
+		</div>
+				</div>
+				<div class="pandingbiaoti" id="sanleicesuo"><img class="ui fluid image" id="sanleicesuoimg" src="images/三类厕所判定.jpg">
+
+				<div class="ui text container  fenleiC">
+			<div class="xiaobiaoti" style="position:relative;">
+				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+
+			</div>
+			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
+			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
+			<p>您刚刚建成的三类厕所，是城市公厕中最低级的一种，也是厕所卫生达标的门槛。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
+			<img class="tubiao2" src="images/icons/二类图标.png" alt="">
+			<p>二类厕所，适合建设在主要街道。与三类厕所相比，厕位更大，瓷砖更高。每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。面镜、手纸架、洗手液等附属设施也是必需品。</p>
+			<img class="ui fluid image" src="images/icons/一类图标.png" style="margin-top: 2rem;" alt="">
+			<p>一类厕所，作为最高级的公厕，常出现在游览景点和繁华街道。不仅必须配备第三卫生间，且建筑外观也需与周围景色相称。同时厕位要达到5-7平方米。</p>
+
+		</div>
+
+				</div>
 			</div>
 			<!-- 城市文字 -->
 		</div>
@@ -649,22 +690,8 @@ top:-9px;
 	</div>
 
 	<!--	第二条支线玩耍-->
-	<div id="cityessay">
-		<div class="ui text container">
-			<div class="xiaobiaoti" style="position:relative;">
-				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+	<div id="cityessay" style="margin-top: 1000px">
 
-			</div>
-			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
-			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
-			<p>三类厕所，是城市公厕中最低级的一种，也是厕所卫生达标的门槛。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
-			<img class="tubiao2" src="images/icons/二类图标.png" alt="">
-			<p>二类厕所，适合建设在主要街道。与三类厕所相比，厕位更大，瓷砖更高。每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。面镜、手纸架、洗手液等附属设施也是必需品。</p>
-			<img class="ui fluid image" src="images/icons/一类图标.png" style="margin-top: 2rem;" alt="">
-			<p>一类厕所，作为最高级的公厕，常出现在游览景点和繁华街道。不仅必须配备第三卫生间，且建筑外观也需与周围景色相称。同时厕位要达到5-7平方米。</p>
-
-		</div>
 		<div class="ui text container">
 			<img class="ui fluid image" src="images/小标题/三类数量.png" alt="">
 
@@ -682,9 +709,9 @@ top:-9px;
 			<div class="tupian">
 			<div class="ui one column grid">
 				<div class="column">
-					<div class="ui segment">
+					<div class="ui container">
 						<img style="width:100%" src="img/高级厕所.jpg">
-					<p class="zhushi">西安某旅游厕所</p>
+					<p class="zhushi">西安华清池景区一类厕所 陈晓晗摄</p>
 					</div>
 				</div>
 			</div>
@@ -705,7 +732,7 @@ top:-9px;
 		<div class="ui text container">
 			<div class="xiaobiaoti" style="position:relative;">
 				<img class="ui fluid image"  src="images/小标题/无害化处理.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap4.png" alt="">
 			</div>
 			<img class="ui fluid image" style="margin-top:20px;" src="images/icons/无害化.png" alt="">
 			<p>无害化卫生厕所，要求厕所不再露天、有墙有顶，化粪池不渗不漏、密闭有盖，厕所内没有蝇蛆和臭味，有通风设施。据调查，没有经过无害化处理的粪便将导致多种疾病传染，会严重影响农民健康。</p>
@@ -716,8 +743,8 @@ top:-9px;
 
 			<p>2019年中央财政计划安排70亿元，推动全国3万个村庄、约1000万户农户实现改厕。“小厕所是大民生，如厕难不仅是农民的烦心事，也是很多城里人不愿意到农村去的一个重要原因。” 3月5日，在两会部长通道上，农业农村部部长韩长赋表示：“必须把改善农村人居环境作为乡村振兴战略的重点任务来推进。”</p>
 		</div>
-		<div class="ui text container">
-				<img class="ui fluid image"  src="images/小标题/无害化普及率.png" alt="">
+		<div class="ui text container" style="background-color:white;">
+				<img class="ui fluid image"   src="images/小标题/无害化普及率.png" alt="">
 		</div>
 		<div id="radarchart1">
 			<iframe align="center" width="100%" height=730px src="radar/radar.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
@@ -731,6 +758,7 @@ top:-9px;
 			<p>哪怕是一个乡，也可能出现明显的不平衡现象。张松所在的仵龙堂乡，虽然在2015年就开始了改厕，乡内甚至已有两个村完成了100%无害化厕所普及，但后仵龙堂村的无害化厕所不超过5家。“每个村经济情况、侧重点和观念意识都不一样，很难齐头并进。”仵龙堂乡副乡长马新普解释道。</p>
 		</div>
 	</div>
+	<div id="try99"></div>
 	<div id="game99">
 		<div id="choicepage99">
 			<h1 id="choiceplaces99" class="titles">试试另一地点的厕所建设吧</h1>
@@ -796,9 +824,70 @@ top:-9px;
 				</div>
 			</div>
 			<div id="panding99">
-				<div class="pandingbiaoti" id="yileicesuo99"><img class="ui fluid image" id="yileicesuoimg99" src="images/一类厕所判定.jpg"></div>
-				<div class="pandingbiaoti" id="erleicesuo99"><img class="ui fluid image" id="erleicesuoimg99" src="images/二类厕所判定.jpg"></div>
-				<div class="pandingbiaoti" id="sanleicesuo99"><img class="ui fluid image" id="sanleicesuoimg99" contenteditable=""src="images/三类厕所判定.jpg"></div>
+				<div class="pandingbiaoti" id="yileicesuo99"><img class="ui fluid image" id="yileicesuoimg99" src="images/一类厕所判定.jpg">
+				<div class="ui text container  fenleiC">
+			<div class="xiaobiaoti" style="position:relative;">
+				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+
+			</div>
+			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
+
+			<img class="ui fluid image" src="images/icons/一类图标.png" style="margin-top: 2rem;" alt="">
+			<p>您刚刚建成的一类厕所，是最高级的公厕，常出现在游览景点和繁华街道。不仅必须配备第三卫生间，且建筑外观也需与周围景色相称。同时厕位要达到5-7平方米。</p>
+			<p>除此之外，还有两类厕所。</p>
+			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
+			<p>三类厕所，是城市公厕中最低级的一种，也是厕所卫生达标的门槛。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
+			<img class="tubiao2" src="images/icons/二类图标.png" alt="">
+			<p>二类厕所，适合建设在主要街道。与三类厕所相比，厕位更大，瓷砖更高。每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。面镜、手纸架、洗手液等附属设施也是必需品。</p>
+
+
+		</div>
+				</div>
+				<div class="pandingbiaoti" id="erleicesuo99"><img class="ui fluid image" id="erleicesuoimg99" src="images/二类厕所判定.jpg">
+
+				<div class="ui text container  fenleiC">
+			<div class="xiaobiaoti" style="position:relative;">
+				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+
+			</div>
+			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
+					<img class="tubiao2" src="images/icons/二类图标.png" alt="">
+			<p>您刚刚建成的二类厕所，适合建设在主要街道。与刚刚达标的三类厕所相比，厕位更大，瓷砖更高。每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。面镜、手纸架、洗手液等附属设施也是必需品。</p>
+
+
+			<p>除此之外，还有两类厕所。</p>
+
+			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
+			<p>三类厕所，是城市公厕中最低级的一种，也是厕所卫生达标的门槛。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
+			<img class="ui fluid image" src="images/icons/一类图标.png" style="margin-top: 2rem;" alt="">
+			<p>一类厕所，则是最高级的公厕，常出现在游览景点和繁华街道。不仅必须配备第三卫生间，且建筑外观也需与周围景色相称。同时厕位要达到5-7平方米。</p>
+
+
+		</div>
+
+				</div>
+				<div class="pandingbiaoti" id="sanleicesuo99"><img class="ui fluid image" id="sanleicesuoimg99" contenteditable=""src="images/三类厕所判定.jpg">
+
+				<div class="ui text container  fenleiC">
+			<div class="xiaobiaoti" style="position:relative;">
+				<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
+
+			</div>
+			<p>在中国，城市公厕根据卫生与美观程度，共分为三类（2016年《城市公共厕所规划和设计标准》）。其主要不同在于设置地点、坑位大小与种类和美化程度。</p>
+			<img class="tubiao3" src="images/icons/三类图标.png" alt="">
+			<p>您刚刚建成的三类厕所，是城市公厕中最低级的一种，也是厕所卫生达标的门槛。它主要设置在一般街道，应设有无障碍厕位、水池、除臭设备、冲水装置等基本设施，每个厕位应为2-2.9平方米，使用水泥墙面或贴瓷砖至1.5米处。</p>
+			<img class="tubiao2" src="images/icons/二类图标.png" alt="">
+			<p>二类厕所，适合建设在主要街道。与三类厕所相比，厕位更大，瓷砖更高。每个厕位占3-4.9平方米，瓷砖需要贴到屋顶。面镜、手纸架、洗手液等附属设施也是必需品。</p>
+			<img class="ui fluid image" src="images/icons/一类图标.png" style="margin-top: 2rem;" alt="">
+			<p>一类厕所，作为最高级的公厕，常出现在游览景点和繁华街道。不仅必须配备第三卫生间，且建筑外观也需与周围景色相称。同时厕位要达到5-7平方米。</p>
+
+		</div>
+
+
+				</div>
 			</div>
 
 		</div>
@@ -864,11 +953,11 @@ top:-9px;
 
 		</div>
 	</div>
-	<div id="cityessay99">
-		<div class="ui text container">
+	<div id="cityessay99" style="margin-top: 1000px">
+		<div class="ui text container  fenleiC">
 		<div class="xiaobiaoti" style="position:relative;">
 			<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
-			<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+			<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap3.png" alt="">
 
 		</div>
 		<div class="ui text container">
@@ -897,9 +986,9 @@ top:-9px;
 			<div class="tupian">
 			<div class="ui one column grid">
 				<div class="column">
-					<div class="ui segment">
+					<div class="ui container">
 						<img style="width:100%" src="img/高级厕所.jpg">
-					<p class="zhushi">西安某旅游厕所</p>
+					<p class="zhushi">西安华清池景区一类厕所 陈晓晗摄</p>
 					</div>
 				</div>
 			</div>
@@ -920,7 +1009,7 @@ top:-9px;
 		<div class="ui text container">
 			<div class="xiaobiaoti" style="position:relative;">
 				<img class="ui fluid image" src="images/小标题/无害化处理.png" alt="">
-				<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+				<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap4.png" alt="">
 			</div>
 			<img class="ui fluid image" style="margin-top:20px;" src="images/icons/无害化.png" alt="">
 			<p>无害化卫生厕所，要求厕所不再露天、有墙有顶，化粪池不渗不漏、密闭有盖，厕所内没有蝇蛆和臭味，有通风设施。据调查，没有经过无害化处理的粪便将导致多种疾病传染，会严重影响农民健康。</p>
@@ -931,7 +1020,7 @@ top:-9px;
 
 			<p>2019年中央财政计划安排70亿元，推动全国3万个村庄、约1000万户农户实现改厕。“小厕所是大民生，如厕难不仅是农民的烦心事，也是很多城里人不愿意到农村去的一个重要原因。” 3月5日，在两会部长通道上，农业农村部部长韩长赋表示：“必须把改善农村人居环境作为乡村振兴战略的重点任务来推进。”</p>
 		</div>
-		<div class="ui text container">
+		<div class="ui text container" style="background-color:white;">
 				<img class="ui fluid image"  src="images/小标题/无害化普及率.png" alt="">
 		</div>
 		<div id="radarchart2">
@@ -950,7 +1039,7 @@ top:-9px;
 	<div class="ui text container">
 		<div class="xiaobiaoti" style="position:relative;">
 			<img class="ui fluid image" style="margin-top:30px;" src="images/小标题/解个手的地方.png" alt="">
-			<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+			<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap1.png" alt="">
 		</div>
 
 
@@ -975,7 +1064,7 @@ top:-9px;
 
 		<div class="mapChart">
 
-			<img id="mapBase" class="imgmapchart" src="img/mapBase.jpg">
+			<img id="mapBase" class="imgmapchart" src="img/mapBase.png">
 			<img id="map2007" class="imgmapchart" src="img/map2007.png">
 			<img id="map2009" class="imgmapchart" src="img/map2009.png">
 			<img id="map2011" class="imgmapchart" src="img/map2011.png">
@@ -1021,7 +1110,7 @@ top:-9px;
 	<div class="ui text container">
 		<div class="xiaobiaoti" style="position:relative;">
 			<img class="ui fluid image" style="margin-top:30px;" src="images/小标题/革卫生革观念.png" alt="">
-			<img class="animated infinite bounce delay-2s matong" src="images/小标题/马桶小图标.png" alt="">
+			<img class="animated infinite bounce delay-2s matong" src="images/小标题/tap2.png" alt="">
 		</div>
 		<p> 即便厕所改革很重要，但跟张松一样认为“改厕没必要”的人却是大多数。对于儿子所投身的厕所公益，钱军母亲只留下一句“他脑子被门挤了”——厕所这一话题难登大雅之堂，自古以来从没变过。这恰恰是现在厕所革命严重的阻碍因素之一。</p>
 
@@ -1034,15 +1123,15 @@ top:-9px;
 <div class="tupian">
 		<div class="ui two column grid">
 			<div class="column">
-				<div class="ui segment">
+				<div class="ui container">
 					<img style="width:100%" src="img/卧室.jpg">
-					<p class="zhushi">张松家的卧室</p>
+					<p class="zhushi">张松家的卧室 陈晓晗摄</p>
 				</div>
 			</div>
 			<div class="column">
-				<div class="ui segment">
+				<div class="ui container">
 					<img style="width:100%" src="img/茅坑.jpg">
-					<p class="zhushi">张松家的厕所</p>
+					<p class="zhushi">张松家的厕所 陈晓晗摄</p>
 				</div>
 			</div>
 
@@ -1063,7 +1152,7 @@ top:-9px;
 		<div class="tupian">
 		<div class="ui one column grid">
 			<div class="column">
-				<div class="ui segment">
+				<div class="ui container">
 					<img style="width:100%" src="img/沈锐华.jpg">
 					<p class="zhushi">沈锐华在罗阳村考察绿色校园厕所（“彩虹校厕”项目）建设</p>
 				</div>
@@ -1104,8 +1193,7 @@ top:-9px;
 </div>
 </div>
 	<script src="dist/slider.js"></script>
-
-
+    <script src="game.js"></script>
 </body>
 
 </html>

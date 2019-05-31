@@ -1,6 +1,7 @@
+
 $( document ).tooltip({
       position: {
-        my: "center bottom-20",
+        my: "center top-10",
         at: "center top",
         using: function( position, feedback ) {
           $( this ).css( position );
@@ -15,6 +16,9 @@ $( document ).tooltip({
       $(function() {
 		   $(".jieshiniu").click(function(){
 			  $(".jieshi").hide();
+		  });
+		  $(".jieshixianshi").click(function(){
+			  $(".jieshi").show();
 		  });
 		  $("#game99").hide();
 		  $("#city").hide()
@@ -173,6 +177,7 @@ $( document ).tooltip({
 
 
     });
+		var finish = 0;
 
 		 $("#tijiao").click(function(){
 			  $("#tianjiabiaoji").hide();
@@ -184,47 +189,50 @@ $( document ).tooltip({
 			 var erlei=shouzhijia+peijian;
 			 var yilei=muyingtai+yijianmeihua;
 			 var duankou=$(window).width();
-			 console.log(duankou)
-			 console.log(muyingtai);
-			 console.log(yijianmeihua);
-			 console.log(erlei);
+			
 
+			 finish = 1;
 
 			 if(sanlei==="0.45"){
-				 if(duankou<800){$("#sanleicesuoimg").attr("src","images/三类厕所判定M.jpg")}
+				if(duankou<800){$("#sanleicesuoimg").attr("src","images/三类厕所判定M.jpg")}
 
-				  $("#citymain").remove();
-				  $("#sanleicesuo").fadeIn(1000);
-				 $("#cityessay").fadeIn(4000);
-				 $("body").css("overflow-y","visible");
-				 $("#try").remove();
-				 $("#game99").show();
-				 $("#choosesuburb99").click(function(){
-			  $("#choicepage99").hide();
-			  $("#suburb99").fadeIn("slow");
-		  });
+				$("#citymain").remove();
+				$("#sanleicesuo").fadeIn(1000);
+				$("#cityessay").fadeIn(4000);
+				$("#try").remove();
+				$("body").css("overflow-y","visible");
+				
+				$("#game99").show();
+				$("#choosesuburb99").click(function(){
+					$("#choicepage99").hide();
+					$("#suburb99").fadeIn("slow");
+				});
 			  $("#choosecity99").hide();
-				 }
+			}
 			 else {
-				 if(yilei!=="11"&&erlei=="11"){$("#citymain").remove();
-					 if(duankou<800){$("#erleicesuoimg").attr("src","images/二类厕所判定M.jpg")}
-				  $("#erleicesuo").fadeIn(1000);
-				 $("#cityessay").fadeIn(4000);
-				 $("body").css("overflow-y","visible");
-				 $("#try").remove();
-				 $("#game99").show();
-				 $("#choosesuburb99").click(function(){
-			  $("#choicepage99").hide();
-			  $("#suburb99").fadeIn("slow");
-		  });
+				if(yilei!=="11"&&erlei=="11"){$("#citymain").remove();
+				if(duankou<800){$("#erleicesuoimg").attr("src","images/二类厕所判定M.jpg")}
+				$("#erleicesuo").fadeIn(1000);
+				$("#cityessay").fadeIn(4000);
+				$("#try").remove();
+				$("body").css("overflow-y","visible");
+				
+				$("#game99").show();
+				$("#choosesuburb99").click(function(){
+				$("#choicepage99").hide();
+				$("#suburb99").fadeIn("slow");
+		  	});
+
+
 			  $("#choosecity99").hide();}
 				 else if(yilei=="11"&&erlei=="11"){
 				  $("#citymain").remove();
 				 if(duankou<800){$("#yileicesuoimg").attr("src","images/一类厕所判定M.jpg")}
 				  $("#yileicesuo").fadeIn(1000);
 				  $("#cityessay").fadeIn(4000);
-				  $("body").css("overflow-y","visible");
 				  $("#try").remove();
+				  $("body").css("overflow-y","visible");
+				  
 				  $("#game99").show();
 				 $("#choosesuburb99").click(function(){
 			  $("#choicepage99").hide();
@@ -237,8 +245,9 @@ $( document ).tooltip({
 				 if(duankou<800){$("#sanleicesuoimg").attr("src","images/三类厕所判定M.jpg")}
 				  $("#sanleicesuo").fadeIn(1000);
 				 $("#cityessay").fadeIn(4000);
-				 $("body").css("overflow-y","visible");
 				 $("#try").remove();
+				 $("body").css("overflow-y","visible");
+				 
 				 $("#game99").show();
 				 $("#choosesuburb99").click(function(){
 			  $("#choicepage99").hide();
@@ -250,8 +259,32 @@ $( document ).tooltip({
 
 		 });
 
+		var try0 = $("#try").offset().top;
+		
+		var scrollTop;
+		var h = $(window).height();
+
+		$(window).scroll(function() {
+			scrollTop = $(window).scrollTop();
+
+		
+			if ((scrollTop >= try0) && (scrollTop < try0 + h/3) && (finish == 0)){
+				$("body").css("overflow", "hidden")
+			}
+
+			if (finish == 1){
+				$("body").css("overflow-y", "visible")
+			}
+		});
+		
+		
+		if($(window).width()<600){
+			$("#try").remove();
+		}
+
+		  
 		  $("#tijiao99").click(function(){
-			   $("#tianjiabiaoji99").hide();
+			$("#tianjiabiaoji99").hide();
 			 var shouzhijia99=$("#tuceng3-手纸架99").css("opacity");
 			 var peijian99=$("#tuceng3-配件99").css("opacity");
 			 var muyingtai99=$("#tuceng3-母婴台99").css("opacity");
@@ -260,44 +293,42 @@ $( document ).tooltip({
 			 var erlei99=shouzhijia99+peijian99;
 			 var yilei99=muyingtai99+yijianmeihua99;
        var duankou=$(window).width();
-			 console.log(muyingtai99)
-			 console.log(yijianmeihua99)
-			 console.log(erlei99)
 
-
+			 
 			 if(sanlei99=="0.45"){
-         	 if(duankou<800){$("#sanleicesuoimg99").attr("src","images/三类厕所判定M.jpg")}
+			 	
+         	 	if(duankou<800){$("#sanleicesuoimg99").attr("src","images/三类厕所判定M.jpg")}
 				  $("#citymain99").remove();
 				  $("#sanleicesuo99").fadeIn(1000);
 				 $("#cityessay99").fadeIn(4000);
-				 $("body").css("overflow-y","visible");
-				 $("#try").remove();
+
 			 }
 			 else if(sanlei99!==0.45&&yilei99!=="11"&&erlei99=="11"){
          	 if(duankou<800){$("#erleicesuoimg99").attr("src","images/二类厕所判定M.jpg")}
 				  $("#citymain99").remove();
 				  $("#erleicesuo99").fadeIn(1000);
 				 $("#cityessay99").fadeIn(4000);
-				 $("body").css("overflow-y","visible");
-				 $("#try").remove();
+		
 					 }
 			   else if(yilei99=="11"&&erlei99=="11"){
            if(duankou<800){$("#yileicesuoimg99").attr("src","images/一类厕所判定M.jpg")}
 				  $("#citymain99").remove();
 				  $("#yileicesuo99").fadeIn(1000);
 				  $("#cityessay99").fadeIn(4000);
-				  $("body").css("overflow-y","visible");
-				  $("#try").remove();
+				
 					 }
 			  else{
           if(duankou<800){$("#sanleicesuoimg99").attr("src","images/三类厕所判定M.jpg")}
 				   $("#citymain99").remove();
 				  $("#sanleicesuo99").fadeIn(1000);
 				 $("#cityessay99").fadeIn(4000);
-				 $("body").css("overflow-y","visible");
-				 $("#try").remove();
+		
 			  }
 
+			  
+	  
+
+			  
 		 });
 
 		    $( ".dropsuburb" ).droppable({
@@ -409,8 +440,8 @@ $( document ).tooltip({
 			 var e=$("#tuceng-keng").css("opacity");
        var duankou2=$(window).width();
 			 var g=a+b+c+d+e
-			 console.log(g)
-
+			
+             finish=1
 			 if(g=="01111"){
 
 				  $("#suburbmain").remove();
@@ -441,8 +472,34 @@ $( document ).tooltip({
 		  });
 			  $("#choosesuburb99").hide();
 					 }
+			  
+			   var try0 = $("#try").offset().top;
+		
+		var scrollTop;
+		var h = $(window).height();
+
+		$(window).scroll(function() {
+			scrollTop = $(window).scrollTop();
+
+			
+			if ((scrollTop >= try0) && (scrollTop < try0 + h/3) && (finish == 0)){
+				$("body").css("overflow", "hidden")
+			}
+
+			if (finish == 1){
+				$("body").css("overflow-y", "visible")
+			}
+		});
+		
+		
+		if($(window).width()<600){
+			$("#try").remove();
+		}
 
   });
+		  
+
+		  
 		   $("#tijiao299").click(function(){
 			    $("#tianjiabiaoji299").hide();
 			 var a99=$("#tuceng-cang99").css("opacity");
@@ -452,16 +509,14 @@ $( document ).tooltip({
 			 var e99=$("#tuceng-keng99").css("opacity");
        var duankou299=$(window).width();
 			 var g99=a99+b99+c99+d99+e99
-			 console.log(g99)
-
+			
 			 if(g99=="01111"){
 
 				  $("#suburbmain99").remove();
 				 $("#wuhai99").fadeIn(1000);
              if(duankou299<800){$("#wuhaiimg99").attr("src","images/农村/成功无害化M.jpg")}
 				  $("#suburbessay99").fadeIn(4000);
-				 $("body").css("overflow-y","visible");
-			     $("#try").remove();
+				
 			 }
 			 else if(g99!=="01111"){
 
@@ -469,9 +524,9 @@ $( document ).tooltip({
 				  $("#youhai99").fadeIn(1000);
             if(duankou299<800){$("#youhaiimg99").attr("src","images/农村/失败无害化M.jpg")}
 				  $("#suburbessay99").fadeIn(4000);
-				 $("body").css("overflow-y","visible");
-				  $("#try").remove();
+				
 					 }
+			     
 
   });
 //		   $(".chongjian").click(function(){
@@ -485,5 +540,8 @@ $( document ).tooltip({
 		  });
 		   });
 
+
+		
+		
 
 		// JavaScript Document

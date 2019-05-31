@@ -47,14 +47,7 @@ var RadarChart = {
         .append("g")
         .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
     
-    // d3.select("svg")
-    // .call(d3.zoom()
-    //     .scaleExtent([1, 8])
-    //     .on("zoom", zoom));
 
-// function zoom() {
-//   g.attr("transform", d3.event.transform);
-// }
 
     var tooltip;
 
@@ -75,6 +68,7 @@ var RadarChart = {
       .style("stroke", "grey")
       .style("stroke-width", "1px");
     
+// 文字legend…………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………
 
     axis.append("text")
       .attr("class", "legend")
@@ -85,7 +79,44 @@ var RadarChart = {
       .attr("dy", "1.5em")
       .attr("transform", function(d, i){return "translate(0, -15)"})
       .attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
-      .attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
+      .attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);})
+      .on('mouseover', function (d){
+      
+        
+        for(var i = 0; i<initialData.length; i++){
+          var propertyData = initialData[i];
+          for(var j = 0; j<propertyData.length; j++){
+            var grade = propertyData[j];
+            if (grade.area == d){
+
+      var details_html =`
+      <table id="table_box"><img src="img/` + grade.area + `.png" width = 120vh>`
+            }
+          }
+        }
+                          details_html =  details_html + ` </table>
+                    `
+
+
+            tooltip
+              .style("left", d3.event.pageX - 100 + "px")
+              .style("top", d3.event.pageY - 100 + "px")
+              .style("display", "inline-block")
+              .html(details_html);
+            })
+
+
+
+
+        .on("mouseout", function(d){ tooltip.style("display", "none");})
+
+// g.selectAll(".legend")
+//       .on('mouseover', function (d){ text.style("font-size", "15px");}
+//       .on('mouseout',function(d){ text.style("font-size", "12px");};
+
+
+
+
 
 
     d.forEach(function(y, x){
@@ -154,18 +185,6 @@ var RadarChart = {
   $("#data2013").hide();
   $("#data2015").hide();
   $("#data2017").hide();});
-// ………………………………………………………………………………………………………………………………………………点击跳转
-
-    // d3.selectAll("#prev_year").on("click",function(d,i) {
-    //                         if (step > 0) {
-    //                             step_date = dates[step - 1] || dates[0]
-    //                             step = step - 1
-    //                         }
-
-    //                         drawCitiesBefore(step_date)
-    //                     })
-// ………………………………………………………………………………………………………………………………………………点击跳转
-
 
 //………………………………………………………………………………………………………………………………………………scroll
 
@@ -199,38 +218,6 @@ d3.selectAll("#next_year").on("click",plus);
   }
 
 
-
-// d3.selectAll("#prev_year").on("click",function(){
-//   if (step = 1) {
-//     whatToStep1()
-//   }else if (step = 2) {
-//     whatToStep2()
-//   }else if (step = 3) {
-//     whatToStep3()
-//   }else if (step = 4) {
-//     whatToStep4()
-//   }else if (step = 5) {
-//     whatToStep5()
-//   }else {
-//     whatToStep6()
-//   }
-// });
-
-// d3.selectAll("#next_year").on("click",function(){
-//   if (step = 1) {
-//     whatToStep1();
-//   }else if (step = 2) {
-//     whatToStep2()
-//   }else if (step = 3) {
-//     whatToStep3()
-//   }else if (step = 4) {
-//     whatToStep4()
-//   }else if (step = 5) {
-//     whatToStep5()
-//   }else {
-//     whatToStep6()
-//   }
-// });
 function whatToStep(){
   var i = step * 2 + 2005 ;
   var k = 6 - step ;
@@ -274,9 +261,7 @@ d3.select("#data2007")
                 d3.select(".radar-chart-serie1").transition(200).style("fill-opacity", "0.2");
                 d3.select(".radar-chart-serie0").transition(200).style("fill-opacity", "0.2");
             });
-// $("#data2007").click(function(){
-//   $(".radar-chart-serie1").css("opacity", "1");
-// })
+
 d3.select("#data2009")
             .on("click", function(d,i) {
 
@@ -369,28 +354,19 @@ d3.select("#data2017")
         .attr("class", "axis2");
 
 var tooltip = d3.select("body").append("div").attr("class", "toolTip");
+
     axis2.append("line")
       .attr("x1", cfg.w/2)
       .attr("y1", cfg.h/2)
-      .attr("x2", function(d, i){return cfg.w/2*(1-cfg.factor*Math.sin(i*cfg.radians/total));})
-      .attr("y2", function(d, i){return cfg.h/2*(1-cfg.factor*Math.cos(i*cfg.radians/total));})
+      .attr("x2", function(d, i){return 1*cfg.w/2*(1-cfg.factor*Math.sin((i*cfg.radians)/total));})
+      .attr("y2", function(d, i){return 1*cfg.h/2*(1-cfg.factor*Math.cos((i*cfg.radians)/total));})
       .attr("class", "line")
       .style("fill","white")
       .style("stroke", "transparent")
       .style("stroke-width", "15px")
 
     .on('mouseover', function (d){
-      var details_html = `
-                    <table id="table_box" >
-                    <tr>
-                    <th>年份</th>
-                    <th>地点</th> 
-                    <th>     </th>
-                    <th>     </th>
-                    <th>普及率</th>
-                    </tr>
-                    `;
-      	
+      
         
         for(var i = 0; i<initialData.length; i++){
           var propertyData = initialData[i];
@@ -398,28 +374,18 @@ var tooltip = d3.select("body").append("div").attr("class", "toolTip");
             var grade = propertyData[j];
             if (grade.area == d){
 
-          
-      const details_table = `
-                                <tr>
-                                <td>${grade.name}</td>
-                                <td>${grade.area}</td>
-                                <td>     </td>
-                                <td>     </td>
-                                <td>${grade.value}%</td>
-                                </tr>
-                                `
-                                details_html = details_html + details_table
-             
+      var details_html =`
+      <table id="table_box"><img src="img/` + grade.area + `.png" width = 120vh>`
             }
           }
         }
                           details_html =  details_html + ` </table>
                     `
-            
+
 
             tooltip
-              .style("left", d3.event.pageX - 170 + "px")
-              .style("top", d3.event.pageY - 150 + "px")
+              .style("left", d3.event.pageX - 100 + "px")
+              .style("top", d3.event.pageY - 100 + "px")
               .style("display", "inline-block")
               .html(details_html);
             })
