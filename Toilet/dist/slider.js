@@ -43,6 +43,7 @@ $( function() {
     }
 
     if(slidervalue == 2009){
+      $("#huashou").fadeTo(100,0);
       $("#map2009").fadeTo(500,1);
       $("#map2007").fadeTo(500,0);
       $("#map2011").fadeTo(500,0);
@@ -52,6 +53,7 @@ $( function() {
     }
 
     if(slidervalue == 2011){
+      $("#huashou").fadeTo(100,0);
       $("#map2011").fadeTo(500,1);
       $("#map2007").fadeTo(500,0);
       $("#map2009").fadeTo(500,0);
@@ -61,6 +63,7 @@ $( function() {
     }
 
     if(slidervalue == 2013){
+      $("#huashou").fadeTo(100,0);
       $("#map2013").fadeTo(500,1);
       $("#map2007").fadeTo(500,0);
       $("#map2009").fadeTo(500,0);
@@ -70,6 +73,7 @@ $( function() {
     }
 
     if(slidervalue == 2015){
+      $("#huashou").fadeTo(100,0);
       $("#map2015").fadeTo(500,1);
       $("#map2007").fadeTo(500,0);
       $("#map2009").fadeTo(500,0);
@@ -79,6 +83,7 @@ $( function() {
     }
 
     if(slidervalue == 2017){
+      $("#huashou").fadeTo(100,0);
       $("#map2017").fadeTo(500,1);
       $("#map2007").fadeTo(500,0);
       $("#map2009").fadeTo(500,0);
