@@ -8,10 +8,15 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 	<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
 	<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<script src="dist/jquery.ui.touch-punch.js"></script>
+	
+	<!-- 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
-	<!-- <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"> -->
+	<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"> 
+	-->
 	<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
 	<script src="dist/semantic.js"></script>
+<script src="dist/d3.v4.min.js"></script>
 	<script type="text/javascript">
 		$(window).on('load', function() {
 			$("#preloader").delay(100).fadeOut();
@@ -167,7 +172,7 @@ width: 600px;
 0%,20%,100%{transform:scale(1) rotate(0);}                       /*0%,100%时保持图形的原大小且不旋转*/
     2%,6%{transform: scale(0.9) rotate(3deg);}                  /*10%,30%时图形缩小成0.9倍，并且顺时针旋转3度*/
     4%,8%,12%,16%{transform:scale(1.1) rotate(-3deg);}         /*20%,40%,60%,80%时图形扩大成1.1倍，并且逆时针旋转3度*/
-    10%,14%{ transform:scale(1.1) rotate(3deg);} 
+    10%,14%{ transform:scale(1.1) rotate(3deg);}
 }
 
 .matong {
@@ -196,7 +201,7 @@ width: 600px;
 	margin: 40px 0 40px 45%;
 }
 		/* duan */
-		
+
 .wanchengjianshe{margin-top: 10px;}
 
 		button {
@@ -453,7 +458,7 @@ top:-9px;
 	margin: auto;
 	cursor: pointer;
 	opacity: 0.7;
-	width: 44%;
+	width: 78%;
 }
 	.chuxian {
 	    position: absolute;
@@ -992,7 +997,7 @@ top:-9px;
 			<img class="matong" src="images/小标题/tap3.png" alt="">
 
 		</div>
-		
+
 			</div>
 		<div class="ui text container">
 			<div><img id="lollipop2" src="img/lollipop1.png"></div>
@@ -1196,7 +1201,15 @@ top:-9px;
 
 			<div class="ui grid footer">
 
-				<div class="six wide column">
+
+				<div class="eight wide column" id="laiyuan">
+					<p class="footer"><b>数据来源：</b>数据来源：国家统计局、国家卫计委、中国血吸虫病防治杂志、
+				UNICEF报告、世界厕所组织官网、国家及各省政府工作报告、
+				各媒体报道（厕所革命进程）</p>
+				<p class="footer"><b>照片来源：</b>小组成员拍摄、“世界厕所组织”创始人沈锐华提供</p>
+				</div>
+				<div class="two wide column" id="blank"></div>
+				<div class="six wide column" id="mingzi">
 					<p class="footer">组长：陈晓晗
 												<br>记者：葛皓珺 陈晓晗 李嘉琪
 												<br>前端：赵博 段辉然 陈晓晗
@@ -1205,19 +1218,23 @@ top:-9px;
 
 				<p class="footer">指导老师：刘佳昕 王喆</p>
 				</div>
-				<div class="two wide column"></div>
-			 	<div class="eight wide column">
-					<p class="footer">数据来源：国家统计局、国家卫计委、中国血吸虫病防治杂志、
-				UNICEF报告、世界厕所组织官网、国家及各省政府工作报告、
-				各媒体报道（厕所革命进程）</p>
-				<p class="footer">照片来源：小组成员拍摄、“世界厕所组织”创始人沈锐华提供</p>
-			 	</div>
 			</div>
     </div>
     </div>
 </div>
 
-	
+<script type="text/javascript">
+var w = $(window).width();
+if(w<700){
+		d3.select("#laiyuan").attr("class","nine wide column");
+		d3.select("#mingzi").attr("class","seven wide column");
+
+  $("#blank").css("display","none");
+
+}
+</script>
+
+
 	<script src="dist/slider.js"></script>
     <script src="game.js"></script>
 </body>
