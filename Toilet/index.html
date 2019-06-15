@@ -100,7 +100,7 @@ p {
 	width: 80%;
 }
 #game, #game99{
-	height: 110vh;
+	height: 90vh;
 	margin-top: 0px;
 }
 
@@ -384,7 +384,7 @@ height: 750px;
 }
 	/* game适配 */
 	#game, #game99 {
-		height: 770px;
+		height: 750px;
 	}
 	p#citytitle{margin-bottom: 10px;}
 	p.titles {
@@ -494,7 +494,13 @@ top:-9px;
 			margin:auto;
 			margin-top: 20px;
 		}
-
+		.reminder{
+			width: 65vw;
+			height: auto;
+			margin-bottom: 5px;
+			margin-top: 5px;
+			margin-right: 5vw;
+		}
 
 </style>
 </head>
@@ -526,10 +532,12 @@ top:-9px;
 	<div id="game">
 		<div id="choicepage">
 			<h1 id="choiceplaces" class="titles" style="margin-bottom:10px">
-				<span style="color: rgba(155,4,7,1.00)">点击</span>选择您建设厕所的地区</h1>
+				选择您建设厕所的地区</h1>
 			<img src="images/选择城市.png" id="choosecity" class="bouncy">
 			<img src="images/选择农村.png" id="choosesuburb" style="animation-delay: 0.07s" class="bouncy">
-			<h1 id="tishiyouxi">点击相应地区进行游戏，内容即可查看</h1>
+			<img src="images/提示游戏.png" id="remindA" class="reminder">
+		
+		
 		</div>
 		<div id="city">
 			<div id="tianjiabiaoji">
@@ -728,7 +736,7 @@ top:-9px;
 	</div>
 
 	<!--	第二条支线玩耍-->
-	<div id="cityessay" style="margin-top: 1000px">
+	<div id="cityessay" style="margin-top: 1200px">
 
 		<div class="ui text container">
 			<img class="ui fluid image" src="images/小标题/三类数量.png" alt="">
@@ -797,7 +805,9 @@ top:-9px;
 		<div id="choicepage99">
 			<h1 id="choiceplaces99" class="titles" style="margin-top: 10px;margin-bottom: 10px">试试另一地点的厕所建设吧</h1>
 			<img src="images/选择城市.png" id="choosecity99">
+			<img src="images/提示城市.png" id="remindB" class="reminder">
 			<img src="images/选择农村.png" id="choosesuburb99">
+			<img src="images/提示农村.png" id="remindC" class="reminder">
 		</div>
 		<div id="city99">
 			<div id="tianjiabiaoji99">
@@ -990,16 +1000,9 @@ top:-9px;
 
 		</div>
 	</div>
-	<div id="cityessay99" style="margin-top: 1000px">
-		<div class="ui text container  fenleiC">
-		<div class="xiaobiaoti" style="position:relative;">
-			<img class="ui fluid image" src="images/小标题/厕所严分类.png" alt="">
-			<img class="matong" src="images/小标题/tap3.png" alt="">
-
-		</div>
-
-			</div>
+	<div id="cityessay99" style="margin-top: 1200px">
 		<div class="ui text container">
+			<img class="ui fluid image" src="images/小标题/三类数量.png" alt="">
 			<div><img id="lollipop2" src="img/lollipop1.png"></div>
 			<p>2004年，第四届世界厕所峰会在北京举办，这届峰会直接推进了北京天安门广场、长城等景点以及北京市内胡同里4000个公共厕所的整改工作。2006年以来，全国三类以上厕所数量不断增多。近年来，厕所改建工作仍备受国家关注。2015年至2017年，国家旅游发展基金投入了16.4亿元进行旅游厕所革命。截至2017年，全国三类以上厕所已突破十万座，约占城市公共厕所总数的75%。而后续的发展还未停止，文化部表示，2019年，国内旅游景区将新建或翻新约2.1万个厕所。</p>
 			<p>在改建之外，一些能够勉强达标、但是老旧严重的厕所，也完成了修缮工作。在2016年，北京南锣鼓巷二类厕所进行了整体翻新。“以前连瓷砖都掉了。”负责这片区域厕所的彭川（化名）说道，“现在好多了，还加了一个污物池让居民清洗拖把。”</p>

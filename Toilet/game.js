@@ -209,6 +209,7 @@ $( document ).tooltip({
 					$("#suburb99").fadeIn("slow");
 				});
 			  $("#choosecity99").hide();
+				 $("#remindB").hide();
 			}
 			 else {
 				if(yilei!=="11"&&erlei=="11"){$("#citymain").remove();
@@ -225,7 +226,8 @@ $( document ).tooltip({
 		  	});
 
 
-			  $("#choosecity99").hide();}
+			  $("#choosecity99").hide();
+			$("#remindB").hide();}
 				 else if(yilei=="11"&&erlei=="11"){
 				  $("#citymain").remove();
 				 if(duankou<800){$("#yileicesuoimg").attr("src","images/一类厕所判定M.jpg")}
@@ -240,7 +242,9 @@ $( document ).tooltip({
 			  $("#suburb99").fadeIn("slow");
 		  });
 			  $("#choosecity99").hide();
-					 }
+					 
+				 $("#remindB").hide();
+				 }
 				 else{
 				 $("#citymain").remove();
 				 if(duankou<800){$("#sanleicesuoimg").attr("src","images/三类厕所判定M.jpg")}
@@ -255,6 +259,7 @@ $( document ).tooltip({
 			  $("#suburb99").fadeIn("slow");
 		  });
 			  $("#choosecity99").hide();
+					 	 $("#remindB").hide();
 			 }
 			 }
 
@@ -437,6 +442,7 @@ $( document ).tooltip({
 			  $("#city99").fadeIn("slow");
 		  });
 			  $("#choosesuburb99").hide();
+				 	 $("#remindC").hide();
 			 }
 			 else if(g!=="01111"){
 
@@ -452,6 +458,7 @@ $( document ).tooltip({
 			  $("#city99").fadeIn("slow");
 		  });
 			  $("#choosesuburb99").hide();
+				 	 $("#remindC").hide();
 					 }
 			  
 
