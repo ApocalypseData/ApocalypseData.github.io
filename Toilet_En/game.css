@@ -1,0 +1,146 @@
+@charset "utf-8";
+.ui-draggable-dragging {
+  z-index: 10000 !important
+}
+
+.ui-draggable {
+  z-index: 10;
+}
+
+
+
+
+#choicepage, #choicepage99 {
+  text-align: center;
+}
+
+
+#choosecity:hover {
+  opacity: 1
+}
+
+#choosesuburb:hover {
+  opacity: 1
+}
+
+#choosecity99:hover {
+  opacity: 1
+}
+
+#choosesuburb99:hover {
+  opacity: 1
+}
+#ditumen2{position: relative;}
+
+
+
+/*		小游戏每一步小标题的样式*/
+
+#tianjiabiaoji, #tianjiabiaoji2, #tianjiabiaoji99, #tianjiabiaoji299{
+  text-align: center;
+}
+
+.icons {
+  width:70%;
+  margin-top: 2vw;
+}
+.rowS{
+  padding-right: 0
+}
+.background {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  margin-top: auto;
+  left: 0;
+  display: block;
+}
+
+.tuceng {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+  margin-top: auto;
+  left: 0
+}
+.fenleiC{
+	margin-top: 50px;
+}
+#tuceng-cang{
+			z-index: 100;
+		}
+
+
+.pandingbiaoti {
+	width: 100%;
+	margin:0 auto;
+  height: auto
+}
+
+.chongjian {
+  margin: auto;
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+  border-radius: 12px;
+  font-size: 15px;
+  margin-left: 1%;
+}
+
+.chongjian:hover {
+  background-color: #e7e7e7;
+}
+
+
+/*悬浮框的样式*/
+.ui-tooltip, .arrow:after {
+    background-color: rgba(0,0,0,0.75);
+    border: 2px solid white;
+  }
+.ui-tooltip-content{
+	text-decoration-color:rgba(255,255,255,1.00);
+}
+  .ui-tooltip {
+    padding: 10px 20px;
+    color: white;
+    border-radius: 20px;
+    font:bold 14px "Helvetica Neue", Sans-Serif;
+    text-transform: uppercase;
+    box-shadow: 0 0 7px rgba(0,0,0,0.75);
+  }
+  .arrow {
+    width: 70px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: -16px;
+  }
+  .arrow.top {
+    top: -16px;
+    bottom: auto;
+  }
+  .arrow.left {
+    left: 20%;
+  }
+  .arrow:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+    box-shadow: 6px 5px 9px -9px black;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    tranform: rotate(45deg);
+  }
+  .arrow.top:after {
+    bottom: -20px;
+    top: auto;
+  }

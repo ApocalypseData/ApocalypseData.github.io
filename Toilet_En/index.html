@@ -1,0 +1,997 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 <!-- Bootstrap -->
+	 <link href="dist/bootstrap.css" rel="stylesheet">
+	<title>厕所革命? 不服来建!</title>
+	<link rel="stylesheet" type="text/css" href="dist/semantic.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+	<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<script src="dist/jquery.ui.touch-punch.js"></script>
+	<script src="game.js"></script>
+
+	<!--
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
+	<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+	-->
+	<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+	<script src="dist/semantic.js"></script>
+<script src="dist/d3.v4.min.js"></script>
+	<script type="text/javascript">
+		$(window).on('load', function() {
+			$(".preloader").delay(50).fadeOut();
+			$("#wrapperC").css("opacity","1");
+			$("#wrapperZ").css("opacity","1");
+			$("body").css("background-color","rgb(255,247,228)")
+		});
+
+	</script>
+
+	<!--	线上字体库-->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC|ZCOOL+XiaoWei" rel="stylesheet"> -->
+
+
+	<link rel="stylesheet" href="game.css">
+
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+	<style>
+<!--	样式表开始-->
+	  body {
+		background-color: white;
+		font-family: "PF Din Text Universal／Regular";"微软雅黑";safari
+		font-size: 19px;
+		width: 100%;}
+	.section{
+		width: 75%;
+		margin: auto;
+		margin-bottom: 8vw
+	}
+#section02{margin-bottom: 20px}
+#sectionradar{margin-top: 30px}
+h1 {
+	font-size: 50px;
+	margin:auto;
+	text-align:center;
+}
+h2{
+	font-size: 40px;
+	font-weight: 500;
+}
+h3{
+	font-size: 36px;
+	font-weight: 500;
+}
+p {
+	font-size: 18px;
+	font-weight: 400;
+	margin: 22px 0 0 0;
+	line-height: 1.6;
+	text-align: justify;
+}
+.infographic{width: 100%}
+.part{
+	padding: 1.5rem;
+	justify-content:center;
+	margin: auto;
+	text-align: center;
+}
+.chartT{
+	font-size:20px;
+	font-weight: bold;
+}
+.resourceT{
+	font-size: 14px;
+	color: gray;
+	text-align: right;
+	margin: 0
+}
+.mapP{
+	line-height: 1.8
+}
+.highlight{
+	color: rgb(255,117,55);
+	font-weight: bold;
+}
+.title01{
+	margin-bottom: 10px;
+	margin-top: 26px;
+	line-height: 40px;
+}
+.title02{
+	font-size: 36px;
+	margin-bottom: 16px;
+	line-height: 40px;
+}
+.title03{
+	font-size: 30px;
+	margin-bottom: 16px;
+	text-align: center;
+}
+.startG{
+	margin: 20px;
+	margin-bottom: 8vw;
+	width: 25vw;
+}
+.titleG{
+	font-size: 22px;
+	margin-bottom: 12px;
+}
+.titles{
+	width:150%;
+	height: auto;
+}
+#Cjudge{
+	margin-top: 50px;
+}
+.iconp{
+	margin: 0;
+	font-weight: bold;
+	text-align: center;
+}
+.button{
+	width: 70%;
+	margin-bottom: 2vw;
+}
+#tijiao2,#tijiao99{
+	margin-top: 25vw
+}
+#suburbessay,#cityessay99{
+	margin-top: 50px
+}
+#talk{margin-top: 5vw}
+.zhushi {
+			font-size: 14px;
+			text-align: center;
+			color:rgba(132,132,132,1.00);
+			margin-top: 0;
+		}
+
+.tupian {
+	margin-top: 20px;
+}
+#ticks{
+	position:absolute;
+	top:0px;
+	width:100%;
+}
+
+.wrapper {
+	width: 100%;
+	position: absolute;
+
+}
+#wrapperC,#wrapperZ{
+	width:100%;
+	position:relative;
+	opacity: 0;
+
+}
+#wrapperT{
+	position:absolute;
+	top:1%;
+}
+#wrapperM{
+	display: none;
+}
+
+#slider{
+	width: 100%;
+	left: 0;
+}
+#legendmap{
+	width:100%;
+}
+
+@keyframes myfirst
+{
+0%   {left:0px; top:0px;}
+100%  {left:200px; top:0px;}
+}
+
+#huashou{
+	animation:myfirst 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function:ease-in-out;
+	position:absolute;
+	right:-50px;
+	top:-25px;
+	width:100px;
+}
+.imgmapchart{
+	position:absolute;
+	width: 100%;
+	left: 0
+}
+.mapChart{position: relative;}
+.barChart{position: relative;margin-top: 3vw;}
+.imgbarchart{
+	position:absolute;
+	width: 100%;
+	left: 0;
+	opacity:0;
+}
+#bar2007{
+	position: relative;
+}
+#mapBase{position: relative;}
+#labelY{
+	margin-top: -30px;
+}
+.texts {
+	padding: 1.5rem;
+		}
+
+		            .selected {
+		                background: #dddddd;
+		                text-decoration: none;
+		                color: #000000;
+		            }
+		.test-opacity{
+		  opacity: 1;
+		}
+		.axis {
+			font: 15px sans-serif;
+		}
+		.axis path,
+		.axis line {
+		  fill: none;
+		  stroke: #D4D8DA;
+		  stroke-width: 1px;
+		  shape-rendering: crispEdges;
+		}
+		#chart {
+		  width: 100%;
+		  padding-top: 77.77%;
+		  position: relative;
+		}
+
+		  #chart svg {
+				position: absolute;
+		    top: 0;
+		    width: 100%;
+		    left: 0;
+		    height: 100%
+		  }
+
+		.preloader{
+			position: absolute;
+			left: 0;
+			right:0;
+			top: 0;
+			bottom: 0;
+		}
+
+		.preloader #rushPee{
+			position: absolute;
+			width: 20%;
+			height: auto;
+			left: 40%;
+			top: 20%;
+		}
+
+		.preloader #seeking{
+			position: absolute;
+			width: 40%;
+			height: auto;
+			left: 33%;
+			top: 60%;
+		}
+		.ui.grid.footer{
+			max-width: 600px;
+	    margin-left: auto;
+  	  margin-right: auto;
+		}
+		p.footer{
+			font-size: 9.5px;
+			margin: 12px 0 0 0;
+			line-height: 1.6;
+			text-align: justify;
+		}
+		.footericon{
+			position: relative;
+			width:200px;
+	    margin: 0 auto -20px 10%;
+		}
+@media screen and (max-width: 992px) {
+	.section{width: 94%}
+
+}
+@media screen and (max-width: 700px) {
+#wrapperM{
+		display:block;
+	}
+#wrapperZ{
+	display: none;
+}
+
+
+
+/* map适配 */
+.ui.text.container.mapChart{
+	padding:0;
+height: 750px;
+}
+	.imgmapchart{
+		position:absolute;
+		margin: 0 0 0 10px;
+	width: 95vw;
+	}
+	.imgbarchart{
+		position:absolute;
+		margin: 0 0 0 10px;
+	width: 95vw;
+	margin-top: 285px;
+	opacity:0;
+	}
+	#ticks{
+	width:88vw;
+}
+	#slider{
+	width: 87vw;
+	height:5px;
+	margin-left:1.5rem;
+	}
+	#legendmap{
+		width:300px;
+		margin-left:10px;
+		}
+		#血吸虫{
+		width: 90vw;
+    margin-left: 10px;
+}
+	/* game适配 */
+
+	p#citytitle{margin-bottom: 10px;}
+
+ #图标区1,#图标区199{
+position: absolute;
+top:-9px;
+}
+	#图标区2,#图标区299{
+		position: absolute;
+		top:-10px;
+	}
+	#图标区2-2,#图标区2-299{
+		position: absolute;
+		top:-25px;
+	}
+	#图标区3,#图标区399{
+		margin-left: 0;
+		margin-top: 10px;
+	}
+	#农村图标区1, #农村图标区199{
+	position: absolute;
+	top:0;
+	margin-left:50vw;
+	}
+	#农村图标区2, #农村图标区299{
+	position: absolute;
+	top:26px;
+	left:19px;
+	}
+
+	#step2-水池,#step2-水池99{
+		padding-top:3vw;
+	}
+	#titlexishouchi,#titlexishouchi99{
+		margin-bottom:-18vw;
+
+	}
+
+
+	#drag,#drag99,#dragsuburb,#dragsuburb99{
+		position:relative;}
+
+}
+		#tishiyouxi{
+			margin:auto;
+			margin-top: 20px;
+		}
+		.reminder{
+			width: 65vw;
+			height: auto;
+			margin-bottom: 5px;
+			margin-top: 5px;
+			margin-right: 5vw;
+		}
+
+</style>
+</head>
+
+<body>
+
+	<div class="preloader">
+		<img id="rushPee" src="img/niaoji.gif" alt="" />
+		<img id="seeking" src="img/seeking.png" alt="" />
+	</div>
+
+<!--头图-->
+	<div id="wrapperC">
+		<img class="wrapper" id="wrapperZ" src="images/ftimg.png">
+		<img class="wrapper" id="wrapperM" src="images/headpicM.jpg">
+	</div>
+  <div class="section row">
+	 <div class="texts leftpart part col-sm-6  col-md-6">
+		<p>Public toilets in China haven't always been the most welcoming for locals or tourists. "Dirty" and "smelly" were labels visitors often used to describe public facilities, but thanks to decades of hard work China has undergone a toilet revolution in rural and urban areas. </p>
+		<p>A plan to improve basic sanitary problems in rural areas was launched by President Xi Jinping in 2015, while a goal in cities was set to improve the general quality of toilets. </p>
+		<p>China’s status in World Bank research on "people using safely managed sanitation services" is on the rise, hitting <span class="highlight">72 percent</span> of the population in 2017 up from 60 percent in 2007.</p>
+	 </div>
+	 <div class="rightpart part col-sm-6  col-md-6">
+		 <p class="chartT">Use of safely managed sanitation services globally (% of population)</p>
+		 <img class="infographic" src="images/linechart.png">
+		 <p class="resourceT">Source: The World Bank, 2000-2017</p>
+	 </div>
+	</div>
+
+	<div class="section row" id="section02">
+		<div class="col-sm-12">
+	 	 <div class="title01 text-center"><h1>Rural revolution</h1> </div>
+	   <div class="title02 text-center"><h2>The problem: Open pit toilets</h2></div>
+		</div>
+		<div class="texts leftpart part col-sm-6  col-md-6">
+			<p>China's rural areas have historically had many "open pit latrines." A major problem with these toilets is feces can't be quickly treated, and this has led to increases in maggots and fecal–oral disease transmission. </p>
+		</div>
+		<div class="texts rightpart part col-sm-6 col-md-6">
+			<p>This is an issue worldwide. World Health Organization research indicates there were <span class="highlight">432,000 diarrheal deaths </span>annually in XXX, and poor sanitation is a major driver in tropical diseases including intestinal worms, schistosomiasis and trachoma. </p>
+		</div>
+	</div>
+	<div class="row" id="Stitle">
+		<div class="col-sm-6 col-sm-offset-3 title03  col-md-6 col-md-offset-3">
+			<h3>Sanitary toilets help people lower the risk of getting sick, let 's build one!</h3>
+		</div>
+	</div>
+	<div id="try" style="height: 15px"></div>
+
+	<div id="game">
+		<div id="choicepage">
+			<img src="images/startgame.png" id="choosesuburb" class="startG">
+		</div>
+
+		<div id="suburb">
+			<div id="suburbmain" class="gamemain row">
+				<div id="dragsuburb">
+				 <div class="col-sm-2 col-sm-offset-2  text-center">
+					<div class="dragsuburb1" class="chuxian ">
+						<div id="农村图标区1" class="row rowS">
+							<div class="col-sm-7 col-sm-offset-4" style="padding:0">
+							<img src="images/农村/墙.png" id="墙" class="icons icons1" title="墙"></div>
+						</div>
+					</div>
+
+					<div class="dragsuburb1-1" class="chuxian">
+						<div id="农村图标区1-1" class="row rowS">
+							<div class="col-sm-7 col-sm-offset-4" style="padding:0">
+							 <img src="images/农村/水泥.png" id="水泥" class="icons icons3" title="水泥墙面">
+							 <img src="images/农村/瓷砖.png" id="瓷砖" class="icons icons3" title="瓷砖墙面">
+						  </div>
+						</div>
+					</div>
+					<div class="dragsuburb2" class="chuxian">
+						<div id="农村图标区2" class="row rowS">
+							<div class="col-sm-6 col-sm-offset-6">
+							  <img src="images/农村/苍蝇拍.png" id="苍蝇拍" class="icons icons3" title="苍蝇拍">
+						  	<img src="images/农村/化粪池.png" id="化粪池" class="icons icons3" title="化粪池">
+								<img src="images/农村/坑位.png" id="坑位" class="icons icons3" title="坑位">
+
+								<img src="images/农村/垃圾桶.png" id="垃圾桶" class="icons icons3" title="垃圾桶">
+								<img src="images/农村/水池.png" id="水池" class="icons icons3" title="水池">
+								<img src="images/农村/窗户.png" id="窗户" class="icons icons3" title="窗户">
+						</div>
+						</div>
+
+					</div>
+					</div>
+
+
+					<div id="ditumen2" class="col-sm-4">
+						<img src="images/农村/图层初始界面.png" id="suburb底图" class="background dropsuburb">
+						<img src="images/农村手手.png" id="tishiS" class="background drop animated infinite bounce">
+						<img src="images/农村/图层苍蝇.png" id="tuceng-cang" class="background dropsuburb">
+						<img src="images/农村/图层窗户.png" id="tuceng-chuang" class="tuceng dropsuburb">
+						<img src="images/农村/图层瓷砖.png" id="tuceng-ci" class="tuceng dropsuburb">
+						<img src="images/农村/图层水泥.png" id="tuceng-shuini" class="tuceng dropsuburb">
+						<img src="images/农村/图层化粪池.png" id="tuceng-hua" class="tuceng dropsuburb">
+						<img src="images/农村/图层坑位.png" id="tuceng-keng" class="tuceng dropsuburb">
+						<img src="images/农村/图层垃圾桶.png" id="tuceng-la" class="tuceng dropsuburb">
+						<img src="images/农村/图层白底.png" id="tuceng-bai" class="tuceng dropsuburb">
+						<img src="images/农村/图层水池.png" id="tuceng-shui" class="tuceng dropsuburb">
+						<img src="images/农村/化粪池解释.png" id="huafenchijieshi" class="jieshi tuceng dropsuburb">
+					</div>
+
+					<div id="tianjiabiaoji2"class="col-sm-2">
+							<div class="titleG row dragsuburb1"><img src="images/titleS01.png" class="titles"></div>
+							<div class="titleG dragsuburb1-1"><img src="images/titleS02.png" class="titles"></div>
+							<div class="titleG dragsuburb2"><img src="images/titleS03.png" class="titles"></div>
+						<div class="row rowB">
+						 <img src="images/finish.png" class="wanchengjianshe button" id="tijiao2">
+					 </div>
+					 <div class="row rowB">
+						 <img src="images/redo.png" id="resetS" class="button">
+					 </div>
+					 <div class="row rowB">
+						 <img src="images/hide.png" class=" hidePS button" id="PSbuttonS">
+					 </div>
+					</div>
+					<div class="col-sm-2"></div>
+			</div>
+		</div>
+			<div id="pandingsuburb">
+				<div class="pandingbiaoti" id="wuhai"><img class="ui fluid image" id="wuhaiimg" src="images/农村/成功无害化.jpg"></div>
+				<div class="pandingbiaoti" id="youhai"><img class="ui fluid image" id="youhaiimg" src="images/农村/失败无害化.jpg"></div>
+			</div>
+
+
+	</div>
+
+	<div id="suburbessay">
+		<div class="section row">
+			<div class="title02 col-sm-12  text-center">The solution: Sanitary toilets</div>
+			<div class="texts leftpart part col-sm-6">
+				<p>Building sanitary toilets is central to China's plan to improve conditions and combat disease in rural areas.</p>
+				<p>The basic requirements for sanitary toilets are that they are enclosed but ventilated, have sealed and covered septic tanks, and there are no fly maggots or persistent odors. </p>
+				<p>China's fiscal authority plans to allocate<span class="highlight"> seven billion yuan </span>(xxx U.S dollars) to promote toilet renovation in<span class="highlight"> 30,000 villages</span> in 2019, reaching about <span class="highlight">10 million farmers </span>across the country. </p>
+			</div>
+			<div class="texts rightpart part col-sm-6">
+				<p class="chartT">Basic requirements for a sanitary toilet</p>
+	 		 <div class="row">
+				 <div class="col-sm-4 Sicon">
+					 <img width="70%" src="images/农村/墙.png">
+				 </div>
+				 <div class="col-sm-4 Sicon">
+					 <img width="70%" src="images/农村/化粪池.png">
+				 </div>
+				 <div class="col-sm-4 Sicon">
+					 <img width="70%" src="images/农村/坑位.png">
+				 </div>
+			 </div>
+			 <div class="row">
+				 <div class="col-sm-4 text-center"><p class="iconp">Wall</p></div>
+				 <div class="col-sm-4 text-center"><p class="iconp">Septic tank</p></div>
+				 <div class="col-sm-4 text-center"><p class="iconp">Pit</p></div>
+			 </div>
+			 <div class="row" style="margin-top:20px">
+				 <div class="col-sm-4 Sicon">
+					 <img width="70%" src="images/农村/水池.png">
+				 </div>
+				 <div class="col-sm-4 Sicon">
+					 <img width="70%" src="images/农村/苍蝇拍.png">
+				 </div>
+				 <div class="col-sm-4 Sicon">
+					<img width="70%" src="images/农村/窗户.png">
+				</div>
+			 </div>
+			 <div class="row">
+				<div class="col-sm-4 text-center"><p class="iconp">Sink</p></div>
+				<div class="col-sm-4 text-center"><p class="iconp">Swatter</p></div>
+				<div class="col-sm-4 text-center"><p class="iconp">Window</p></div>
+			</div>
+			</div>
+	  </div>
+		<div class="section row">
+				<div class="title02 col-sm-12  text-center">The consequences: Decline in disease</div>
+
+				<div class="texts leftpart part col-md-5 col-sm-6 mapP">
+					<p>The upgrading of toilets in rural areas has had multiple benefits. An increase in sanitary toilets has led to a decline in fecal-related diseases like schistosomiasis, for example, and the issue has now been controlled. </p>
+					<p>"Rural toilet reform can fundamentally control occurrences of intestinal infectious diseases and is the main measure for health and disease prevention," said Fu Yanfen, a researcher at China Center for Disease Control and Prevention.</p>
+					<p>"Sanitary toilets can protect people from disease so they don't get sick so easily and can go to work regularly,” according to Jack Sim, the founder of World Toilet Organization. “It is beneficial to the economy since they reduce expenses in hospitals and medical investment."</p>
+				</div>
+        <div class="col-md-1 col-sm-0"></div>
+				<div class="texts rightpart part col-md-6 col-sm-6">
+					<p class="chartT">Dropping schistosomiasis diagnoses in South China (2007-17)</p>
+
+					<div class="texts mapChart">
+						<img id="legendmap" src="img/legendmap.png" alt="">
+						<div class="mapChart">
+							<img id="mapBase" class="imgmapchart" src="img/mapBase.png">
+							<img id="map2007" class="imgmapchart" src="img/map2007.png">
+							<img id="map2009" class="imgmapchart" src="img/map2009.png">
+							<img id="map2011" class="imgmapchart" src="img/map2011.png">
+							<img id="map2013" class="imgmapchart" src="img/map2013.png">
+							<img id="map2015" class="imgmapchart" src="img/map2015.png">
+							<img id="map2017" class="imgmapchart" src="img/map2017.png">
+							<img id="riverMap" class="imgmapchart" style="opacity:1;" src="img/river.png" alt="">
+						</div>
+						<div id="slider">
+							<img id="ticks" src="img/ticks.png" alt="">
+							<img id="huashou" src="img/huashou.png" alt="">
+							<div class="row" id="labelY">
+								<label for="amount">Year:</label>
+								<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;background-color: transparent;">
+		 					</div>
+						</div>
+						<!-- 滑动+血滴 -->
+						<div class="barChart">
+							<img id="bar2007" class="imgbarchart" src="img/bar2007.png">
+							<img id="bar2009" class="imgbarchart" src="img/bar2009.png">
+							<img id="bar2011" class="imgbarchart" src="img/bar2011.png">
+							<img id="bar2013" class="imgbarchart" src="img/bar2013.png">
+							<img id="bar2015" class="imgbarchart" src="img/bar2015.png">
+							<img id="bar2017" class="imgbarchart" src="img/bar2017.png">
+						</div>
+					</div>
+					<p id="mapR"class="resourceT">Source: Chinese Journal of Schistosomiasis Control, 2007-2017</p>
+				</div>
+		</div>
+		<div class="section row" id="sectionradar">
+			<div class="title02 col-md-12  text-center">However... regional development is still imbalanced</div>
+			<div class="texts leftpart part col-md-6">
+				<p>The overall penetration rate of rural sanitary toilets is keep increasing. </p>
+				<p>Rural areas in Beijing have achieved the greatest increase among all cities and provinces. The penetration rate reaches to 96.6% in 2011 and gets close to 100% afterwards, from 54.09% in 2007. </p>
+				<p>The upgrade in northeast and northwest China has been more effective despite of the fact that these areas generally have low starting points. After ten years’ improvement, the penetration rate of these provinces is basically rising, but the penetration rate is still generally lower than 50% in 2017, and even some provinces have experienced large fluctuations </p>
+				<p>In Central China, the rate has increased slightly, placing the middle level of the country. </p>
+				<p>The provinces in East China have maintained a high penetration rate comparing to other parts (eg. Shanghai ranked first in the country in 2017, with a penetration rate of 99.1%) and a more prominent increase (such as Jiangsu).</p>
+				<p>The penetration rates of south China and southwest China are steadily going up and there’s no sign of rollback.</p>
+			</div>
+			<div class="texts rightpart part col-md-6">
+				<div id="radarchart">
+						<iframe  width="100%" height=730px src="radar/radar.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+				</div>
+			</div>
+		</div>
+		<div class="section row">
+			<div class="col-sm-12">
+		 	 <div class="title01 text-center"><h1>Urban upgrades</h1> </div>
+			</div>
+			<div class="texts leftpart part col-sm-6  col-md-6">
+				<p>Urban public toilets in China have generally been sanitary for many years, so the focus in cities has been on making further improvements under a three-step classification system. </p>
+			</div>
+			<div class="texts rightpart part col-sm-6 col-md-6">
+				<p>Perfecting sewage systems, exceeding required sanitary conditions, cleanliness, convenience and even aesthetics have become the main goals of the urban toilet revolution. </p>
+			</div>
+		</div>
+		<div class="row" id="Ctitle">
+			<div class="col-sm-6 col-sm-offset-3 title03  col-md-6 col-md-offset-3">
+				<h3>Let’s build an urban public toilet!</h3>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="try99"></div>
+	<div id="game99">
+
+		<div id="choicepage99">
+			<img src="images/startgame.png" id="choosecity99" class="startG">
+		</div>
+
+		<div id="city99">
+			<div id="citymain99" class="gamemain row">
+
+				<div id="drag99">
+					<div class="col-sm-2"></div>
+					<div  class="col-sm-2 text-center">
+
+					<div class="dragstep199" class="chuxian">
+						<div id="图标区199"class="row">
+					    <div class="col-sm-7 col-sm-offset-4" style="padding:0">
+								<img src="images/step1-瓷砖.png" id="step1-瓷砖99" class="icons icons1" title="瓷砖墙面">
+						 		<img src="images/step1-水泥.png" id="step1-水泥99" class="icons icons1" title="水泥墙面">
+							</div>
+						</div>
+					</div>
+
+					<div class="dragstep299" class="chuxian">
+						<div id="图标区299"class="row" >
+						 <div class="col-sm-7 col-sm-offset-4"  style="padding:0">
+							<img src="images/step2-便器.png" id="step2-便器99" class="icons icons2" title="便器">
+						 </div>
+						</div>
+					</div>
+
+					<div class="dragstep2-299" class="chuxian">
+						<div id="图标区2-299">
+						 <div class="col-sm-7 col-sm-offset-4"  style="padding:0">
+							<img src="images/step2-水池.png" id="step2-水池99" class="icons icons2" title="水池">
+						 </div>
+						</div>
+					</div>
+
+					<div class="dragstep399" class="chuxian">
+						<div id="图标区399">
+						 <div class="col-sm-7 col-sm-offset-4"  style="padding:0">
+							<img src="images/step3-手纸架.png" id="step3-手纸架99" class="icons icons3" title="手纸架">
+							<img src="images/step3-配件.png" id="step3-配件99" class="icons icons3" title="配件：洗手液+烘手机+镜子">
+							<img src="images/step3-空气净化器.png" id="step3-空气净化器99" class="icons icons3" title="空气净化器">
+							<img src="images/step3-母婴台.png" id="step3-母婴台99" class="icons icons3" title="母婴台">
+							<img src="images/step3-一键美化.png" id="step3-一键美化99" class="icons icons3" title="一键美化外观">
+						 </div>
+						</div>
+					</div>
+				</div>
+				</div>
+
+				<div id="ditumen99" class="col-sm-4">
+					<img src="images/占位图1.jpg" id="底图099" class="background drop">
+					<img src="images/城市手手.png" id="tishiC99" class="background drop animated infinite bounce">
+					<img src="images/图层2-便器.png" id="tuceng2-便器99" class="tuceng drop">
+					<img src="images/图层2-水池.png" id="tuceng2-水池99" class="tuceng drop">
+					<img src="images/图层3-手纸架.png" id="tuceng3-手纸架99" class="tuceng drop">
+					<img src="images/图层3-配件.png" id="tuceng3-配件99" class="tuceng drop">
+					<img src="images/图层3-配件2.png" id="tuceng3-配件299" class="tuceng drop">
+					<img src="images/图层3-空气净化器.png" id="tuceng3-空气净化器99" class="tuceng drop">
+					<img src="images/图层3-母婴台.png" id="tuceng3-母婴台99" class="tuceng drop">
+					<img src="images/图层3-一键美化.png" id="tuceng3-一键美化99" class="tuceng drop">
+					<img src="images/坑位解释.png" id="kengweijieshi99" class="jieshi tuceng drop">
+					<img src="images/厕纸解释.png" id="cezhijieshi99" class="jieshi tuceng drop">
+					<img src="images/母婴台解释.png" id="muyingtaijieshi99" class="jieshi tuceng drop">
+				</div>
+
+				<div id="tianjiabiaoji99" class="col-sm-2">
+					<div class="titleG row dragstep199"><img src="images/choosewall.png"  class="titles"></div>
+					<div class="titleG row dragstep299"><img src="images/bianqi.png" class="titles"></div>
+					<div class="titleG row dragstep2-299"><img src="images/xishouchi.png" class="titles"></div>
+					<div class="titleG dragstep399"><img src="images/last.png" class="titles"></div>
+
+					<div class="row rowB">
+					 <img src="images/finish.png" class="button wanchengjianshe" id="tijiao99">
+				 	</div>
+				 <div class="row rowB">
+					 <img src="images/redo.png" id="resetS" class="button">
+				 </div>
+				 <div class="row rowB">
+					 <img src="images/hide.png" class="hidePS button" id="PSbuttonC">
+				 </div>
+				</div>
+				<div class="col-sm-2"></div>
+
+			</div>
+			<div id="panding99">
+				<div class="pandingbiaoti" id="yileicesuo99">
+					<img class="ui fluid image" id="yileicesuoimg99" src="images/一类厕所判定.jpg">
+				</div>
+				<div class="pandingbiaoti" id="erleicesuo99">
+					<img class="ui fluid image" id="erleicesuoimg99" src="images/二类厕所判定.jpg">
+				</div>
+				<div class="pandingbiaoti" id="sanleicesuo99">
+					<img class="ui fluid image" id="sanleicesuoimg99" contenteditable=""src="images/三类厕所判定.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="cityessay99" >
+		<div class="section row">
+		 <div class="title02 col-sm-12  text-center">Strict classification: what to change in urban toilets?</div>
+			<div  id="Cjudge">
+			 <img width="100%" src="images/judge.png">
+			</div>
+		</div>
+
+		<div class="section row">
+			<div class="row">
+				<div class="texts part leftpart col-sm-6">
+					<p>From 2015 to 2017, the National Tourism Development Fund invested 1.64 billion yuan (xx U.S. dollars) on the tourism toilet revolution. As of 2017, the total number of third- and above class of toilet exceeded 100,000, accounting to about 75 percent of the total number of urban public toilets. The Ministry of Culture has said about 21,000 toilets will be built or renovated at tourist sites in 2019.</p>
+				</div>
+				<div class="texts part rightpart col-sm-6">
+					<p>“A Gracious Society Embracing Excellence in Restroom Culture.” This is the creed of the Singapore Bathroom Culture Association, which is also in line with China's urban toilet reform. Singapore has even stricter criteria for ranking toilets, earning a glowing reputation for public toilets. </p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="texts part leftpart col-sm-6">
+					<img src="img/zhanwei.jpg" width="100%" class="photos">
+				</div>
+				<div class="texts part rightpart col-sm-6">
+					<p class="chartT">The number of third-class and above urban toilets exceeded 100,000 in 2017</p>
+					<img src="img/lollipop.png" width="100%" >
+					<p class="resourceT">Source: National Bureau of Statistics, data as of 2017 </p>
+				</div>
+			</div>
+		</div>
+
+		<div class="section row">
+			<div class="title01 text-center">
+				<h1>Toilet, taboo in mind</h1>
+			</div>
+			<div class="leftpart part col-md-6 col-sm-7">
+				<p>An individual uses toilets six to eight times per day and spends an average of three years in toilets throughout their entire life, according to the Chinese Center for Disease Control and Prevention.</p>
+				<p>But the Chinese public sometimes asks, “Is it really necessary to invest large sums of money on toilets?” <p>
+				<p>Why? Because “toilets” have been a taboo subject for many over the past 70 years. In rural areas, villagers’ houses are often neat and modern but their toilets have changed little for decades. In urban areas, toilets are still sometimes seen as a sign of “dirtiness.”</p>
+				<p>“The main obstruction is how to change people’s mind,” said Sim, who thinks it’s essential to foster a healthier toilet culture in China, arguing it’s beneficial to the economy, health and wellness development in long term. </p>
+				<p>Qian Jun, known as China’s “Mr.Toilet”, teaches elementary school children about hygiene habits and toilet etiquette. He hopes to influence adult behavior by educating kids first.</p>
+			</div>
+			<div class="rightpart part col-md-6 col-sm-5">
+				<p>“China has achieved great process,” according to Sim, “but it is a long process and China still has long way to go.” </p>
+				<img id="talk" src="images/talk01.png" width="100%">
+		</div>
+
+		<div id="credits text-center">
+
+		</div>
+</div>
+
+<script type="text/javascript">
+$(document).on("click","#resetS",function(){
+	$.ajaxSetup ({
+			cache: false
+	});
+	$("#suburb").load(location.href + " #suburb",function(){
+		var sc =  document.createElement("script");
+							sc.src= "game.js";
+							$("body").append(sc);
+	})
+	$("#choicepage").show()
+})
+
+$(document).on("click","#resetC",function(){
+	$.ajaxSetup ({
+			cache: false
+	});
+
+	$("#city99").load(location.href + " #city99",function(){
+		var btact;
+		$("#PSbuttonS").click(function(){
+			var btact=$("#PSbuttonS").attr("src")
+			if(btact=="images/hide.png"){
+				$(".jieshi").hide();
+				$("#PSbuttonS").attr("src","images/show.png")
+			}else{
+				$(".jieshi").show();
+				$("#PSbuttonS").attr("src","images/hide.png")
+			}
+		})
+
+		var btactC;
+		$("#PSbuttonC").click(function(){
+			var btactC=$("#PSbuttonC").attr("src")
+			if(btactC=="images/hide.png"){
+				$(".jieshi").hide();
+				$("#PSbuttonC").attr("src","images/show.png")
+			}else{
+				$(".jieshi").show();
+				$("#PSbuttonC").attr("src","images/hide.png")
+			}
+		})
+	 $("#city99").hide()
+	 $(".pandingbiaoti").hide()
+	 $("#cityessay99").hide()
+
+	 $("#choosesuburb").click(function(){
+		 $("#choicepage").hide();
+		 $("#suburb").fadeIn("slow");
+		 $("#tuceng-cang").animate({opacity:"1"});
+	 });
+
+	 var panding99=$("#底图099").attr("src");
+
+ $(".dragstep299").hide();
+ $(".dragstep2-299").hide();
+ $(".dragstep399").hide();
+		$(".icons").draggable({ revert: "invalid",
+								cursor: "pointer",
+								scroll:false
+							});
+							$( ".drop" ).droppable({
+									drop: function(event,ui) {
+								var sourceElement = $(ui.helper.context);
+								var icons=sourceElement.attr("id");
+
+								if (icons==="step1-瓷砖99"){
+										$( "#底图099").attr("src","images/占位图2.jpg");
+							$("#tishiC99").hide();
+							$(".dragstep199").hide();
+									$(".dragstep299").show().animate({opacity:"1",zIndex:"1000"});
+
+								}
+								else if(icons==="step1-水泥99"){
+								$( "#底图099").attr("src","images/占位图3.jpg");
+
+									$(".dragstep199").hide();
+							$("#tishiC99").hide();
+									$(".dragstep299").show().animate({opacity:"1",zIndex:"1000"});
+							$("#step3-母婴台99").draggable({ disabled: true }).attr("title","第一步选择水泥墙面就不可以选择母婴台了哦").css("opacity","0.45");
+							$("#step3-一键美化99").draggable({ disabled: true }).attr("title","第一步选择水泥墙面就不可以一键美化了哦").css("opacity","0.45");}
+
+								else if(icons==="step2-便器99"){
+									$("#tuceng2-便器99").animate({opacity:"1"})
+									$("#kengweijieshi99").show().animate({opacity:"1",zIndex:"1000"})
+									$(".dragstep299").hide();
+												$(".dragstep2-299").show().animate({opacity:"1",zIndex:"1000"});
+								}
+
+								else if(icons==="step2-水池99"){
+									$("#tuceng2-水池99").animate({opacity:"1"})
+									$(".dragstep2-299").hide();
+									$(".dragstep399").show().animate({opacity:"1",zIndex:"1000"});
+								}
+								else if(icons==="step3-手纸架99"){
+									$("#tuceng3-手纸架99").animate({opacity:"1"})
+									$("#cezhijieshi99").show().animate({opacity:"1",zIndex:"1000"})
+									$("#step3-手纸架99").remove();
+								}
+								 else if(icons==="step3-配件99"){
+									$("#tuceng3-配件99").animate({opacity:"1"});
+									 $("#step3-配件99").remove();
+								}
+								else if(icons==="step3-空气净化器99"){
+									$("#tuceng3-空气净化器99").animate({opacity:"1"})
+									$("#step3-空气净化器99").remove();
+									$(".jieshi").fadeOut();
+								}
+								else if(icons==="step3-母婴台99"){
+									$("#tuceng3-母婴台99").animate({opacity:"1"}).css("zIndex","0")
+									$("#muyingtaijieshi99").show().animate({opacity:"1",zIndex:"1000"})
+									$("#step3-母婴台99").remove();
+
+
+								}
+								else if(icons==="step3-一键美化99"){
+									$("#tuceng3-一键美化99").animate({opacity:"1"}).css("zIndex","100")
+									$("#step3-一键美化99").remove();
+								}
+							}
+
+
+						});
+
+
+							$("#tijiao99").click(function(){
+							$("#tianjiabiaoji99").hide();
+							 var shouzhijia99=$("#tuceng3-手纸架99").css("opacity");
+							 var peijian99=$("#tuceng3-配件99").css("opacity");
+							 var muyingtai99=$("#tuceng3-母婴台99").css("opacity");
+							 var yijianmeihua99=$("#tuceng3-一键美化99").css("opacity");
+							 var sanlei99=$("#step3-母婴台99").css("opacity");
+							 var erlei99=shouzhijia99+peijian99;
+							 var yilei99=muyingtai99+yijianmeihua99;
+							 var duankou=$(window).width();
+
+
+							 if(sanlei99=="0.45"){
+
+										if(duankou<800){$("#sanleicesuoimg99").attr("src","images/三类厕所判定M.jpg")}
+									$("#citymain99").remove();
+									$("#Ctitle").remove();
+									$("#sanleicesuo99").fadeIn(1000);
+								 $("#cityessay99").fadeIn(4000);
+								$("#zhengwen").show();
+
+							 }
+							 else if(sanlei99!==0.45&&yilei99!=="11"&&erlei99=="11"){
+									 if(duankou<800){$("#erleicesuoimg99").attr("src","images/二类厕所判定M.jpg")}
+									$("#citymain99").remove();
+									$("#Ctitle").remove();
+									$("#erleicesuo99").fadeIn(1000);
+								 $("#cityessay99").fadeIn(4000);
+								$("#zhengwen").show();
+
+									 }
+								 else if(yilei99=="11"&&erlei99=="11"){
+									 if(duankou<800){$("#yileicesuoimg99").attr("src","images/一类厕所判定M.jpg")}
+									$("#citymain99").remove();
+									$("#Ctitle").remove();
+									$("#yileicesuo99").fadeIn(1000);
+									$("#cityessay99").fadeIn(4000);
+								 $("#zhengwen").show();
+									 }
+								else{
+									if(duankou<800){$("#sanleicesuoimg99").attr("src","images/三类厕所判定M.jpg")}
+									 $("#citymain99").remove();
+									 $("#Ctitle").remove();
+									$("#sanleicesuo99").fadeIn(1000);
+								 $("#cityessay99").fadeIn(4000);
+								$("#zhengwen").show();
+
+								}
+						 });
+
+							$("#suburbessay").fadeIn(1)
+							$("#game99").show();
+							$("#Stitle").show();
+							$("#choicepage99").show();
+	})
+
+})
+</script>
+
+
+	<script src="dist/slider.js"></script>
+
+</body>
+
+</html>
